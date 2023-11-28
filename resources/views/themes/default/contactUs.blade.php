@@ -38,69 +38,9 @@
     <div class="container main margin-start" style="background-color: #ffff; border-radius:25px">
         <div class="row">
             <div class="col-lg-12">
-                <div class="mt-5 pt-3 text-center">
+                <div class="py-3 text-center">
                     <h3 class="text-center color-vipmm pb-3">Our <span class="color-vipmm2">Office</span></h3>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <span class="text-center color-vipmm2 " style="font-size:14px; font-weight:600">Address</span>
-                            <div class="appear-animation" data-appear-animation="fadeInUpShorter"
-                                data-appear-animation-delay="200">
-                                <div class="card border-0 border-radius-0 ">
-                                    <div class="card-body text-center">
-        
-                                        <p class="card-text ">Nikunja 2 # Road 20,Plot 14,Dhaka-1229 Bangladesh</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <span class="text-center color-vipmm2 " style="font-size:14px; font-weight:600">Phone:</span>
-                    <div class="appear-animation" data-appear-animation="fadeInUpShorter"
-                        data-appear-animation-delay="200">
-                        <div class="card border-0 border-radius-0">
-                            <div class="card-body ">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <p class="card-text " style="white-space: nowrap;">+8801767-506668</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="card-text " style="white-space: nowrap;">+8801632-940557</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="card-text " style="white-space: nowrap;">+8801748-827666</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="card-text " style="white-space: nowrap;">+8801767-502889</p>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                    <span class="text-center color-vipmm2 m-auto" style="font-size:14px; font-weight:600">Matchmaker Contact</span>
-                                    <div class="col-md-6">
-                                        <p class="card-text " style="white-space: nowrap;">+8801722-363398</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="card-text " style="white-space: nowrap;">+8801795-207866</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <span class="text-center color-vipmm2 " style="font-size:14px; font-weight:600">Email:</span>
-                            <div class="appear-animation" data-appear-animation="fadeInUpShorter"
-                                data-appear-animation-delay="200">
-                                <div class="card border-0 border-radius-0 ">
-                                    <div class="card-body ">
-                                        <p class="card-text " style="white-space: nowrap;">vipmarriage.ceo@gmail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                    
-
-
                     <div class="row">
                         <div class="col-lg-6 mt-5 pt-5">
                             <span class="text-center color-vipmm" style="font-size:14px; font-weight:600"> <span class="color-vipmm2">Our Bank
@@ -216,7 +156,64 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="row py-5">
+                        <div class="col-lg-4">
+                            <span class="text-center color-vipmm2 " style="font-size:14px; font-weight:600">Address</span>
+                            <div class="appear-animation" data-appear-animation="fadeInUpShorter"
+                                data-appear-animation-delay="200">
+                                <div class="card border-0 border-radius-0 ">
+                                    <div class="card-body text-center">
+        
+                                        <p class="card-text ">Nikunja 2 # Road 20,Plot 14,Dhaka-1229 Bangladesh</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <span class="text-center color-vipmm2 " style="font-size:14px; font-weight:600">Phone:</span>
+                            <div class="appear-animation" data-appear-animation="fadeInUpShorter"
+                                data-appear-animation-delay="200">
+                                <div class="card border-0 border-radius-0">
+                                    <div class="card-body ">
+                                        <div class="row ">
+                                            <div class="col-md-6">
+                                                <p class="card-text " style="white-space: nowrap;">+8801767-506668</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="card-text " style="white-space: nowrap;">+8801632-940557</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="card-text " style="white-space: nowrap;">+8801748-827666</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="card-text " style="white-space: nowrap;">+8801767-502889</p>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <span class="text-center color-vipmm2 m-auto" style="font-size:14px; font-weight:600">Matchmaker Contact</span>
+                                            <div class="col-md-6">
+                                                <p class="card-text " style="white-space: nowrap;">+8801722-363398</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="card-text " style="white-space: nowrap;">+8801795-207866</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <span class="text-center color-vipmm2 " style="font-size:14px; font-weight:600">Email:</span>
+                            <div class="appear-animation" data-appear-animation="fadeInUpShorter"
+                                data-appear-animation-delay="200">
+                                <div class="card border-0 border-radius-0 ">
+                                    <div class="card-body ">
+                                        <p class="card-text " style="white-space: nowrap;">vipmarriage.ceo@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

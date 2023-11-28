@@ -192,7 +192,7 @@
     </style>
 </head>
 
-<body>
+<body style="overflow-y: hidden !important">
     <div id="fb-root"></div>
     <script>
         window.fbAsyncInit = function() {
