@@ -463,12 +463,12 @@
 
 
 
-        <section style="min-height: 250px">
+        {{-- <section style="min-height: 250px">
             <div class="container">
                 <h1 class="text-center h1 mb-4 mt-5">Blog Posts</h1>
                 <iframe style="width: 100%; height:400px;border:none;" src="https://www.blog.vipmarriagemedia.com/" title="Blog"></iframe>
             </div>
-        </section>
+        </section> --}}
 
 
 
@@ -482,23 +482,20 @@
                         <h1 class="text-center h1 mb-4" style="color:#0E8FF2">Facebook</h1>
 
                         <div class="row">
-                            <div class="col-md-4">
-                                {{-- <iframe style="width: 100%; height:480px;border:none;" src="https://www.instagram.com/vipmarriagemedia" title="instagram"></iframe> --}}
-                                {{-- <div class="in-page" data-href="https://www.instagram.com/vipmarriagemedia"
-                                    data-width="350" data-height="480"></div> --}}
+                            {{-- <div class="col-md-4">
                                 <div class="col-md-4">
                                     <blockquote class="instagram-media" style="width: 100%; height:480px;border:none;" data-instgrm-permalink="https://www.instagram.com/vipmarriagemedia/" data-instgrm-version="13"></blockquote>
                                     
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-4">
                                 <div class="fb-page" data-href="https://www.facebook.com/vipmarriagemedia"
                                     data-width="350" data-height="480" data-hide-cover="false"
                                     data-tabs="timeline,messages" data-show-facepile="true"></div>
                             </div>
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <blockquote class="instagram-media" style="width: 100%; height:480px;border:none;" data-instgrm-permalink="https://www.youtube.com/@vipmarriagemedia" data-instgrm-version="13"></blockquote>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
