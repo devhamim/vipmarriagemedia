@@ -477,27 +477,37 @@
         <section style="min-height: 250px" class="my-5">
             <div class="container">
                 <div class="row mt-5">
-                    <div
-                    iv class="col">
-                        <h1 class="text-center h1 mb-4" style="color:#0E8FF2">Facebook</h1>
-
+                    <div class="col">
+                        <h1 class="text-center h1 mb-4" style="color:#f05b62">Videos</h1>
+                        <p class="text-center pb-4">Some video talk about VIP Marriage Media and success store</p>
                         <div class="row">
-                            {{-- <div class="col-md-4">
+                            <div class="col-lg-4">
+                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/9YNdGhI6MJU?si=GAhG2UUGSTe0smuC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-lg-4">
+                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pbrb11dyQq8?si=rTh4CmIsE4C8oLOZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-lg-4">
+                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Cb-AL9pS0RU?si=a5aPgJsv6D-Cm-cS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        {{-- <div class="row">
+                            <div class="col-md-4">
                                 <div class="col-md-4">
-                                    <blockquote class="instagram-media" style="width: 100%; height:480px;border:none;" data-instgrm-permalink="https://www.instagram.com/vipmarriagemedia/" data-instgrm-version="13"></blockquote>
+                                    <blockquote class="instagram-media" style="width: 100%; height:480px;border:none;" data-instgrm-permalink="https://www.instagram.com/vipmarriagemedia" data-instgrm-version="13"></blockquote>
                                     
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="col-md-4">
                                 <div class="fb-page" data-href="https://www.facebook.com/vipmarriagemedia"
                                     data-width="350" data-height="480" data-hide-cover="false"
                                     data-tabs="timeline,messages" data-show-facepile="true"></div>
                             </div>
-                            {{-- <div class="col-md-4">
-                                <blockquote class="instagram-media" style="width: 100%; height:480px;border:none;" data-instgrm-permalink="https://www.youtube.com/@vipmarriagemedia" data-instgrm-version="13"></blockquote>
-                            </div> --}}
+                            <div class="col-md-4">
+                                <iframe width="350" height="480" src="https://twitter.com/vipmarriagemed1"></iframe>
+                            </div>
 
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
