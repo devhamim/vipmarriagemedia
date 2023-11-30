@@ -185,7 +185,7 @@ hr.info {
 
 }
 .bg-color-vipmm {
-    background-color: #F15C62 !important;
+    background-color: #212529 !important;
 }
 .viptextcolor {
         color: #F15C62 !important;

@@ -18,8 +18,6 @@
                                 <img class="" alt="Porto" height="50" data-sticky-height="40"
                                     src="{{ asset('images/logo.png') }}" style="border-radius: 5%" />
                             </a>
-
-
                         </div>
                     </div>
                 </div>

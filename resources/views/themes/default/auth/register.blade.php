@@ -101,7 +101,7 @@
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="terms">
                                                 <label class="custom-control-label text-2" for="terms" required="">I
-                                                    have read and agree to the <a href="#" style="color:var(--branding-color); text-decoration: underline">terms of
+                                                    have read and agree to the <a href="{{ url('page/privacy-policy') }}" style="color:var(--branding-color); text-decoration: underline">terms of
                                                         service</a></label>
                                             </div>
                                         </div>

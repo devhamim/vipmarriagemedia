@@ -1,16 +1,12 @@
 			<footer id="footer" class="bg-color-vipmm border-top-0 pt-5">
-				<div class="container py-1">
+				<div class="container py-5">
 					<div class="row py1">
 						<div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
 							<h3 class="text-5 mb-3 " style="color: white">24 hours service</h3>
+
 							<ul class="list list-icons list-icons-lg">
-
-
-
-                            <a class="m-0 text-color-light" href="https://wa.me/+8801767506668">+8801767-506668 (Whatsapp)</a> <br>
-                            <a class="m-0 text-color-light" href="https://wa.me/+8801927157200">+8801927-157200 (Whatsapp)</a> <br>
-
-
+								<li><a class=" text-color-light" href="https://wa.me/+8801767506668">+8801767-506668 (Whatsapp)</a></li>
+								<li class="py-3"><a class=" text-color-light" href="https://wa.me/+8801927157200">+8801927-157200 (Whatsapp)</a></li>
                             </ul>
 
 
@@ -31,13 +27,10 @@
                         <div class="col-md-6 col-lg-2 mb-4 mb-md-0">
 							<h5 class="text-3 mb-3">Pages</h5>
 							<ul class="list list-icons list-icons-lg">
-
-							<a class="m-0 text-color-light" href="{{ url('/') }}"><i class="far fa-dot-circle text-color-light"></i> Home</a> <br>
-
-								@foreach($menupages as $page)
-                        <a class="m-0 text-color-light" href="{{ route('page',$page->route_name) }}"><i class="far fa-dot-circle text-color-light"></i> {{$page->page_title}}</a> <br>
-
-                        @endforeach
+								<li><a class="m-2 text-color-light" href="{{ url('/') }}"> Home</a></li>
+							@foreach($menupages as $page)
+                        		<li><a class="m-2 text-color-light" href="{{ route('page',$page->route_name) }}"> {{$page->page_title}}</a></li>
+                        	@endforeach
                         {{-- <a class="m-0 text-color-light" href="{{ url('https://www.vipmarriagemedia.com/blog/') }}"><i class="far fa-dot-circle text-color-light"></i> Blog</a> <br> --}}
 
                         {{-- <a class="m-0 text-color-light" href="{{ route('sitemap') }}"><i class="far fa-dot-circle text-color-light"></i> Sitemap</a>
@@ -48,8 +41,8 @@
 
                         @endif --}}
 
-                        <a class="m-0 text-color-light" href="{{ url('/packages')}}"><i class="far fa-dot-circle text-color-light"></i> Our Packages</a> <br>
-                        <a class="m-0 text-color-light" target="_blank" href="https://www.blog.vipmarriagemedia.com/"><i class="far fa-dot-circle text-color-light"></i> Blog</a> <br>
+                         <li><a class="m-2 text-color-light" href="{{ url('/packages')}}"> Our Packages</a></li>
+                         <li><a class="m-2 text-color-light" target="_blank" href="https://www.blog.vipmarriagemedia.com/"> Blog</a></li>
 
                         </ul>
 						</div>
@@ -82,7 +75,7 @@
                                 </li>
 
                             </ul>
-                            <a type="button" href="{{ url('/register') }}" class="btn btn-rounded btn-primary mt-3" style="background-color: blue">Registration</a>
+                            <a type="button" href="{{ url('/register') }}" class="btn btn-rounded btn-primary mt-3">Registration</a>
                         </div>
 
 						<div class="col-md-6 col-lg-3 text-center">

@@ -67,14 +67,6 @@ $me = auth()->user();
 
                                         </div> --}}
 
-
-
-
-
-
-
-
-
                                         {{-- <div class="form-group">
                                        <label for="mobile"class="col-form-label">Mobile:</label>
                                        <input type="tel" required class="form-control input-mobile" id="input-user-mobile" name="mobile">

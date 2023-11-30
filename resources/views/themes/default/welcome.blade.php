@@ -3,15 +3,12 @@
 @push('css')
     <style>
         ul.list li {
-            font-size: 12px !important;
-            font-weight: 400 !important;
             line-height: 24px !important;
             white-space: nowrap !important;
         }
 
         .list.list-icons li {
             position: relative !important;
-            padding-left: 15px !important;
             color: black;
         }
 
@@ -70,6 +67,7 @@
 @endpush
 @section('content')
     @include('alerts.alerts')
+
     <section style="">
         <div class="container my-5">
             {{-- <div class="row" style="">
@@ -200,49 +198,33 @@
             </div>
         </div>
     </section>
-
     <section>
         <div class="" style="background-color: #d0d0d0">
             <h1 class="text-center h1  pt-5">We help Every Stage</h1>
             <div class="container py-5 text-center">
-
                 {!! $websiteParameter->home_1st_part_content !!}
-
-
-                {{-- <div class="d-flex justify-content-center flex-column flex-md-row py-3" style="min-height: 300px">
-                    {!! $websiteParameter->home_1st_part_content !!}
-
-                    <div class="col-md-3 align-self-center text-center">
-                        <img src="{{ asset("storage/homePage/".$websiteParameter->home_1st_part_image) }}" alt="" height="200" width="200"
-                            class="rounded-circle">
-
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
-
-        <section class="mt-0">
-            <div class="py-5" style="background-color: #E2E2E2">
-                {{-- <h1 style="margin: 0" class="text-center h1 mb-4 pt-5">About Us</h1> --}}
-                <div class="container py-4">
-                    <div class="d-flex justify-content-center flex-column flex-md-row">
-                        <div class="col-md-6">
-                            <p class="pt-2">
-                                <img src="{{ asset("storage/homePage/".$websiteParameter->home_2nd_part_image) }}" alt="" class="img-fluid">
-                            </p>
-                        </div>
-                        <div class="col-md-6">{!! $websiteParameter->home_2nd_part_content !!}
-                            <a class="btn btn-danger" href="{{ url('page',"about-us") }}">Loren More</a>
-                            <a class="btn btn-danger" href="{{ route('packagelist') }}">Package</a>
-                        </div>
+    <section class="mt-0">
+        <div class="py-5" style="background-color: #E2E2E2">
+            {{-- <h1 style="margin: 0" class="text-center h1 mb-4 pt-5">About Us</h1> --}}
+            <div class="container py-4">
+                <div class="d-flex justify-content-center flex-column flex-md-row">
+                    <div class="col-md-6">
+                        <p class="pt-2">
+                            <img src="{{ asset("storage/homePage/".$websiteParameter->home_2nd_part_image) }}" alt="" class="img-fluid">
+                        </p>
+                    </div>
+                    <div class="col-md-6">{!! $websiteParameter->home_2nd_part_content !!}
+                        <a class="btn btn-danger" href="{{ url('page',"about-us") }}">Loren More</a>
+                        <a class="btn btn-danger" href="{{ route('packagelist') }}">Package</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-        </section>
-
-
+    </section>
 
 
 
@@ -272,9 +254,9 @@
         </div>
     </div>
 </div>
---}}
 
-        {{-- <section class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-secondary overlay-show overlay-op-8 mb-5" style="background-image: url({{ asset('img/1.jpg') }});">
+
+        <section class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-secondary overlay-show overlay-op-8 mb-5" style="background-image: url({{ asset('img/1.jpg') }});">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12">
@@ -349,9 +331,9 @@
 
 
     </div>
-</section>
+</section> --}}
 
-<section class="
+{{-- <section class="
 
         section
         section-text-light
@@ -435,7 +417,7 @@
 </section> --}}
 
 
-        {{-- <section style="min-height: 400px" class="w3-light-gray text-center">
+{{-- <section style="min-height: 400px" class="w3-light-gray text-center">
     <h2 class="text-lg-10 text-sm-5 text-md-10 pt-5" style="text-shadow: 1px 1px 2px #000">
         <strong>Download </strong> Our App
     </h2>
@@ -474,7 +456,7 @@
 
 
 
-        <section style="min-height: 250px" class="my-5">
+        <section style="min-height: 250px" class="my-5 pb-5">
             <div class="container">
                 <div class="row mt-5">
                     <div class="col">

@@ -100,7 +100,7 @@
         }
 
         .bg-color-vipmm{
-    background-color: #0E686D !important;
+    background-color: #2B161B !important;
 }
 
 .bg-color-vipmm2{
@@ -108,14 +108,14 @@
 }
 
 .color-vipmm{
-    color: #0E686D !important;
+    color: #2B161B !important;
 }
 
 .color-vipmm2{
     color: #ED1A37 !important;
 }
 .form-control {
-    border-color: #0E686D !important;
+    border-color: #2B161B !important;
 }
 
 .side_button {
@@ -138,7 +138,7 @@
 
 hr {
     border: 0;
-    border-top: 1px solid #0E686D;
+    border-top: 1px solid #2B161B;
     margin: 10px 0;
 }
 
@@ -164,7 +164,7 @@ hr.info {
         overflow: hidden !important;
     }
     .vip-active{
-        border-bottom: 2px solid #0e686d;
+        border-bottom: 2px solid #2B161B;
         background-color:#ebebeb;
     }
 
@@ -177,7 +177,7 @@ hr.info {
 
 }
 .bg-color-vipmm {
-    background-color: #F15C62 !important;
+    background-color: #212529 !important;
 }
 .viptextcolor {
         color: #F15C62 !important;

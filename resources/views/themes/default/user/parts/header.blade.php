@@ -6,7 +6,7 @@ html.sticky-header-active #header .header-body {
     background-color: #f15c62;
 }
 .viptextcolor {
-    color: black !important;
+    color: #fff !important;
 }
 </style>
 <header id="header"

@@ -115,9 +115,6 @@
                     rgba(10, 23, 187, 0.6));
         }
 
-        .bg-color-vipmm {
-            background-color: #F15C62 !important;
-        }
 
         .color-vipmm {
             color: #F15C62 !important;
@@ -192,7 +189,7 @@
     </style>
 </head>
 
-<body style="overflow-y: hidden !important">
+<body style="overflow-y: hidden !important; overflow: hidden;">
     <div id="fb-root"></div>
     <script>
         window.fbAsyncInit = function() {

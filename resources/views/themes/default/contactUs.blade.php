@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="py-3 text-center">
-                    <h3 class="text-center color-vipmm pb-3">Our <span class="color-vipmm2">Office</span></h3>
+                    <h2 class="text-center color-vipmm pb-3" style="font-family: inherit; color: #2B161B;">Our <span class="color-vipmm2">Office</span></h2>
                    
                     <div class="row">
                         <div class="col-lg-6 mt-5 pt-5">
@@ -143,7 +143,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col">
                                                     <input type="submit" value="Send Message"
-                                                        class="btn bg-color-vipmm btn-rounded btn-block btn-modern"
+                                                        class="btn bg-color-vipmm btn-rounded btn-block btn-modern text-white"
                                                         data-loading-text="Loading...">
                                                 </div>
                                             </div>

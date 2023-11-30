@@ -7103,7 +7103,7 @@ html.lightbox-opened.sticky-header-active #header .header-body {
 
 /* List */
 .list li {
-	margin-bottom: 13px;
+	margin-bottom: 7px;
 }
 
 .list.pull-left li {
@@ -7118,7 +7118,6 @@ html.lightbox-opened.sticky-header-active #header .header-body {
 
 .list.list-icons li {
 	position: relative;
-	padding-left: 25px;
 }
 
 .list.list-icons li > [class*="fa-"]:first-child,
@@ -7202,10 +7201,6 @@ html.lightbox-opened.sticky-header-active #header .header-body {
 	padding: 3px;
 }
 
-.list.list-icons.list-icons-lg li {
-	padding-top: 5px;
-	padding-left: 27px;
-}
 
 .list.list-icons.list-icons-lg li > [class*="fa-"]:first-child,
 .list.list-icons.list-icons-lg li > .icons:first-child, .list.list-icons.list-icons-lg li a:first-child > [class*="fa-"]:first-child,

@@ -1,4 +1,4 @@
-<section style="height: 650px"
+<section style="height: 700px"
     class="
             page-header
             page-header-modern
@@ -9,13 +9,14 @@
     data-video-path="{{ asset('img/vip-cover2.jpg') }}" data-plugin-video-background
     data-plugin-options="{'posterType': 'jpg', 'position': '50% 50%'}">
 
-    <div class="card bg-transparent border-0  d-none d-md-block " style="top: 260px;">
+    <div class="card bg-transparent border-0  d-none d-md-block " style="top: 230px;">
         <div class="row">
             <div class="col-6 offset-3">
                 <div class="card bg-transparent border-0">
                     <div class="card-body text-center   p-2 ">
                         <span class="bg-white shadow p-2 rounded">
-                            <h1 class="w3-xlarge w3-text-black font-weight-bold">Best Marriage Media in Bangladesh</h1>
+                            <h1 class="w3-xlarge w3-text-black font-weight-bold">#1 Marriage Media in Bangladesh</h1>
+                            <p class="my-3 text-dark" style=" font-weight: 600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum adipisci nisi nam tempora beatae. Sapiente nostrum reprehenderit repudiandae distinctio eaque!</p>
                         </span>
                     </div>
                 </div>
