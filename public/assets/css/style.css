@@ -363,7 +363,9 @@ h6 {
 }
 
 @media (max-width: 575px) {
-
+    .space{
+        background-image: none;
+    }
     .h1,
     h1 {
         font-size: 34px;

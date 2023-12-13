@@ -522,7 +522,7 @@
             </div>
         </div>
     </div> --}}
-    <section class="space bg-top-center" data-bg-src="assets/img/update1/bg/project_bg_1.jpg">
+    <section class="space bg-top-center " data-bg-src="assets/img/update1/bg/project_bg_1.jpg">
         <div class="container">
             <div class="row justify-content-lg-between align-items-end">
                 <div class="col-lg-6 mb-n2 mb-lg-0">
@@ -553,7 +553,7 @@
                         <div>
                             <div class="project-grid">
                                 <div class="project-img ">
-                                        <img src="assets/img/update1/normal/mockup_video_1_v2.jpg" alt="mockup">
+                                        <img src="assets/img/update1/normal/video_thamnil-2.jpg" alt="mockup">
                                         <div class="play-bg" style="position: absolute; top: 50%; left: 50%;">
                                             <a
                                                 href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
@@ -565,7 +565,7 @@
                         <div>
                             <div class="project-grid">
                                 <div class="project-img ">
-                                        <img src="assets/img/update1/normal/mockup_video_1_v2.jpg" alt="mockup">
+                                        <img src="assets/img/update1/normal/video_thamnil-3.jpg" alt="mockup">
                                         <div class="play-bg" style="position: absolute; top: 50%; left: 50%;">
                                             <a
                                                 href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
@@ -589,14 +589,14 @@
                         <div class="col-auto">
                             <div class="project-6thumb">
                                 <div class="project-thumb_img">
-                                    <img src="assets/img/update1/normal/mockup_video_1_v2.jpg"
+                                    <img src="assets/img/update1/normal/video_thamnil-2.jpg"
                                         alt="project image"></div>
                             </div>
                         </div>
                         <div class="col-auto">
                             <div class="project-6thumb">
                                 <div class="project-thumb_img">
-                                    <img src="assets/img/update1/normal/mockup_video_1_v2.jpg"
+                                    <img src="assets/img/update1/normal/video_thamnil-3.jpg"
                                         alt="project image"></div>
                             </div>
                         </div>
