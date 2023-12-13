@@ -97,7 +97,7 @@
 							<div class="row">
 								<div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
 									<a href="{{url('/')}}" class="logo pr-0 pr-lg-3">
-										<img alt="Porto Website Template" src="{{ asset('images/logo.png') }}" style="" class="" height="33">
+										<img alt="Porto Website Template" src="{{ asset('images/logo.png') }}" style="height: 33px;" class="" >
 									</a>
 								</div>
 								<div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">

@@ -118,14 +118,14 @@
     border-color: #2B161B !important;
 }
 
-.side_button {
+/* .side_button {
             position: fixed;
             top: 50%;
             right: 0;
             border-radius: 5px;
             background-color: #f05b62;
             z-index: 9999;
-        }
+        } */
 #footer {
     background: #212529;
     border-top: 4px solid #212529;
@@ -290,12 +290,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
 {{-- side bar --}}
-<div class="side_button">
+{{-- <div class="side_button">
     <a class="btn btn-success py-3 px-1 rounded fa-beat" style="background-color: #f05b62; border: none; z-index: 9999" href="{{ url('register') }}">
         <p>
             <img src="{{ asset('images/love-icon-2.png') }}" alt="">
         </p> Register</a>
-</div>
+</div> --}}
 {{-- side bar --}}
 
 

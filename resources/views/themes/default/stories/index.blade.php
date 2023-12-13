@@ -25,20 +25,18 @@ a:hover {
 
             <div class="mt-3">
 
-                <article class=" w3-text-gray h3">
+                <article class=" w3-text-gray">
 
-                    Location: {{ $singleStory->location}}
-                    <br>
-                    Marriage Date: {{ $singleStory->marriage_date}}
-                    <br>
-                    Bride Username: {{ $singleStory->bride_username}}
-                    <br>
-                    Groom Username: {{ $singleStory->groom_username}}
+                    <p> <strong>Location: </strong> {{ $singleStory->location}}</p>
+                    <p><strong>Marriage Date: </strong> {{ $singleStory->marriage_date}}</p>
+                    <p><strong>Bride Username: </strong> {{ $singleStory->bride_username}}</p>
+                    <p><strong>Groom Username: </strong> {{ $singleStory->groom_username}}</p>
+                     
                 </article>
             </div>
             <div class="mt-4">
                 <p>
-                  <span class="w3-text-green">Description:</span>
+                  <strong class="w3-text-green">Description:</strong>
                     <br>
                     {{ $singleStory->description}}
                 </p>

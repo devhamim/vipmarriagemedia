@@ -1,13 +1,4 @@
-<section style="height: 700px"
-    class="
-            page-header
-            page-header-modern
-            page-header-background
-            page-header-background-md
-            mt-0
-        "
-    data-video-path="{{ asset('img/vip-cover2.jpg') }}" data-plugin-video-background
-    data-plugin-options="{'posterType': 'jpg', 'position': '50% 50%'}">
+<section class=" page-header page-header-modern page-header-background page-header-background-md mt-0" style="background: url('img/vip-cover2.jpg');height: 700px;background-size: cover;background-position: center;background-repeat: no-repeat;">
 
     <div class="card bg-transparent border-0  d-none d-md-block " style="top: 230px;">
         <div class="row">
@@ -15,8 +6,7 @@
                 <div class="card bg-transparent border-0">
                     <div class="card-body text-center   p-2 ">
                         <span class="bg-white shadow p-2 rounded">
-                            <h1 class="w3-xlarge w3-text-black font-weight-bold">#1 Marriage Media in Bangladesh</h1>
-                            <p class="my-3 text-dark" style=" font-weight: 600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum adipisci nisi nam tempora beatae. Sapiente nostrum reprehenderit repudiandae distinctio eaque!</p>
+                            <h1 class="w3-xlarge text-black font-weight-bold" style="color: #000">#1 Marriage Media in Bangladesh</h1>
                         </span>
                     </div>
                 </div>
@@ -34,35 +24,32 @@
                     @csrf
                     <div class="form-row align-items-center">
                         <div class="col-12 col-md-2">
-                            <label for="">Name</label>
+                            <label for="" style="color: #fff">Name</label>
                             <input type="text" class="form-control" placeholder="Name" name="name">
                         </div>
                         <div class="col-12 col-md-2">
-                            <label for="">Phone</label>
+                            <label for="" style="color: #fff">Phone</label>
                             <span class="text-danger msg"></span>
                             <input type="tel" required class="form-control input-mobile " id="input-user-mobile"
                                 name="phone" placeholder="Phone">
                         </div>
                         <input type="hidden" name="full_mobile" id="hidden">
                         <div class="col-12 col-md-2">
-                            <label for="">Email</label>
+                            <label for="" style="color: #fff">Email</label>
                             <input type="text" class="form-control" placeholder="Email" name="email">
                         </div>
                         <div class="col-12 col-md-2">
-                            <label for="">Password</label>
+                            <label for="" style="color: #fff">Password</label>
                             <input type="password" class="form-control" name="password">
                         </div>
                         <div class="col-12 col-md-2">
-                            <label for="">Confirm Password</label>
+                            <label for="" style="color: #fff">Confirm Password</label>
                             <input type="password" class="form-control" name="password_confirmation">
                         </div>
                         <div class="col-12 col-md-2 align-self-end ">
                             <label for=""></label>
                             <input type="submit"
-                                class="form-control btn
-                    btn-info
-                    p-0"
-                                value="Let's Begin!">
+                                class="form-control btn btn-info p-0 th-btn " value="Let's Begin!">
                         </div>
                     </div>
                 </form>

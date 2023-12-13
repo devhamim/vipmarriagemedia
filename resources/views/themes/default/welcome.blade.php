@@ -86,8 +86,8 @@
                 </h2>
             </div>
         </div>
-    </div> --}}
-            <h1 class="text-center h1 mb-4 ">Find Your Special Soulmate</h1>
+        </div> --}}
+            <h2 class="text-center mb-4 ">Find Your Special Soulmate</h2>
             <div
                 class="mb-5
             featured-boxes
@@ -198,465 +198,464 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="" style="background-color: #d0d0d0">
-            <h1 class="text-center h1  pt-5">We help Every Stage</h1>
-            <div class="container py-5 text-center">
-                {!! $websiteParameter->home_1st_part_content !!}
-            </div>
-        </div>
-    </section>
-    <section class="mt-0">
-        <div class="py-5" style="background-color: #E2E2E2">
-            {{-- <h1 style="margin: 0" class="text-center h1 mb-4 pt-5">About Us</h1> --}}
-            <div class="container py-4">
-                <div class="d-flex justify-content-center flex-column flex-md-row">
-                    <div class="col-md-6">
-                        <p class="pt-2">
-                            <img src="{{ asset("storage/homePage/".$websiteParameter->home_2nd_part_image) }}" alt="" class="img-fluid">
-                        </p>
-                    </div>
-                    <div class="col-md-6">{!! $websiteParameter->home_2nd_part_content !!}
-                        <a class="btn btn-danger" href="{{ url('page',"about-us") }}">Loren More</a>
-                        <a class="btn btn-danger" href="{{ route('packagelist') }}">Package</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-
-
-        {{-- @if ($everyStagePage)
-@foreach ($everyStagePage->items as $item)
-{!! $item->content !!}
-
-@endforeach
-@endif --}}
-
-
-
-
-
-        {{-- <div class="row mt-n5">
-    <div class="col">
-        <div class="
-                heading
-                heading-middle-border
-                heading-middle-border-center
-                heading-border-xl
-            ">
-            <h2 class="font-weight-normal viptextcolor w3-cursive"><strong class="font-weight-extra-bold">
-                    𝑾𝒆 𝒉𝒆𝒍𝒑 </strong>
-                <strong class="font-weight-extra-bold"> 𝒆𝒗𝒆𝒓𝒚 𝒔𝒕𝒂𝒈𝒆 </strong>
-            </h2>
-        </div>
-    </div>
-</div>
-
-
-        <section class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-secondary overlay-show overlay-op-8 mb-5" style="background-image: url({{ asset('img/1.jpg') }});">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-
-                <ul class="list list-icons">
-                    <li><i class="fas fa-check"></i> <b>Army Officer</b> <i class="fas fa-check"></i> Major & Captains
-                        </li>
-                    <li><i class="fas fa-check"></i> Secretary <i class="fas fa-check"></i> Army officer Divorce
-                    </li>
-
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">Bcs Admin Cadre</span> <i
-                            class="fas fa-check"></i> Navy officer</li>
-                    <li><i class="fas fa-check"></i> Magistrate <i class="fas fa-check"></i> Judicial Magistrate</li>
-                    <li><i class="fas fa-check"></i> Bcs Police Cadre</li>
-                    <li><i class="fas fa-check"></i><span class="li-uniq-pri">Divorce</span> <i
-                            class="fas fa-check"></i> Single <i class="fas fa-check"></i> Widow</li>
-                </ul>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12">
-
-                <ul class="list list-icons">
-                    <li><i class="fas fa-check"></i> <b><span class="li-uniq-pri">𝐁𝐜𝐬 𝐃𝐨𝐜𝐭𝐨𝐫 </span></b>
-                    </li>
-                    <li><i class="fas fa-check"></i> Govt. Officer  <i class="fas fa-check"></i> Engineer</li>
-
-                    <li><i class="fas fa-check"></i> Buet Kuet Cuet Ruet  </li>
-                    <li><i class="fas fa-check"></i><span class="li-uniq-pri">Industrialist</span> <i
-                            class="fas fa-check"></i> businessman</li>
-
-                    <li><i class="fas fa-check"></i><span class="li-uniq-pei">Group OF Companies</span> <i
-                            class="fas fa-check"></i> MP <i class="fas fa-check"></i> Minister</li>
-                </ul>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12">
-
-                <ul class="list list-icons">
-                    <li><i class="fas fa-check"></i> <b>𝐂𝐢𝐭𝐢𝐳𝐞𝐧𝐬𝐡𝐢𝐩 𝐏𝐫𝐨𝐟𝐢𝐥𝐞</b> </li>
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">USA</span> <i class="fas fa-check"></i>
-                        UK <i class="fas fa-check"></i> Canada </li>
-
-                    <li><i class="fas fa-check"></i> Australia <i class="fas fa-check"></i> Germany <i
-                            class="fas fa-check"></i> France </li>
-                    <li><i class="fas fa-check"></i> Italy & All Europe</li>
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">PHD</span> <i class="fas fa-check"></i>
-                        Doctor <i class="fas fa-check"></i> Barrister</li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12">
-
-                <ul class="list list-icons">
-                    <li><i class="fas fa-check"></i> <b><span class="li-uniq-pri">𝐂𝐡𝐚𝐫𝐭𝐞𝐫𝐞𝐝
-                                𝐀𝐜𝐜𝐨𝐮𝐧𝐭𝐚𝐧𝐭</span></b> </li>
-                    <li><i class="fas fa-check"></i> Multinational Company</li>
-
-                    <li><i class="fas fa-check"></i> Airforce <i class="fas fa-check"></i> armed forces doctor</li>
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">University professor</span> <i
-                            class="fas fa-check"></i> Banker</li>
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">celebrities</span></li>
-
-                </ul>
-
-            </div>
-        </div>
-
-
-
-    </div>
-</section> --}}
-
-{{-- <section class="
-
-        section
-        section-text-light
-        section-parallax
-        mt-0
-    " data-plugin-parallax data-plugin-options="{'speed': 1.5}" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-
-                <ul class="list list-icons">
-                    <li><i class="fas fa-check"></i> <b>Army Officer</b> <i class="fas fa-check"></i> Major & Captains
-                        (300+)</li>
-                    <li><i class="fas fa-check"></i> Secretary <i class="fas fa-check"></i> Army officer(150+) Divorce
-                    </li>
-
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">Bcs Admin Cadre</span> <i
-                            class="fas fa-check"></i> Navy officer</li>
-                    <li><i class="fas fa-check"></i> Magistrate <i class="fas fa-check"></i> Judicial Magistrate</li>
-                    <li><i class="fas fa-check"></i> Bcs Police Cadre) (350+)</li>
-                    <li><i class="fas fa-check"></i><span class="li-uniq-pri">Divorce</span> <i
-                            class="fas fa-check"></i> Single <i class="fas fa-check"></i> Widow</li>
-                </ul>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12">
-
-                <ul class="list list-icons">
-                    <li><i class="fas fa-check"></i> <b><span class="li-uniq-pri">𝐁𝐜𝐬 𝐃𝐨𝐜𝐭𝐨𝐫 </span></b>(100+)
-                    </li>
-                    <li><i class="fas fa-check"></i> Govt. Officer (500+) <i class="fas fa-check"></i> Engineer</li>
-
-                    <li><i class="fas fa-check"></i> Buet Kuet Cuet Ruet (500+) </li>
-                    <li><i class="fas fa-check"></i><span class="li-uniq-pri">Industrialist</span> <i
-                            class="fas fa-check"></i> businessman (1200+)</li>
-
-                    <li><i class="fas fa-check"></i><span class="li-uniq-pei">Group OF Companies</span> <i
-                            class="fas fa-check"></i> MP <i class="fas fa-check"></i> Minister</li>
-                </ul>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12">
-
-                <ul class="list list-icons">
-                    <li><i class="fas fa-check"></i> <b>𝐂𝐢𝐭𝐢𝐳𝐞𝐧𝐬𝐡𝐢𝐩 𝐏𝐫𝐨𝐟𝐢𝐥𝐞</b> </li>
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">USA</span> <i class="fas fa-check"></i>
-                        UK <i class="fas fa-check"></i> Canada </li>
-
-                    <li><i class="fas fa-check"></i> Australia <i class="fas fa-check"></i> Germany <i
-                            class="fas fa-check"></i> France </li>
-                    <li><i class="fas fa-check"></i> Italy & All Europe (2000+)</li>
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">PHD</span> <i class="fas fa-check"></i>
-                        Doctor <i class="fas fa-check"></i> Barrister</li>
-
-                </ul>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-12">
-
-                <ul class="list list-icons">
-                    <li><i class="fas fa-check"></i> <b><span class="li-uniq-pri">𝐂𝐡𝐚𝐫𝐭𝐞𝐫𝐞𝐝
-                                𝐀𝐜𝐜𝐨𝐮𝐧𝐭𝐚𝐧𝐭</span></b> </li>
-                    <li><i class="fas fa-check"></i> Multinational Company</li>
-
-                    <li><i class="fas fa-check"></i> Airforce <i class="fas fa-check"></i> armed forces doctor</li>
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">University professor</span> <i
-                            class="fas fa-check"></i> Banker</li>
-                    <li><i class="fas fa-check"></i> <span class="li-uniq-pri">celebrities</span></li>
-
-                </ul>
-
-            </div>
-        </div>
-
-
-
-    </div>
-</section> --}}
-
-
-{{-- <section style="min-height: 400px" class="w3-light-gray text-center">
-    <h2 class="text-lg-10 text-sm-5 text-md-10 pt-5" style="text-shadow: 1px 1px 2px #000">
-        <strong>Download </strong> Our App
-    </h2>
-
-    <div class="row">
-        <div class="col-md-6">
-            <img class="img-fluid rounded" src="{{ asset('img/intro-mobile.png') }}" />
-        </div>
-
-        <div class="col-md-6">
-            <br />
-            <img class="img-fluid rounded" src="{{
-                    asset('img/mobile-app.png')
-                }}" />
-
-            <br />
-            <img class="img-fluid rounded" src="{{
-                    asset(
-                        'img/Matrimony-App-Shaadi.com-Playstore.svg'
-                    )
-                }}" />
-        </div>
-    </div>
-</section> --}}
-
-
-
-        {{-- <section style="min-height: 250px">
-            <div class="container">
-                <h1 class="text-center h1 mb-4 mt-5">Blog Posts</h1>
-                <iframe style="width: 100%; height:400px;border:none;" src="https://www.blog.vipmarriagemedia.com/" title="Blog"></iframe>
-            </div>
-        </section> --}}
-
-
-
-
-
-        <section style="min-height: 250px" class="my-5 pb-5">
-            <div class="container">
-                <div class="row mt-5">
-                    <div class="col">
-                        <h1 class="text-center h1 mb-4" style="color:#f05b62">Videos</h1>
-                        <p class="text-center pb-4">Some video talk about VIP Marriage Media and success store</p>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/9YNdGhI6MJU?si=GAhG2UUGSTe0smuC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-lg-4">
-                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pbrb11dyQq8?si=rTh4CmIsE4C8oLOZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
-                            <div class="col-lg-4">
-                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Cb-AL9pS0RU?si=a5aPgJsv6D-Cm-cS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        {{-- <div class="row">
-                            <div class="col-md-4">
-                                <div class="col-md-4">
-                                    <blockquote class="instagram-media" style="width: 100%; height:480px;border:none;" data-instgrm-permalink="https://www.instagram.com/vipmarriagemedia" data-instgrm-version="13"></blockquote>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="fb-page" data-href="https://www.facebook.com/vipmarriagemedia"
-                                    data-width="350" data-height="480" data-hide-cover="false"
-                                    data-tabs="timeline,messages" data-show-facepile="true"></div>
-                            </div>
-                            <div class="col-md-4">
-                                <iframe width="350" height="480" src="https://twitter.com/vipmarriagemed1"></iframe>
-                            </div>
-
-                        </div> --}}
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <section style="" class="w3-light-gray">
-            {{-- <h2 class="text-lg-10 text-sm-5 text-md-10 pt-5 color-vipmm w3-cursive" style="text-shadow: 1px 1px 2px #000">
-        Sale<strong class="viptextcolor"> 30% OFF</strong>
-    </h2> --}}
+    <div class="overflow-hidden space-bottom" id="about-sec">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <img width="100%" src="{{ asset('images/offter.jpg') }}" alt="">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <div class="img-box8">
+                        <div class="img1"><img src="assets/img/update1/normal/about_2_1_v2.jpg" alt="About"></div>
+                        <div class="about-counter2" data-bg-src="assets/img/update1/shape/counter_bg.png">
+                            <h3 class="counter-title"><span class="counter-number">16</span></h3><span
+                                class="counter-text">Years Experience</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-8 mt-5 py-5">
-                    <h1 class=" h1 my-2" style="width: 80%; margin: 0 auto; padding: 20px 0 0 0">Sale 30% OFF </h1>
-                <p style="width: 80%; margin: 0 auto; padding: 20px 0">VIP Marriage Media is one of the best Bengali Matrimony sites in Bangladesh that assists people looking for the perfect & suitable life partner for their lives.</p>
-                @guest
-                    <div class="p-2" style="width: 80%; margin: 0 auto;">
-                        <a class="
-                    w3-btn
-                    btn btn-lg
-                    text-white
-                    w3-round-xxlarge
-                    w3-border
-                    w3-border-white
-                    w3-hover-shadow
-                "
-                            href="{{ url('register') }}" style="background: #f05b62">Register</a>
-                        <a class="
-                    w3-btn
-                    btn btn-lg
-                    text-white
-                    w3-round-xxlarge
-                    w3-border
-                    w3-border-white
-                    w3-hover-shadow
-                "
-                            href="" data-toggle="modal" data-target="#smallModal" style="background: #f05b62">Login</a>
+                <div class="col-xl-6 ps-xxl-5">
+                    <div class="title-area mb-30">
+                        <span class="sub-title7"><span class="box">
+                        </span> WELCOME TO</span>
+                        <h4 class="sec-title">VIP Marriage Media – Best Matchmaking & Matrimony Service.</h4>
                     </div>
-                @else
-                    <div class="p-4">
-                        <a class="
-                    w3-btn
-                    btn btn-lg
-                    w3-red
-                    w3-round-xxlarge
-                    w3-border
-                    w3-border-white
-                    w3-hover-shadow
-                "
-                            href="{{ route('user.packeges') }}" style="background: #f05b62">Get your package</a>
-    
+                    <p class="mt-n2 mb-4">VIP Marriage Media is one of the best Bengali Matrimony sites in Bangladesh that assists people looking for the perfect & suitable life partner for their lives. We try to do this work with our responsibility for Hindus, Muslims, Buddhists, Christians, and all. We stands out as a leader in the matrimony category, helping millions of Bangalis to find happiness through our innovative approach to matchmaking and matrimony services. We enable Bengali brides and grooms to meet for marriage through trusted and renowned community-specific platforms. We are working both ways online & offline.</p>
+                    <div class="list-collumn2">
+                        <div class="checklist style5">
+                            <ul>
+                                <li>Quality Architect Designs</li>
+                                <li>Deliver Always on Time</li>
+                            </ul>
+                        </div>
+                        <div class="checklist style5">
+                            <ul>
+                                <li>Highly Professional Members</li>
+                                <li>100% Satisfaction Guarantee</li>
+                            </ul>
+                        </div>
                     </div>
-                @endguest
+                    <div class="btn-group style2">
+                        <a href="{{ url('page',"about-us") }}" class="th-btn">Loren More
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a> 
+                            <a href="https://www.youtube.com/watch?v=ExmauSZqkno" class="video-btn style2 popup-video">
+                        <div class="play-btn">
+                            <i class="fas fa-play d-none d-lg-block"></i>
+                        </div>
+                        <span class="btn-text">Watch The Video</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        </section>
-
-        <section style="min-height: 250px">
-            <div class="container">
-                {{-- <div class="row mt-5">
-            <div class="col">
-                <div class="
-                        heading
-                        heading-border
-                        heading-middle-border
-                        heading-middle-border-center
-                        heading-border-xl
-                    ">
-                    <h2 class="font-weight-normal color-vipmm pb-3 w3-cursive">
-                        <strong class="font-weight-extra-bold viptextcolor">VIP Marriage Media</strong>
-                        with Thousands of
-                        <strong class="font-weight-extra-bold viptextcolor">
-                            Success Stories
-                        </strong>
-                    </h2>
-                </div>
-            </div>
-        </div> --}}
-                <h1 class="text-center h1 mt-5 pt-5 mb-4">Our Success Stories</h1>
-
-                <div class="owl-carousel owl-theme"
-                    data-plugin-options="{'items': 4, 'autoplay': true, 'autoplayTimeout': 3000}">
-                    @foreach ($stories as $post)
-                        {{-- <div class="py-1">
-                <div class="card w3-card-2 w3-hover-opacity w3-round-small">
-                    <img class="card-img-top" src="{{ asset('/storage/stories/' . $story->image_name) }}" alt="Card Image" />
-                    <div class="card-body">
-                        <h4 class="
-                                card-title
-                                mb-1
-                                text-4
-                                font-weight-bold
-                            ">
-                            {{$story->title}}
-                        </h4>
-                        <p class="card-text text-justify">
-                         {{$story->description}}
-                        </p>
-                        <a href="/" class="
-                                read-more
-                                text-color-primary
-                                font-weight-semibold
-                                text-2
-                            ">Read More
-                            <i class="
-                                    fas
-                                    fa-angle-right
-                                    position-relative
-                                    top-1
-                                    ml-1
-                                "></i></a>
+        <div class="shape-mockup movingX d-none d-sm-block" data-top="0%" data-left="0"><img src="assets/img/update1/shape/building_2.png"
+                alt="shapes"></div>
+    </div>
+    {{-- <section class="bg-title space overflow-hidden" data-bg-src="assets/img/update1/bg/service_bg_2.png"
+        id="service-sec">
+        <div class="container">
+            <div class="row justify-content-lg-between align-items-end">
+                <div class="col-lg-7 mb-n2 mb-lg-0">
+                    <div class="title-area">
+                        <h2 class="sec-title text-white">We help Every Stage</h2>
                     </div>
                 </div>
-            </div> --}}
+                <div class="col-auto">
 
-                        <div class="p-1 mx-2">
-                            <a href="{{ route('success.stories_details', $post->id) }}" style="text-decoration: none">
-                                <div class="card w3-card-2 w3-hover-border w3-hover-border-gray w3-round-small">
-                                    
-                                    <img class="card-img-top" src="{{ asset('storage/stories') }}/{{ $post->image_name }}" alt="Card Image" />
-                                    <div class="card-body" style="padding:0px">
-                                        <h4 class="
-                        card-title
-                        text-4
-                        font-weight-bold
-                        w3-Verdana
-                        text-center
-                         m-0 py-3"
-                                            style="height: 60px;overflow:hidden">
-
-                                            {{ Str::limit($post->title, 30, '...') }}
-
-                                            {{-- <br><small class="color-vipmm">{{custom_title( \Carbon\Carbon::parse($post->created_at)->format('F'), 3) }} {{ \Carbon\Carbon::parse($post->created_at)->format('d, Y')}}</small> --}}
-                                        </h4>
-                                        <p class="card-text text-justify w3-serif text-center p-0 mb-1"
-                                            style="min-height: 60px;max-height: 60px;">
-                                            {{ Str::limit($post->description, 70, '...') }}
-                                        </p>
-                                        {{-- <a href="{{route('success.stories_details', $post->id)}}" class="
-                            my-2 ml-2
-                            read-more
-                            text-color-primary
-                            font-weight-semibold
-                            text-2 w3-hover-text-red
-                            ">Read More
-                            <i class="
-                                    fas
-                                    fa-angle-right
-                                    position-relative
-                                    ml-1
-                                "></i>
-                            </a> --}}
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-xl-8">
+                    <div class="row th-carousel" id="serviceGridSlider" data-asnavfor="#serviceSlideThumb"
+                        data-slide-show="1" data-vertical="true">
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="service-grid">
+                                <div class="service-grid_img"><img src="assets/img/update1/service/service_2_1_v2.jpg"
+                                        alt="service image"></div>
+                                <div class="service-grid_content">
+                                    <div class="service-grid_icon"><img src="assets/img/update1/icon/service_1_1.svg"
+                                            alt="Icon"></div>
+                                    <div class="service-grid_icon-overlay"><img
+                                            src="assets/img/update1/icon/service_2_1.svg" alt="Icon"></div>
+                                    <h3 class="service-grid_title"><a>Countrys</a></h3>
+                                    <div class="checklist style5">
+                                        <ul>
+                                            <li>US</li>
+                                            <li>UK</li>
+                                            <li>Canada</li>
+                                            <li>Australia</li>
+                                            <li>Germany</li>
+                                            <li>France</li>
+                                            <li>Italy & All Europe</li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    @endforeach
-
-
-
-
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="service-grid">
+                                <div class="service-grid_img"><img src="assets/img/update1/service/service_2_2_v2.jpg"
+                                        alt="service image"></div>
+                                <div class="service-grid_content">
+                                    <div class="service-grid_icon"><img src="assets/img/update1/icon/service_1_2.svg"
+                                            alt="Icon"></div>
+                                    <div class="service-grid_icon-overlay"><img
+                                            src="assets/img/update1/icon/service_2_2.svg" alt="Icon"></div>
+                                    <h3 class="service-grid_title"><a href="service-details.html">University</a>
+                                    </h3>
+                                    <div class="checklist style5">
+                                        <ul>
+                                            <li>BUET</li>
+                                            <li>KUET</li>
+                                            <li>CUET</li>
+                                            <li>RUET</li>
+                                            <li>DU</li>
+                                            <li>DMC</li>
+                                            <li>SSMC</li>
+                                            <li>CU</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="service-grid">
+                                <div class="service-grid_img"><img src="assets/img/update1/service/service_2_3_v2.jpg"
+                                        alt="service image"></div>
+                                <div class="service-grid_content">
+                                    <div class="service-grid_icon"><img src="assets/img/update1/icon/service_1_3.svg"
+                                            alt="Icon"></div>
+                                    <div class="service-grid_icon-overlay"><img
+                                            src="assets/img/update1/icon/service_2_3.svg" alt="Icon"></div>
+                                    <h3 class="service-grid_title"><a href="service-details.html">Occupation</a></h3>
+                                    <div class="checklist style5">
+                                        <ul>
+                                            <li>Army Officer</li>
+                                            <li>Bcs Admin Cadre</li>
+                                            <li>Bcs Doctor</li>
+                                            <li>Phd</li>
+                                            <li>Professor</li>
+                                            <li>Celebrities</li>
+                                            <li>Doctor</li>
+                                            <li>Barrister</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="service-grid">
+                                <div class="service-grid_img"><img src="assets/img/update1/service/service_2_4.jpg"
+                                        alt="service image"></div>
+                                <div class="service-grid_content">
+                                    <div class="service-grid_icon"><img src="assets/img/update1/icon/service_1_4.svg"
+                                            alt="Icon"></div>
+                                    <div class="service-grid_icon-overlay"><img
+                                            src="assets/img/update1/icon/service_2_4.svg" alt="Icon"></div>
+                                    <h3 class="service-grid_title"><a href="service-details.html">Occupation</a></h3>
+                                    <div class="checklist style5">
+                                        <ul>
+                                            <li>Govt. Officer</li>
+                                            <li>Engineer</li>
+                                            <li>Businessman</li>
+                                            <li>Industrialist</li>
+                                            <li>MP</li>
+                                            <li>Minister</li>
+                                            <li>Secretary</li>
+                                            <li>Navy officer</li>
+                                            <li>Bcs Police Cadre</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="service-thumb-wrap"><button data-slick-prev="#serviceSlideThumb"
+                            class="arrow-btn prev"><i class="far fa-arrow-up"></i></button>
+                        <div class="th-carousel" id="serviceSlideThumb" data-asnavfor="#serviceGridSlider"
+                            data-slide-show="3" data-md-slide-show="3" data-sm-slide-show="3" data-xs-slide-show="3"
+                            data-vertical="true">
+                            <div>
+                                <div class="service-thumb">
+                                    <div class="service-thumb_img"><img
+                                            src="assets/img/update1/service/service_thumb_2_1_v2.png"
+                                            alt="service image"></div>
+                                    <h3 class="service-thumb_title">Countrys</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="service-thumb">
+                                    <div class="service-thumb_img"><img
+                                            src="assets/img/update1/service/service_thumb_2_2_v2.png"
+                                            alt="service image"></div>
+                                    <h3 class="service-thumb_title">University</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="service-thumb">
+                                    <div class="service-thumb_img"><img
+                                            src="assets/img/update1/service/service_thumb_2_3_v2.png"
+                                            alt="service image"></div>
+                                    <h3 class="service-thumb_title">Occupation</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="service-thumb">
+                                    <div class="service-thumb_img"><img
+                                            src="assets/img/update1/service/service_thumb_2_4.jpg" alt="service image">
+                                    </div>
+                                    <h3 class="service-thumb_title">Occupation</h3>
+                                </div>
+                            </div>
+                        </div><button data-slick-next="#serviceSlideThumb" class="arrow-btn next"><i
+                                class="far fa-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section> --}}
+    <div class="space overflow-hidden">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-xl-5 mb-30 mb-xl-0 d-none d-sm-block">
+                    <div class="wcu-img-5">
+                        <div class="img1 d-none d-sm-block"><img src="assets/img/update1/normal/why_2_v2.jpg" alt="why"></div>
+                        <div class="mission-box">
+                            <h3 class="h4 mission-title">Mission</h3>
+                            <p class="mission-text">Assertively deliver client-centered communities without frictionless
+                                services.</p>
+                            <div class="checklist-wrap">
+                                <div class="mission-img">
+                                    {{-- <img src="assets/img/update1/normal/mission_2_1.jpg"
+                                        alt="mission img"> --}}
+                                    </div>
+                                <div class="checklist style5">
+                                    <ul>
+                                        <li>100% Privacy</li>
+                                        <li>Verified Profiles</li>
+                                        <li>Best Matches</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7 pe-xxl-5">
+                    <div class="title-area mb-30"><span class="sub-title7"><span class="box"></span> WHY CHOOSE
+                            US</span>
+                        <h2 class="sec-title">Great Experience With Vip Marriage Media</h2>
+                    </div>
+                    <p class="mt-n2 mb-35 pe-xl-4">We are leading Matrimonial services Almost all communities in bangladesh and out of Bangladesh.TOUCHED OVER 70 THOUSAND LIVES PROFILE INFORMATION
+                        THOUSAND OF HAPPY MARRIAGE YOURS COULD BE NEXT</p>
+                    <div class="skill-feature style3">
+                        <p class="skill-feature_title">Privacy</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 100%;">
+                                <div class="progress-value">100%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-feature style3">
+                        <p class="skill-feature_title">Verified Profiles</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 100%;">
+                                <div class="progress-value">100%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-feature style3">
+                        <p class="skill-feature_title">Best Matches</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 95%;">
+                                <div class="progress-value">95%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-mockup movingX d-none d-sm-block" data-top="0%" data-right="0"><img
+                src="assets/img/update1/shape/building_2.png" alt="shapes"></div>
+    </div>
+    {{-- <div class="z-index-common space-bottom">
+        <div class="container">
+            <div class="row gy-30 justify-content-between">
+                <div class="col-sm-6 col-xl-auto">
+                    <div class="counter-card style2">
+                        <div class="counter-card_icon"><img src="assets/img/update1/icon/counter_1_1.svg" alt="icon">
+                        </div>
+                        <div class="media-body">
+                            <h2 class="counter-card_number text-title"><span class="counter-number">2.2</span>k+</h2>
+                            <p class="counter-card_text text-body">Project Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-auto">
+                    <div class="counter-card style2">
+                        <div class="counter-card_icon"><img src="assets/img/update1/icon/counter_1_2.svg" alt="icon">
+                        </div>
+                        <div class="media-body">
+                            <h2 class="counter-card_number text-title"><span class="counter-number">3.1</span>k+</h2>
+                            <p class="counter-card_text text-body">Team Members</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-auto">
+                    <div class="counter-card style2">
+                        <div class="counter-card_icon"><img src="assets/img/update1/icon/counter_1_3.svg" alt="icon">
+                        </div>
+                        <div class="media-body">
+                            <h2 class="counter-card_number text-title"><span class="counter-number">1.9</span>k+</h2>
+                            <p class="counter-card_text text-body">Clients Are Happy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-auto">
+                    <div class="counter-card style2">
+                        <div class="counter-card_icon"><img src="assets/img/update1/icon/counter_1_4.svg" alt="icon">
+                        </div>
+                        <div class="media-body">
+                            <h2 class="counter-card_number text-title"><span class="counter-number">1.1</span>k+</h2>
+                            <p class="counter-card_text text-body">Award Wins</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <section class="space bg-top-center" data-bg-src="assets/img/update1/bg/project_bg_1.jpg">
+        <div class="container">
+            <div class="row justify-content-lg-between align-items-end">
+                <div class="col-lg-6 mb-n2 mb-lg-0">
+                    <div class="title-area"><span class="sub-title7"><span class="box"></span> VIDEOS GELLARY</span>
+                        <h2 class="sec-title text-white">Our Latest Videos</h2>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="sec-btn"><a href="https://www.youtube.com/@vipmarriagemedia" class="th-btn style3">View All Videos<i
+                                class="fas fa-arrow-right ms-2"></i></a></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-9 col-lg-8">
+                    <div class="" id="projectSlide2">
+                        <div>
+                            <div class="project-grid">
+                                <div class="project-img ">
+                                        <img src="assets/img/update1/normal/video_thamnil-1.jpg" alt="mockup">
+                                        <div class="play-bg" style="position: absolute; top: 50%; left: 50%;">
+                                            <a
+                                                href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
+                                                    class="fas fa-play"></i></a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="project-grid">
+                                <div class="project-img ">
+                                        <img src="assets/img/update1/normal/mockup_video_1_v2.jpg" alt="mockup">
+                                        <div class="play-bg" style="position: absolute; top: 50%; left: 50%;">
+                                            <a
+                                                href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
+                                                    class="fas fa-play"></i></a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="project-grid">
+                                <div class="project-img ">
+                                        <img src="assets/img/update1/normal/mockup_video_1_v2.jpg" alt="mockup">
+                                        <div class="play-bg" style="position: absolute; top: 50%; left: 50%;">
+                                            <a
+                                                href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
+                                                    class="fas fa-play"></i></a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4">
+                    <div class="row projectSlideThumb">
+                        <div class="col-auto">
+                            <div class="project-6thumb">
+                                <div class="project-thumb_img">
+                                    <img src="assets/img/update1/normal/video_thamnil-1.jpg"
+                                        alt="project image"></div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="project-6thumb">
+                                <div class="project-thumb_img">
+                                    <img src="assets/img/update1/normal/mockup_video_1_v2.jpg"
+                                        alt="project image"></div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="project-6thumb">
+                                <div class="project-thumb_img">
+                                    <img src="assets/img/update1/normal/mockup_video_1_v2.jpg"
+                                        alt="project image"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="icon-box style3" data-bg-src="assets/img/update1/bg/bg_pattern_13.png"><button
+                            data-slick-prev="#projectSlide2" class="slick-arrow default"><i
+                                class="far fa-arrow-left"></i></button> <button data-slick-next="#projectSlide2"
+                            class="slick-arrow default"><i class="far fa-arrow-right"></i></button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="position-relative bg-contain-repeat" data-bg-src="assets/img/update1/bg/mockup_bg_1.jpg"
+        data-overlay="title" data-opacity="8">
+        <div class="img-right th-video2"><img src="assets/img/update1/normal/mockup_video_1_v2.jpg" alt="mockup">
+            <div class="play-bg"><img src="assets/img/update1/normal/video_shape_1.png" alt="shape"> <a
+                    href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
+                        class="fas fa-play"></i></a></div>
+        </div>
+        <div class="container z-index-common">
+            <div class="row">
+                <div class="col-xl-6 space">
+                    <div class="title-area mb-30"><span class="sub-title7"><span class="box"></span> Free Consultations</span>
+                        <h2 class="sec-title text-white">Discover Our Capability & Free Consultations</h2>
+                    </div>
+                    <p class="mt-n2 mb-30 text-white">VIP Marriage Media is one of the best Bengali Matrimony sites in Bangladesh that assists people looking for the perfect & suitable life partner for their lives.</p>
+                    <div class="btn-group"><a href="about.html" class="th-btn style3">Register<i
+                                class="fas fa-arrow-right ms-2"></i></a> <a href="contact.html"
+                            class="th-btn style4">Login<i class="fas fa-arrow-right ms-2"></i></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="space" data-bg-src="assets/img/update1/bg/blog_bg_2.png" id="blog-sec">
+        <div class="container">
+            <div class="title-area text-center"><span class="sub-title7 justify-content-center"><span
+                        class="box"></span>Success Stories</span>
+                <h2 class="sec-title">Our Success Stories</h2>
+            </div>
+            <div class="row slider-shadow th-carousel" data-slide-show="3" data-lg-slide-show="2" data-md-slide-show="2"
+                data-sm-slide-show="1">
+                @foreach ($stories as $post)  
+                <div class="col-md-6 col-xl-4">
+                    <div class="blog-card">
+                        <a href="{{ route('success.stories_details', $post->id) }}" style="text-decoration: none">
+                            <div class="blog-img"><img src="{{ asset('storage/stories') }}/{{ $post->image_name }}" alt="blog image"></div>
+                            <div class="blog-content">
+                                <h3 class="box-title"><a href="{{ route('success.stories_details', $post->id) }}">{{ Str::limit($post->title, 30, '...') }}</a></h3>
+                                <p class="blog-text">{{ Str::limit($post->description, 70, '...') }}</p><a href="{{ route('success.stories_details', $post->id) }}" class="link-btn style3">Read More<i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
     @endsection
     @push('js')
     @endpush

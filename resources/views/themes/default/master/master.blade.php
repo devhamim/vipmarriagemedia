@@ -52,18 +52,6 @@
         {!! $websiteParameter->facebook_pixel_code !!}
     @endif
 
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no" />
 
@@ -102,8 +90,12 @@
 
     <!-- Head Libs -->
     <script src="{{ asset('porto/vendor/modernizr/modernizr.min.js') }}"></script>
+    {{-- home css --}}
+    <link rel="stylesheet" href="{{ asset('assets') }}/css/app.min.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/css/fontawesome.min.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    {{-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     @stack('css')
@@ -114,7 +106,6 @@
                     rgba(234, 21, 129, 0.6),
                     rgba(10, 23, 187, 0.6));
         }
-
 
         .color-vipmm {
             color: #F15C62 !important;
@@ -147,14 +138,7 @@
 
         }
 
-        .side_button {
-            position: fixed;
-            top: 50%;
-            right: 0;
-            border-radius: 5px;
-            background-color: #f05b62;
-            z-index: 9999;
-        }
+      
 
 
 
@@ -185,6 +169,14 @@
                 -webkit-backdrop-filter: blur(100px);
             }
 
+        }
+        .side_button {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            border-radius: 5px;
+            background-color: #f05b62;
+            z-index: 9999;
         }
     </style>
 </head>
@@ -232,15 +224,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     {{-- side bar --}}
+    @if(!Auth::check())
         <div class="side_button">
             <a class="btn btn-success py-3 px-1 rounded fa-beat" style="background-color: #f05b62; border: none; z-index: 9999" href="{{ url('register') }}">
                 <p>
-                    <img src="{{ asset('images/love-icon-2.png') }}" alt="">
+                    <i class="fa-solid fa-user text-white"></i>
                 </p> Register</a>
         </div>
+    @endif
     {{-- side bar --}}
     <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" style="z-index: 9999">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-body">
@@ -338,7 +332,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="modal fade" id="registion" tabindex="-1" role="dialog" aria-labelledby="registion"
-        aria-hidden="true">
+        aria-hidden="true" style="z-index: 9999">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-body">
@@ -521,6 +515,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Theme Custom -->
     <script src="{{ asset('porto/js/custom.js') }}"></script>
 
+    {{-- home js --}}
+    <script src="{{ asset('assets') }}/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('assets') }}/js/app.min.js"></script>
+    <script src="{{ asset('assets') }}/js/main.js"></script>
+
     <!-- Theme Initialization Files -->
     <script src="{{ asset('porto/js/theme.init.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -627,7 +626,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Modal -->
     <div class="modal fade" id="global_modal" tabindex="-1" aria-labelledby="global_modal"
-        aria-hidden="true">
+        aria-hidden="true" style="z-index: 9999">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
