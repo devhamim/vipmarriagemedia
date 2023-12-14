@@ -415,9 +415,8 @@
     </section> --}}
     
     <section style="position: relative; height: 530px; overflow: hidden;">
-        <a href="https://www.blog.vipmarriagemedia.com" target="_blank">
-            <iframe src="https://www.blog.vipmarriagemedia.com" width="100%"  height="700px" frameborder="0" scrolling="no" style="position: absolute; top: -130px;"></iframe>
-        </a>
+        <iframe src="https://www.blog.vipmarriagemedia.com" width="100%" height="700px" frameborder="0" scrolling="no" style="position: absolute; top: -130px; z-index: 1;"></iframe>
+        <div onclick="openOriginalWebsite()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; z-index: 2; cursor: pointer;"></div>
     </section>
     
     <div class="space overflow-hidden">
@@ -663,7 +662,13 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function openOriginalWebsite() {
+            window.open("https://www.blog.vipmarriagemedia.com", "_blank");
+        }
+    </script>
     @endsection
     @push('js')
-    @endpush
 
+    @endpush
