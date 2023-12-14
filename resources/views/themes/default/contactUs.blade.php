@@ -79,7 +79,7 @@
                                                 <p class="card-text color-vipmm2">
                                                     Mobile Banking
                                                 </p>
-                                                <p class="card-text p-0" style="white-space: nowrap;">0176750668
+                                                <p class="card-text p-0" style="white-space: nowrap;">+8801767506668
                                                     <small>(Nagad)</small>
                                                 </p>
                                                 <p class="card-text p-0" style="white-space: nowrap;">01632-940557

@@ -62,24 +62,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @if($mediaAll->count())
 @foreach($mediaAll->chunk(2) as $media2)
 <div class="row">
@@ -87,8 +69,6 @@
     <div class="col-sm-6">
       <div class="card card-default" style="margin-bottom: 5px;">
           <div class="card-body">
-
-
 
 <div class="media border ">
   <div class="w3-display-container">
@@ -103,7 +83,7 @@
     {{-- <h4> <small>{{url('/'.$media->file_url)}}</small></h4> --}}
     <p>
     Orig.Name: {{$media->file_original_name}} <br>
-            Size: {{human_filesize($media->file_size)}}, 
+            {{-- Size: {{human_filesize($media->file_size)}},  --}}
             Width: {{$media->width}}px, 
             Height: {{$media->height}}px <br>
 
@@ -114,10 +94,6 @@
   </div>
 </div>
 
-
-
-           
-            
           </div>
         </div>
     </div>

@@ -413,6 +413,13 @@
             </div>
         </div>
     </section> --}}
+    
+    <section style="position: relative; height: 530px; overflow: hidden;">
+        <a href="https://www.blog.vipmarriagemedia.com" target="_blank">
+            <iframe src="https://www.blog.vipmarriagemedia.com" width="100%"  height="700px" frameborder="0" scrolling="no" style="position: absolute; top: -130px;"></iframe>
+        </a>
+    </section>
+    
     <div class="space overflow-hidden">
         <div class="container">
             <div class="row flex-row-reverse">
