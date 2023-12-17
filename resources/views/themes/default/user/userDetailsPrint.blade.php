@@ -78,7 +78,9 @@ $me = auth()->user();
 
                         <div class="col-md-3">
                         @if ($profile->profile_img)
-                            <img src="{{ route('imagecache', [ 'template'=>'medium','filename' => $profile->fiName() ]) }}" alt=""
+                            {{-- <img src="{{ route('imagecache', [ 'template'=>'medium','filename' => $profile->fiName() ]) }}" alt=""
+                                class="img-fluid" style="border:3px solid gray"> --}}
+                            <img src="{{asset('storage/users/pp/'.$profile->profile_img)}}" alt=""
                                 class="img-fluid" style="border:3px solid gray">
                             @else
 
