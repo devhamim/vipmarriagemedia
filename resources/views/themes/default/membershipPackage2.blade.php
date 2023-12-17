@@ -256,7 +256,7 @@
                                     <span class="h5 font-weight-bold w3-hover-text-white w3-serif">
                                     {{ $package->package_title }}
                                     </span>
-                                    <span class="p text-muted w3-cursive">
+                                    <span class="p text-muted">
                                         {{ round($package->package_duration / 30,1) }} Months
                                     </span>
                                 </div>
