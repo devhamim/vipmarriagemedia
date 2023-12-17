@@ -306,7 +306,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 {{-- whatapp bar --}}
 <div class="whatapps_btn">
-    <a href="https://api.whatsapp.com/send?phone=8801767506668&text=Hello%20there,%20I%20found%20you%20on%20my%20website!" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=8801767506668&text=Hello%20there,%20I%20found%20you%20on%20website!%20i%20would%20like%20to%20talk%20about%20your%20service%20in%20details." target="_blank">
         <i class="fa-brands fa-whatsapp fa-lg" style="color: #28e925;font-size: 50px;"></i>
 
     </a>
