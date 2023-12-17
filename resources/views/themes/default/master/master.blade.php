@@ -230,7 +230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         {{-- whatapp bar --}}
 <div class="whatapps_btn">
-    <a href="https://api.whatsapp.com/send?phone=15551234567&text=Hello%20there,%20I%20found%20you%20on%20my%20website!" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=8801767506668&text=Hello%20there,%20I%20found%20you%20on%20my%20website!" target="_blank">
         <p class="my-3">
             {{-- <i class="fa-brands fa-whatsapp fa-bounce fa-lg" style="color: #28e925;font-size: 50px;"></i> --}}
             <i class="fa-brands fa-whatsapp fa-lg" style="color: #28e925;font-size: 50px;"></i>
