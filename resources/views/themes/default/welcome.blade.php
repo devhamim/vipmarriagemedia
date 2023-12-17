@@ -631,9 +631,6 @@
                 <div class="col-xl-6 space">
                     <div class="title-area mb-30"><span class="sub-title7"><span class="box"></span> Free Consultations</span>
                         <h2 class="sec-title text-white">Discover Our Capability & Free Consultations</h2>
-                        <div class="my-5">
-                            <a href="https://api.whatsapp.com/send?phone=8801767506668&text=Hello%20there,%20I%20found%20you%20on%20my%20website!" target="_blank">Open in WhatsApp</a>
-                        </div>
                     </div>
                     <p class="mt-n2 mb-30 text-white">VIP Marriage Media is one of the best Bengali Matrimony sites in Bangladesh that assists people looking for the perfect & suitable life partner for their lives.</p>
                     <div class="btn-group">
