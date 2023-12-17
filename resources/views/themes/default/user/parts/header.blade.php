@@ -35,12 +35,12 @@ html.sticky-header-active #header .header-body {
                                         @if(!Auth::check())
 
                                         <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor " href="{{ url('/')}}"> Home </a>
+                                            <a class="dropdown-item dropdown-toggle " href="{{ url('/')}}"> Home </a>
 
                                         </li>
 
                                         <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor" href="{{ route('page',"about-us") }}">
+                                            <a class="dropdown-item dropdown-toggle" href="{{ route('page',"about-us") }}">
                                               ABOUT US
                                             </a>
 
@@ -49,19 +49,19 @@ html.sticky-header-active #header .header-body {
                                         @endif
 
                                         <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor" href="{{url('/packages')}}">
+                                            <a class="dropdown-item dropdown-toggle" href="{{url('/packages')}}">
                                                 Premium Plan
                                             </a>
 
                                         </li>
                                         <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor" target="_blank" href="https://www.blog.vipmarriagemedia.com/">
+                                            <a class="dropdown-item dropdown-toggle" target="_blank" href="https://www.blog.vipmarriagemedia.com/">
                                                 Blog
                                             </a>
                                         </li>
 
                                         <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor" href="{{ route('page',"contact-us") }}">
+                                            <a class="dropdown-item dropdown-toggle " href="{{ route('page',"contact-us") }}">
                                               Contact Us
                                             </a>
 
@@ -69,57 +69,57 @@ html.sticky-header-active #header .header-body {
 
                                         @if(!Auth::check())
 
-                                        {{-- <li class="dropdown" >
-                                            <a class="dropdown-item dropdown-toggle viptextcolor" href="{{ url('page/vip-advantage')}}"   >
+                                        <li class="dropdown" >
+                                            <a class="dropdown-item dropdown-toggle" href="{{ url('page/vip-advantage')}}"   >
                                                 VIP SERVICE
                                             </a>
 
-                                        </li> --}}
+                                        </li>
                                          
-                                        {{-- <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor" href="{{ url("https://www.vipmarriagemedia.com/blog/") }}">
+                                        <li class="dropdown">
+                                            <a class="dropdown-item dropdown-toggle" href="{{ url("https://www.vipmarriagemedia.com/blog/") }}">
                                                 BLOG
                                             </a>
 
-                                        </li> --}}
+                                        </li>
                                         @endif
                                         
                                      
                                         @Auth
                                         <li class="dropdown dropdown-mega">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor"
+                                            <a class="dropdown-item dropdown-toggle"
                                                 href="{{route('user.messageDashboard')}}">
                                                 Messages ({{ Auth::user()->unreadMsgUsersCount() }})
                                             </a>
 
                                         </li>
                                         <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor active " href="#">
+                                            <a class="dropdown-item dropdown-toggle active " href="#">
                                                 {{auth()->user()->email}}
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li class="dropdown-submenu">
-                                                    <a class="dropdown-item viptextcolor-" href="{{route('user.profile')}}">My
+                                                    <a class="dropdown-item" href="{{route('user.profile')}}">My
                                                         Profile</a>
 
                                                 </li>
 
                                                 <li class="dropdown-submenu">
-                                                    <a class="dropdown-item viptextcolor-"
+                                                    <a class="dropdown-item"
                                                         href="{{route('user.updateprofile')}}">Update Profile</a>
 
                                                 </li>
 
                                                 @hasrole('Admin')
                                                 <li class="dropdown-submenu">
-                                                    <a class="dropdown-item viptextcolor-" href="{{route('dashboard')}}">Admin
+                                                    <a class="dropdown-item" href="{{route('dashboard')}}">Admin
                                                         Dashboard</a>
 
                                                 </li>
                                                 @endif
 
                                                 <li class="dropdown-submenu">
-                                                    <a class="dropdown-item text-danger viptextcolor-" href="{{
+                                                    <a class="dropdown-item text-danger" href="{{
                                                         route('signout')
                                                     }}">Logout</a>
 
@@ -128,16 +128,16 @@ html.sticky-header-active #header .header-body {
                                             </ul>
                                         </li>
                                         @else
-                                        {{-- <li class="dropdown dropdown-mega">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor" href="" data-toggle="modal"
+                                        <li class="dropdown dropdown-mega">
+                                            <a class="dropdown-item dropdown-toggle" href="" data-toggle="modal"
                                                 data-target="#smallModal">
                                                 Login
                                             </a>
 
-                                        </li> --}}
+                                        </li>
 
                                         <li class="dropdown dropdown-mega">
-                                            <a class="dropdown-item dropdown-toggle viptextcolor" href="{{ url('/register') }}">
+                                            <a class="dropdown-item dropdown-toggle" href="{{ url('/register') }}">
                                                 Register
                                             </a>
 

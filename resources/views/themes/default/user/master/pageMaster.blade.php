@@ -209,7 +209,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div role="main" class="main">
 
            @auth
-           @include('user.parts.subHead')
+            @include('user.parts.subHead')
            @endauth
 
             @yield('content')

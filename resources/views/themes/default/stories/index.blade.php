@@ -27,10 +27,10 @@ a:hover {
 
                 <article class=" w3-text-gray">
 
-                    <p> <strong>Location: </strong> {{ $singleStory->location}}</p>
-                    <p><strong>Marriage Date: </strong> {{ $singleStory->marriage_date}}</p>
-                    <p><strong>Bride Username: </strong> {{ $singleStory->bride_username}}</p>
-                    <p><strong>Groom Username: </strong> {{ $singleStory->groom_username}}</p>
+                    <p class="m-0"> <strong>Location: </strong> {{ $singleStory->location}}</p>
+                    <p class="m-0"><strong>Marriage Date: </strong> {{ $singleStory->marriage_date}}</p>
+                    <p class="m-0"><strong>Bride Username: </strong> {{ $singleStory->bride_username}}</p>
+                    <p class="m-0"><strong>Groom Username: </strong> {{ $singleStory->groom_username}}</p>
                      
                 </article>
             </div>
