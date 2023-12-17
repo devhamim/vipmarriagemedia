@@ -6,7 +6,7 @@
 
 							<ul class="list list-icons list-icons-lg">
 								<li><a class=" text-color-light" href="https://wa.me/+8801767506668">+8801767-506668 (Whatsapp)</a></li>
-								<li class="py-3"><a class=" text-color-light" href="https://wa.me/+8801927157200">+8801927-157200 (Whatsapp)</a></li>
+								{{-- <li class="py-3"><a class=" text-color-light" href="https://wa.me/+8801927157200">+8801927-157200 (Whatsapp)</a></li> --}}
                             </ul>
 
 

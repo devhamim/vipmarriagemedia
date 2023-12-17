@@ -180,7 +180,7 @@
                                                 <p class="card-text " style="white-space: nowrap;">+8801767-506668</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <p class="card-text " style="white-space: nowrap;">+8801632-940557</p>
+                                                <p class="card-text " style="white-space: nowrap;">+8801752-811261</p>
                                             </div>
                                             <div class="col-md-6">
                                                 <p class="card-text " style="white-space: nowrap;">+8801748-827666</p>

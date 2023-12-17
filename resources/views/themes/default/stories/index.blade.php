@@ -10,7 +10,7 @@ a:hover {
 <section>
     <div class="row">
         <div class="col-lg-6 m-auto text-center" style="font-weight: 700">
-            <h2>Bloge Details</h2>
+            <h2>Success Storie</h2>
         </div>
     </div>
 </section>

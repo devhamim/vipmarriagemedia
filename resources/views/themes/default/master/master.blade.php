@@ -23,8 +23,7 @@
         <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
         <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
     @endif
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 
 
@@ -178,6 +177,12 @@
             background-color: #f05b62;
             z-index: 9999;
         }
+        .whatapps_btn {
+    position: fixed;
+    top: 40%;
+    right: 0;
+    z-index: 9999;
+}
     </style>
 </head>
 
@@ -223,6 +228,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         @include('partials.footer')
     </div>
 
+        {{-- whatapp bar --}}
+<div class="whatapps_btn">
+    <a href="https://api.whatsapp.com/send?phone=15551234567&text=Hello%20there,%20I%20found%20you%20on%20my%20website!" target="_blank">
+        <p class="my-3">
+            {{-- <i class="fa-brands fa-whatsapp fa-bounce fa-lg" style="color: #28e925;font-size: 50px;"></i> --}}
+            <i class="fa-brands fa-whatsapp fa-lg" style="color: #28e925;font-size: 50px;"></i>
+        </p>
+    </a>
+</div>
+{{-- whatapp bar --}}
     {{-- side bar --}}
     @if(!Auth::check())
         <div class="side_button">

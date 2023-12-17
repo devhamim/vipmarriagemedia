@@ -829,7 +829,7 @@ class AdminController extends Controller
         $page->active = $request->active ? 1 : 0;
         $page->left_sidebar = $request->left_sidebar ? 1 : 0;
         $page->list_in_menu = $request->list_in_menu ? 1 : 0;
-        $page->route_name = $request->route_name ? str_slug(strtolower($request->route_name)) : null;
+        $page->route_name = $request->route_name ? Str::slug(strtolower($request->route_name)) : null;
         $page->meta_title = $request->meta_title ?: null;
         $page->meta_description = $request->meta_description ?: null;
         $page->meta_keywords = $request->meta_keywords ?: null;
@@ -942,7 +942,7 @@ class AdminController extends Controller
         $page->active = $request->active ? 1 : 0;
         $page->left_sidebar = $request->left_sidebar ? 1 : 0;
         $page->list_in_menu = $request->list_in_menu ? 1 : 0;
-        $page->route_name = $request->route_name ? str_slug(strtolower($request->route_name)) : null;
+        $page->route_name = $request->route_name ? Str::slug(strtolower($request->route_name)) : null;
 
         $page->meta_title = $request->meta_title ?: null;
         $page->meta_description = $request->meta_description ?: null;

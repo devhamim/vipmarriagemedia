@@ -220,19 +220,22 @@
                     <div class="list-collumn2">
                         <div class="checklist style5">
                             <ul>
-                                <li>Quality Architect Designs</li>
-                                <li>Deliver Always on Time</li>
+                                <li>Verification</li>
+                                <li>Confidentiality</li>
                             </ul>
                         </div>
                         <div class="checklist style5">
                             <ul>
-                                <li>Highly Professional Members</li>
-                                <li>100% Satisfaction Guarantee</li>
+                                <li>Service Promise</li>
+                                <li>Counselling</li>
                             </ul>
                         </div>
                     </div>
                     <div class="btn-group style2">
-                        <a href="{{ url('page',"about-us") }}" class="th-btn">Loren More
+                        {{-- <a href="{{ url('page',"about-us") }}" class="th-btn">Loren More
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a>  --}}
+                        <a href="{{ url('register') }}" class="th-btn">Register
                             <i class="fas fa-arrow-right ms-2"></i>
                         </a> 
                             <a href="https://www.youtube.com/watch?v=ExmauSZqkno" class="video-btn style2 popup-video">
@@ -628,11 +631,19 @@
                 <div class="col-xl-6 space">
                     <div class="title-area mb-30"><span class="sub-title7"><span class="box"></span> Free Consultations</span>
                         <h2 class="sec-title text-white">Discover Our Capability & Free Consultations</h2>
+                        <div class="my-5">
+                            <a href="https://api.whatsapp.com/send?phone=8801767506668&text=Hello%20there,%20I%20found%20you%20on%20my%20website!" target="_blank">Open in WhatsApp</a>
+                        </div>
                     </div>
                     <p class="mt-n2 mb-30 text-white">VIP Marriage Media is one of the best Bengali Matrimony sites in Bangladesh that assists people looking for the perfect & suitable life partner for their lives.</p>
-                    <div class="btn-group"><a href="about.html" class="th-btn style3">Register<i
-                                class="fas fa-arrow-right ms-2"></i></a> <a href="contact.html"
-                            class="th-btn style4">Login<i class="fas fa-arrow-right ms-2"></i></a></div>
+                    <div class="btn-group">
+                        <a href="{{ url('register') }}" class="th-btn style3">Register
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a> 
+                        <a class="th-btn style4" data-target="#smallModal" data-toggle="modal">LogIn
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        </div>
                 </div>
             </div>
         </div>

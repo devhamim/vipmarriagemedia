@@ -51,6 +51,7 @@
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="{{ asset('porto/vendor/bootstrap/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('porto/vendor/fontawesome-free/css/all.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets') }}/css/fontawesome.min.css">
     <link rel="stylesheet" href="{{ asset('porto/vendor/animate/animate.min.css') }}" />
     <link rel="stylesheet" href="{{
                 asset(
@@ -126,14 +127,20 @@
     border-color: #0E686D !important;
 }
 
-/* .side_button {
-            position: fixed;
-            top: 50%;
-            right: 0;
-            border-radius: 5px;
-            background-color: #f05b62;
-            z-index: 9999;
-        } */
+.side_button {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    border-radius: 5px;
+    background-color: #f05b62;
+    z-index: 9999;
+}
+.whatapps_btn {
+    position: fixed;
+    top: 40%;
+    right: 0;
+    z-index: 9999;
+}
 #footer {
     background: #212529;
     border-top: 4px solid #212529;
@@ -297,14 +304,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
-
+{{-- whatapp bar --}}
+<div class="whatapps_btn">
+    <a href="https://api.whatsapp.com/send?phone=15551234567&text=Hello%20there,%20I%20found%20you%20on%20my%20website!" target="_blank">
+        <i class="fa-brands fa-whatsapp fa-lg" style="color: #28e925;font-size: 50px;"></i>
+    </a>
+</div>
+{{-- whatapp bar --}}
 {{-- side bar --}}
-{{-- <div class="side_button">
+@if(!Auth::check())
+<div class="side_button">
     <a class="btn btn-success py-3 px-1 rounded fa-beat" style="background-color: #f05b62; border: none; z-index: 9999" href="{{ url('register') }}">
         <p>
-            <img src="{{ asset('images/love-icon-2.png') }}" alt="">
+            <i class="fa-solid fa-user text-white"></i>
         </p> Register</a>
-</div> --}}
+</div>
+@endif
 {{-- side bar --}}
 
 
