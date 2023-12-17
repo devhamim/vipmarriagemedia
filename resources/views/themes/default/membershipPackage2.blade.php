@@ -152,6 +152,9 @@
 .zoom:hover {
   transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
+.text-muted{
+    color: #fff !important;
+}
 @media only screen and (max-width: 990px){
     .pricingTable{ margin-bottom: 30px; }
 }

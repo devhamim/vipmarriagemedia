@@ -379,6 +379,10 @@ h6 {
     h1 {
         font-size: 32px
     }
+    .h4,
+    h4 {
+        font-size: 18px
+    }
 }
 
 .admin-bar .th-header .sticky-wrapper.sticky {

@@ -189,6 +189,7 @@ hr.info {
 .viptextcolor {
         color: #F15C62 !important;
     }
+
     </style>
       @stack('css')
 </head>
