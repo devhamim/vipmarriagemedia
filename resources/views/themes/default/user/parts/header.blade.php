@@ -157,7 +157,7 @@ html.sticky-header-active #header .header-body {
                        class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2">
                        <div class="header-nav-feature header-nav-features-search d-inline-flex">
                            <a href="#" class="header-nav-features-toggle" data-focus="headerSearch"><i
-                                   class="fas fa-search header-nav-top-icon"></i></a>
+                                   class="fas fa-search header-nav-top-icon" style="color: #fff"></i></a>
                            <div class="header-nav-features-dropdown header-nav-features-dropdown-mobile-fixed"
                                id="headerTopSearchDropdown">
                                <form role="search" action="{{route('user.search')}}" method="get">

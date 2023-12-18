@@ -272,11 +272,11 @@
                                 </div>
                                 @endif
 
-                                <p class="w3-text-green px-2 text-center" style="font-weight: 700; min-height: 20px;position: absolute;right: -19px;top: -27px;background: #fff;padding: 22px 25px;border-radius: 50%;">
+                                {{-- <p class="w3-text-green px-2 text-center" style="font-weight: 700; min-height: 20px;position: absolute;right: -19px;top: -27px;background: #fff;padding: 22px 25px;border-radius: 50%;">
                                     @if(Percentage_cal($package->discounted_amount,$package->package_amount) > 0)
                                     {{ Percentage_cal($package->discounted_amount,$package->package_amount)}}% off <del>{{ $package->discounted_amount}}</del>
                                     @endif
-                                </p>
+                                </p> --}}
                                 
                                 <h3 class="mt-1 text-center">
                                     <span class="font-weight-bold">
@@ -290,7 +290,7 @@
                                 <a href="{{route('payNow',$package->id)}}" class="w3-button w3-round-xxlarge w3-border bg-white px-5 w3-hover-teal w3-text-gray">Continue</a>
                             </div>
                             </div>
-                            <div class="content-list  text-justify mt-3 p-3">
+                            <div class="text-justify mt-3 p-3">
                                 <p> <i class="fa fa-check-circle" style="color: #00934D"></i> {{ $package->proposal_send_daily_limit }}Proposals/Day</p>
                                 <p> <i class="fa fa-check-circle" style="color: #00934D"></i> {{ $package->proposal_send_total_limit }} Total Proposals</p>
 
