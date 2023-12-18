@@ -6,7 +6,7 @@
                 <div class="card bg-transparent border-0">
                     <div class="card-body text-center   p-2 ">
                         <span class="bg-white shadow p-2 rounded">
-                            <h1 class="w3-xlarge text-black font-weight-bold" style="color: #000">#1 Marriage Media in Bangladesh</h1>
+                            <h1 class="w3-xlarge text-black font-weight-bold" style="color: #000">Best Marriage Media in Bangladesh</h1>
                         </span>
                     </div>
                 </div>
