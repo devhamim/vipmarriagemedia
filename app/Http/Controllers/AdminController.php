@@ -50,7 +50,6 @@ use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 
-
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
 use App\Models\UserPicture;
@@ -668,7 +667,7 @@ class AdminController extends Controller
 
             $file = $request->image;
             $fimgExt = strtolower($file->getClientOriginalExtension());
-            $fimageNewName = str_random(8) . time() . '.' . $fimgExt;
+            $fimageNewName = Str::random(8) . time() . '.' . $fimgExt;
             $fileOriginalName = strtolower($file->getClientOriginalName());
 
             Storage::disk('upload')->put('package/' . $fimageNewName, File::get($file));
@@ -746,7 +745,7 @@ class AdminController extends Controller
 
             $file = $request->image;
             $fimgExt = strtolower($file->getClientOriginalExtension());
-            $fimageNewName = str_random(8) . time() . '.' . $fimgExt;
+            $fimageNewName = Str::random(8) . time() . '.' . $fimgExt;
             $fileOriginalName = strtolower($file->getClientOriginalName());
 
             Storage::disk('upload')->put('package/' . $fimageNewName, File::get($file));
@@ -1497,7 +1496,7 @@ class AdminController extends Controller
 
             $ffile = $request->feature_image;
             $fimgExt = strtolower($ffile->getClientOriginalExtension());
-            $fimageNewName = str_random(8).time().'.'.$fimgExt;
+            $fimageNewName = Str::random(8).time().'.'.$fimgExt;
             $originalName = $ffile->getClientOriginalName();
 
             Storage::disk('upload')->put('media/image/'.$fimageNewName, File::get($ffile));
@@ -1895,7 +1894,7 @@ class AdminController extends Controller
 
             $ffile = $request->feature_image;
             $fimgExt = strtolower($ffile->getClientOriginalExtension());
-            $fimageNewName = str_random(8).time().'.'.$fimgExt;
+            $fimageNewName = Str::random(8).time().'.'.$fimgExt;
             $originalName = $ffile->getClientOriginalName();
 
             Storage::disk('upload')->put('media/image/'.$fimageNewName, File::get($ffile));
@@ -3933,7 +3932,7 @@ class AdminController extends Controller
                 return back()->with('error', 'Please, upload a pdf or image or word file');
             }
 
-            $imageNewName = $user->id . '_cv_' . str_random(8) . time() . '.' . $ext;
+            $imageNewName = $user->id . '_cv_' . Str::random(8) . time() . '.' . $ext;
 
             Storage::disk('upload')
                 ->put('users/cv/' . $imageNewName, File::get($file));
@@ -4312,7 +4311,7 @@ class AdminController extends Controller
                     $mime = $file->getClientMimeType();
                     $size =$file->getSize();
                     $fileNewName = Str::random(4).date('ymds').'.'.$ext;
-                    // $fileNewName = str_random(6).time().'.'.$ext;
+                    // $fileNewName = Str::random(6).time().'.'.$ext;
                     // $fileNewName = Auth::id().'_'.date('ymdhis').'_'.rand(11,99).'.'.$ext;
                     list($width,$height) = getimagesize($file);                    
 

@@ -12,7 +12,7 @@ use App\Scopes\ActiveScope;
 use App\Models\PertnerPreference;
 use Illuminate\Notifications\Notifiable;
 use App\Models\QuickSmsContactBulk;
-
+use App\Models\smsUrl;
 use DB;
 use Mail;
 use GuzzleHttp\Client;
