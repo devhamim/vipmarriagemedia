@@ -2334,7 +2334,7 @@
             </div>
 
 
-            <div class="col-md-6 mt-3">
+            <!-- <div class="col-md-6 mt-3">
                 <div class="card">
                     <div class="card-body">
                         <h5>SMS AREA</h5>
@@ -2372,7 +2372,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
