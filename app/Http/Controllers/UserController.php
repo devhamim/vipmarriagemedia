@@ -23,6 +23,7 @@ use App\Models\UserMessage;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use DB;
+use App\Models\UserSettingField;
 use HaIlluminate\Support\Facades\Hash;
 use Cache;
 use Illuminate\Support\Facades\Auth;
@@ -1546,7 +1547,8 @@ $me=auth()->user();
         $present_districts=District::where('division_id', $user->present_division)->get();
         $present_thanas=Upazila::where('district_id', $user->present_district)->get();
         // dd($user->permanent_district, );
-        return view('user.updateProfile2', compact('user','religions', 'casts', 'divisions', 'permanent_districts', 'permanent_thanas', 'present_districts', 'present_thanas'));
+        $userSettingFields = UserSettingField::all();
+        return view('user.updateProfile2', compact('user','religions', 'casts', 'divisions', 'permanent_districts', 'permanent_thanas', 'present_districts', 'present_thanas', 'userSettingFields'));
     }
 
     public function profile(Request $request)

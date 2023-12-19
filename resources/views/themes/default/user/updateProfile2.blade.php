@@ -48,7 +48,7 @@
                                 <input class="form-control" name="dob" type="date" value="{{ $user->dob }}" required>
                             </div>
                         </div>
-
+                        
                         <div class="form-group row">
                             <label
                                 class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Complexion</label>
