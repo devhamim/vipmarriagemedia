@@ -1832,7 +1832,7 @@ $me=auth()->user();
 
     public function updatePreference()
     {
-
+        $userSettingFields = UserSettingField::all();
         $religions=Religion::get();
 
         request()->session()->forget(['lsbm', 'lsbsm']);
@@ -1842,7 +1842,7 @@ $me=auth()->user();
         if (!($me->pertnerPreference)) {
             return redirect('/user/pertner-preference');
         }
-        return view('user.pertnerUpdate', compact('religions'));
+        return view('user.pertnerUpdate', compact('religions', 'userSettingFields'));
     }
 
 
