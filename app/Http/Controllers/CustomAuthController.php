@@ -9,6 +9,7 @@ use App\Mail\RegMail;
 use App\Models\District;
 use App\Models\Division;
 use App\Models\Religion;
+use App\Models\UserSettingField;
 // use App\Models\Cast;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Upazila;
