@@ -1814,7 +1814,6 @@ $me=auth()->user();
         return back();
         }
 
-
     }
 
     public function updateProfile2()

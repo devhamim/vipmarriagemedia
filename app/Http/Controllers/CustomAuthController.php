@@ -169,8 +169,8 @@ public function userLogin(Request $request)
   {
     $religions=Religion::get();
     // dd($religions);
-
-    return view('registration', compact('religions'));
+    $userSettingFields = UserSettingField::all();
+    return view('registration', compact('religions', 'userSettingFields'));
   }
   public function physicalAttribute()
   {
