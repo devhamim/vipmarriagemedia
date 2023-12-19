@@ -2464,8 +2464,9 @@ public function pertnerSearch()
     $districts = District::orderBy('name')->get();
     $areas = District::orderBy('name')->get();
     $religions=Religion::get();
+    $userSettingFields = UserSettingField::all();
 
-    return view('user.pertnerSearch', compact('religions','districts','areas'));
+    return view('user.pertnerSearch', compact('religions','districts','areas', 'userSettingFields'));
 }
 
 
