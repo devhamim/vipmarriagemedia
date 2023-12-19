@@ -177,7 +177,10 @@ public function userLogin(Request $request)
   {
     //   dd('ok');
 
-    return view('registar.physicalAttribute');
+    $userSettingFields = UserSettingField::all();
+    return view('registar.physicalAttribute', [
+      'userSettingFields'=>$userSettingFields,
+    ]);;
   }
 
 
@@ -185,39 +188,50 @@ public function userLogin(Request $request)
   {
     //   dd('ok');
 
-    return view('registar.socialCulture');
+    $userSettingFields = UserSettingField::all();
+    return view('registar.socialCulture',[
+      'userSettingFields'=>$userSettingFields
+    ]);
   }
 
   public function familyInfo()
   {
     //   dd('ok');
 
-    return view('registar.familyInfo');
+    $userSettingFields = UserSettingField::all();
+    return view('registar.familyInfo', [
+      'userSettingFields'=>$userSettingFields,
+    ]);
   }
 
   public function contactInfo()
   {
+    $userSettingFields = UserSettingField::all();
     $divisions = Division::orderBy('name')->get();
     $districts = District::orderBy('name')->get();
             // dd($districts);
     $thanas = Upazila::orderBy('name')->get();
     // dd($divisions, $districts, $thanas  );
-
-    return view('registar.contactInfo', compact('divisions', 'districts', 'thanas'));
+    
+    return view('registar.contactInfo', compact('divisions', 'districts', 'thanas','userSettingFields'));
   }
 
   public function lifestyleInfo()
   {
     //   dd('ok');
 
-    return view('registar.lifestyleInfo');
+    $userSettingFields = UserSettingField::all();
+    return view('registar.lifestyleInfo',[
+      'userSettingFields'=>$userSettingFields,
+    ]);
   }
 
 
 
   public function pertnerForm()
   {
+    $userSettingFields = UserSettingField::all();
     $religions=Religion::get();
-    return view('pertnerForm', compact('religions'));
+    return view('pertnerForm', compact('religions','userSettingFields'));
   }
 }
