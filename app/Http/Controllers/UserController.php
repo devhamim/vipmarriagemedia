@@ -161,9 +161,9 @@ class UserController extends Controller
 
         $encrypted =$user->password;
 
+        $userSettingFields = UserSettingField::all();
 
-
-        return view('admin.usereditprofile', compact('user', 'roles', 'religions', 'casts', 'divisions', 'permanent_districts', 'permanent_thanas', 'present_districts', 'present_thanas','packages'));
+        return view('admin.usereditprofile', compact('user', 'roles', 'religions', 'casts', 'divisions', 'permanent_districts', 'permanent_thanas', 'present_districts', 'present_thanas','packages','userSettingFields'));
     }
 
 
