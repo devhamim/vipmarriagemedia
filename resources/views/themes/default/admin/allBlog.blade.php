@@ -69,14 +69,12 @@
                                 <b>Thana:</b> {{$post->thana()}}
                             </td> --}}
                             <td>
-                                 {{str_limit($post->excerpt, $limit = 200, $end = "..")}}
+                                 {{Str::limit($post->excerpt, $limit = 200, $end = "..")}}
                             </td>
                             <td>
-                                 {{str_limit($post->description, $limit = 200, $end = "..")}}
+                                 {{Str::limit($post->description, $limit = 200, $end = "..")}}
                             </td>
                             <td style="min-width: 100px;">
-
-
 
                         <div class="btn-group btn-group-xs pull-right ">
                             @can('blog-edit')
