@@ -4,9 +4,6 @@ use Illuminate\Support\Str;
 use App\Models\Blog;
 
 
-
-
-
 function postCount($id)
 {
     return Blog::where('categories', 'like', '%' . $id . '%')->where('publish_status', 'published')->get()->count();

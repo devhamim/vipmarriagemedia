@@ -466,7 +466,7 @@
 
 
 
-          <li class="nav-item {{ session('lsbm') == 'sms' ? ' menu-open ' : '' }}">
+          {{-- <li class="nav-item {{ session('lsbm') == 'sms' ? ' menu-open ' : '' }}">
             <a href="#" class="nav-link {{ session('sms') == 'blog' ? ' active ' : '' }}">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -476,13 +476,13 @@
             </a>
             <ul class="nav nav-treeview">
 
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="{{ route('admin.quickSmsBalanceCheck') }}"
                       class="nav-link {{ session('lsbsm') == 'quickSmsBalanceCheck' ? ' active ' : '' }}">
                       <i class="far fa-circle nav-icon"></i>
                       <p>SMS Remaining</p>
                     </a>
-                  </li> --}}
+                  </li>
 
                   <li class="nav-item">
                     <a href="{{route('admin.quickSmsDraft')}}"
@@ -531,7 +531,7 @@
                 </a>
               </li> -->
             </ul>
-          </li>
+          </li> --}}
 
           <li class="nav-item {{ session('lsbm') == 'story' ? ' menu-open ' : '' }}">
             <a href="#" class="nav-link {{ session('lsbm') == 'story' ? ' active ' : '' }}">

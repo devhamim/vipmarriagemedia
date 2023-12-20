@@ -49,7 +49,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
-
+use bdMobile;
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
 use App\Models\UserPicture;
@@ -2816,7 +2816,6 @@ class AdminController extends Controller
                 {
                     $bulk->status = 'draft'; //temp,draft,sent
                     $bulk->save();
-
                     $sms = new QuickSmsContact;
                     $sms->quick_sms_contact_bulk_id = $bulk->id;
                     $sms->mobile = $number;
