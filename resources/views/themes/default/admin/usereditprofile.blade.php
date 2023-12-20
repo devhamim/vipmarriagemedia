@@ -185,8 +185,8 @@
 
 
 
-                                                    <button type="submit" class="w3-btn w3-round w3-blue">Click & Send New
-                                                        Password</button>
+                                                    {{-- <button type="submit" class="w3-btn w3-round w3-blue">Click & Send New
+                                                        Password</button> --}}
                                                 </form>
 
                                             </div>
