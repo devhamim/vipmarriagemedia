@@ -101,17 +101,12 @@
                                 <div class="form-group text-left">
                                     <label for="">Education</label>
                                     <select class="form-control select2" name="study[]" id="" required multiple>
-
-
-
                                         <option value="">Select...</option>
-
                                         @foreach($userSettingFields[25]->values as $value)
                                             <option>{{ $value->title }}</option>
                                         @endforeach
-                                </select>
+                                    </select>
                                 </div>
-
                                 <div class="form-group text-left">
                                     <label for="">Profession</label>
                                     <select class="form-control select2" name="profession[]" id="" required multiple>
@@ -123,7 +118,6 @@
                                     @endforeach
                                     </select>
                                 </div>
-
                                 <div class="form-group text-left">
                                     <input type="submit" value="Save" class="btn btn-primary btn-modern float-right"
                             data-loading-text="Loading...">

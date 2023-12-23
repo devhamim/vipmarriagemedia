@@ -72,12 +72,12 @@ background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%); padding: 50p
 
                                 <div class="form-group row">
                                     <label for=""  class="col-md-4">Education Level</label>
-                                    <select class="form-control col-md-8" name="education_level" id="" required>
+                                    <select class="form-control col-md-8 select2" name="education_level[]" id="" multiple required>
                                         <option value="">Select...</option>
                                         @foreach($userSettingFields[25]->values as $value)
                                             <option>{{ $value->title }}</option>
                                         @endforeach
-                                </select>
+                                    </select>
                                 </div>
                                 <div class="form-group row">
                                     <label for=""  class="col-md-4">University</label>
