@@ -9,9 +9,7 @@
         @if ($websiteParameter->title)
             {!! $websiteParameter->title !!}
         @else
-            {{ env('APP_NAME_BIG') }} | Matrimony Service in Bangladesh | Marriage Media Service provider in
-            Bangladesh |
-            Matchmaker Service in Bangladesh
+            {{ env('APP_NAME_BIG') }} | Best Marriage Media in Bangladesh
         @endif
     </title>
 

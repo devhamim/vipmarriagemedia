@@ -18,7 +18,7 @@
         <div class="home-login px-3 py-4" style="position: absolute; bottom:13%;">
             <div class="box-content text-white">
 
-                
+
                 <form class="user-mobile-check-form" id="userform" action="{{ route('register.custom') }}"
                     method="post">
                     @csrf

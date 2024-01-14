@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    
+
                                 </div>
                             </div>
                         </a>
@@ -145,7 +145,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    
+
                                 </div>
                             </div>
                         </a>
@@ -188,12 +188,12 @@
                                     </div>
                                 </div>
                                 <div>
-                                    
+
                                 </div>
                             </div>
                         </a>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -203,7 +203,7 @@
             <div class="row align-items-center">
                 <div class="col-xl-6">
                     <div class="img-box8">
-                        <div class="img1"><img src="assets/img/update1/normal/about_2_1_v2.jpg" alt="About"></div>
+                        <div class="img1"><img src="assets/img/update1/normal/Best Matchmaking & Matrimony Service..jpg" alt="About"></div>
                         <div class="about-counter2" data-bg-src="assets/img/update1/shape/counter_bg.png">
                             <h3 class="counter-title"><span class="counter-number">16</span></h3><span
                                 class="counter-text">Years Experience</span>
@@ -237,7 +237,7 @@
                         </a>  --}}
                         <a href="{{ url('register') }}" class="th-btn">Register
                             <i class="fas fa-arrow-right ms-2"></i>
-                        </a> 
+                        </a>
                             <a href="https://www.youtube.com/watch?v=ExmauSZqkno" class="video-btn style2 popup-video">
                         <div class="play-btn">
                             <i class="fas fa-play d-none d-lg-block"></i>
@@ -416,18 +416,18 @@
             </div>
         </div>
     </section> --}}
-    
+
     <section style="position: relative; height: 530px; overflow: hidden;">
         <iframe src="https://www.blog.vipmarriagemedia.com" width="100%" height="700px" frameborder="0" scrolling="no" style="position: absolute; top: -130px; z-index: 1;"></iframe>
         <div onclick="openOriginalWebsite()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; z-index: 2; cursor: pointer;"></div>
     </section>
-    
+
     <div class="space overflow-hidden">
         <div class="container">
             <div class="row flex-row-reverse">
                 <div class="col-xl-5 mb-30 mb-xl-0 d-none d-sm-block">
                     <div class="wcu-img-5">
-                        <div class="img1 d-none d-sm-block"><img src="assets/img/update1/normal/why_2_v2.jpg" alt="why"></div>
+                        <div class="img1 d-none d-sm-block"><img src="assets/img/update1/normal/Great Experience With Vip Marriage Media.jpg" alt="why"></div>
                         <div class="mission-box">
                             <h3 class="h4 mission-title">Mission</h3>
                             <p class="mission-text">Assertively deliver client-centered communities without frictionless
@@ -485,53 +485,8 @@
         <div class="shape-mockup movingX d-none d-sm-block" data-top="0%" data-right="0"><img
                 src="assets/img/update1/shape/building_2.png" alt="shapes"></div>
     </div>
-    {{-- <div class="z-index-common space-bottom">
-        <div class="container">
-            <div class="row gy-30 justify-content-between">
-                <div class="col-sm-6 col-xl-auto">
-                    <div class="counter-card style2">
-                        <div class="counter-card_icon"><img src="assets/img/update1/icon/counter_1_1.svg" alt="icon">
-                        </div>
-                        <div class="media-body">
-                            <h2 class="counter-card_number text-title"><span class="counter-number">2.2</span>k+</h2>
-                            <p class="counter-card_text text-body">Project Completed</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-auto">
-                    <div class="counter-card style2">
-                        <div class="counter-card_icon"><img src="assets/img/update1/icon/counter_1_2.svg" alt="icon">
-                        </div>
-                        <div class="media-body">
-                            <h2 class="counter-card_number text-title"><span class="counter-number">3.1</span>k+</h2>
-                            <p class="counter-card_text text-body">Team Members</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-auto">
-                    <div class="counter-card style2">
-                        <div class="counter-card_icon"><img src="assets/img/update1/icon/counter_1_3.svg" alt="icon">
-                        </div>
-                        <div class="media-body">
-                            <h2 class="counter-card_number text-title"><span class="counter-number">1.9</span>k+</h2>
-                            <p class="counter-card_text text-body">Clients Are Happy</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-auto">
-                    <div class="counter-card style2">
-                        <div class="counter-card_icon"><img src="assets/img/update1/icon/counter_1_4.svg" alt="icon">
-                        </div>
-                        <div class="media-body">
-                            <h2 class="counter-card_number text-title"><span class="counter-number">1.1</span>k+</h2>
-                            <p class="counter-card_text text-body">Award Wins</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <section class="space bg-top-center " data-bg-src="assets/img/update1/bg/project_bg_1.jpg">
+
+    <section class="space bg-top-center " data-bg-src="assets/img/update1/bg/Best_Marriage_Media_in_Bangladesh.jpg">
         <div class="container">
             <div class="row justify-content-lg-between align-items-end">
                 <div class="col-lg-6 mb-n2 mb-lg-0">
@@ -550,7 +505,7 @@
                         <div>
                             <div class="project-grid">
                                 <div class="project-img ">
-                                        <img src="assets/img/update1/normal/video_thamnil-1.jpg" alt="mockup">
+                                        <img src="assets/img/update1/normal/marriage sites in bangladesh.jpg" alt="mockup">
                                         <div class="play-bg" style="position: absolute; top: 50%; left: 50%;">
                                             <a
                                                 href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
@@ -562,7 +517,7 @@
                         <div>
                             <div class="project-grid">
                                 <div class="project-img ">
-                                        <img src="assets/img/update1/normal/video_thamnil-2.jpg" alt="mockup">
+                                        <img src="assets/img/update1/normal/Best matrimonial site in bangladesh.jpg" alt="mockup">
                                         <div class="play-bg" style="position: absolute; top: 50%; left: 50%;">
                                             <a
                                                 href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
@@ -574,7 +529,7 @@
                         <div>
                             <div class="project-grid">
                                 <div class="project-img ">
-                                        <img src="assets/img/update1/normal/video_thamnil-3.jpg" alt="mockup">
+                                        <img src="assets/img/update1/normal/Best Marriage Media in Bangladesh.jpg" alt="mockup">
                                         <div class="play-bg" style="position: absolute; top: 50%; left: 50%;">
                                             <a
                                                 href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
@@ -583,7 +538,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4">
@@ -591,21 +546,21 @@
                         <div class="col-auto">
                             <div class="project-6thumb">
                                 <div class="project-thumb_img">
-                                    <img src="assets/img/update1/normal/video_thamnil-1.jpg"
+                                    <img src="assets/img/update1/normal/marriage sites in bangladesh.jpg"
                                         alt="project image"></div>
                             </div>
                         </div>
                         <div class="col-auto">
                             <div class="project-6thumb">
                                 <div class="project-thumb_img">
-                                    <img src="assets/img/update1/normal/video_thamnil-2.jpg"
+                                    <img src="assets/img/update1/normal/Best matrimonial site in bangladesh.jpg"
                                         alt="project image"></div>
                             </div>
                         </div>
                         <div class="col-auto">
                             <div class="project-6thumb">
                                 <div class="project-thumb_img">
-                                    <img src="assets/img/update1/normal/video_thamnil-3.jpg"
+                                    <img src="assets/img/update1/normal/Best Marriage Media in Bangladesh.jpg"
                                         alt="project image"></div>
                             </div>
                         </div>
@@ -618,11 +573,11 @@
             </div>
         </div>
     </section>
- 
+
     <section class="position-relative bg-contain-repeat" data-bg-src="assets/img/update1/bg/mockup_bg_1.jpg"
         data-overlay="title" data-opacity="8">
-        <div class="img-right th-video2"><img src="assets/img/update1/normal/mockup_video_1_v2.jpg" alt="mockup">
-            <div class="play-bg"><img src="assets/img/update1/normal/video_shape_1.png" alt="shape"> <a
+        <div class="img-right th-video2"><img src="assets/img/update1/normal/Best Bengali Matrimony site.jpg" alt="mockup">
+            <div class="play-bg"><img src="assets/img/update1/normal/Best Bengali Matrimony sites.png" alt="shape"> <a
                     href="https://www.youtube.com/watch?v=Pbrb11dyQq8" class="play-btn style4 popup-video"><i
                         class="fas fa-play"></i></a></div>
         </div>
@@ -636,7 +591,7 @@
                     <div class="btn-group">
                         <a href="{{ url('register') }}" class="th-btn style3">Register
                             <i class="fas fa-arrow-right ms-2"></i>
-                        </a> 
+                        </a>
                         <a class="th-btn style4" data-target="#smallModal" data-toggle="modal">LogIn
                             <i class="fas fa-arrow-right ms-2"></i>
                         </a>
@@ -653,7 +608,7 @@
             </div>
             <div class="row slider-shadow th-carousel" data-slide-show="3" data-lg-slide-show="2" data-md-slide-show="2"
                 data-sm-slide-show="1">
-                @foreach ($stories as $post)  
+                @foreach ($stories as $post)
                 <div class="col-md-6 col-xl-4">
                     <div class="blog-card">
                         <a href="{{ route('success.stories_details', $post->id) }}" style="text-decoration: none">
