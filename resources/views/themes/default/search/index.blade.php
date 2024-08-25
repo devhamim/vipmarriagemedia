@@ -1,32 +1,32 @@
 @extends('user.master.usermaster')
 @push('css')
-<style>
-.search-frontend-sidebar .single-sidebar-menu-box {
-    background: white ;
-    border: 3px solid #F15C62 ;
-    padding: 10px;
+    <style>
+        .search-frontend-sidebar .single-sidebar-menu-box {
+            background: white ;
+            border: 3px solid #F15C62 ;
+            padding: 10px;
 
-}
-.search-frontend-sidebar .single-sidebar-menu-box .icon-box {
-    height: 40px;
-    width: 70px;
-    padding: 5px;
-    color: #F15C62 ;
-}
-.details{
-    color:white;
-}
-.fontize{
-font-size: 48px;
-}
-.fontcolor{
-    color: #F15C62;
-}
-.single-sidebar-menu p
-{
-    text-decoration: none;
-}
-</style>
+        }
+        .search-frontend-sidebar .single-sidebar-menu-box .icon-box {
+            height: 40px;
+            width: 70px;
+            padding: 5px;
+            color: #F15C62 ;
+        }
+        .details{
+            color:white;
+        }
+        .fontize{
+        font-size: 48px;
+        }
+        .fontcolor{
+            color: #F15C62;
+        }
+        .single-sidebar-menu p
+        {
+            text-decoration: none;
+        }
+    </style>
 @endpush
 @section('content')
 <div class="container">

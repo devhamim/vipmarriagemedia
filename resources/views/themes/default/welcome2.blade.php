@@ -24,23 +24,17 @@ $me=auth()->user();
         </div>
         <div class="col-md-9" style="background-color: ">
             @include('alerts.alerts')
-            @if ($me->email_verified==null)
-            <div class="alert alert-warning">
+            {{-- @if ($me->email_verified==null)
+                <div class="alert alert-warning">
+                Your Email is not verified. Please,  <a class="btn btn-warning btn-xs" href="{{ route('user.verifyEmailCodeGenerate') }}">Click Here</a> to verify now
+                </div>
+            @endif --}}
 
-
-            Your Email is not verified. Please,  <a class="btn btn-warning btn-xs" href="{{ route('user.verifyEmailCodeGenerate') }}">Click Here</a> to verify now
-
-            </div>
-          @endif
-
-          @if ($me->mobile_verified==null)
+          {{-- @if ($me->mobile_verified==null)
             <div class="alert alert-warning ">
-
-
             Your Mobile is not verified. Please,  <a class="btn btn-warning btn-xs" href="{{ route('user.verifyMobileCodeGenerate') }}">Click Here</a> to verify now
-
             </div>
-          @endif
+          @endif --}}
 
             <div class="row my-3">
                 <div class="col-md-12 bg-white">
@@ -1348,7 +1342,7 @@ $me=auth()->user();
                                     </div>
                                 </div>
 
-                            
+
 
                                 <div class="row pt-3">
                                     <div class="col-md-12">

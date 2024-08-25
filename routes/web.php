@@ -52,7 +52,7 @@ Route::get('sitemap.xml', [WelcomeController::class, 'sitemap'])->name('sitemap'
 Route::get('robot.txt', [WelcomeController::class, 'robotTxt'])->name('robotTxt');
 Route::get('page/{page}', [WelcomeController::class, 'page'])->name('page');
 Route::get('packages', [WelcomeController::class, 'packagelist'])->name('packagelist');
-Route::get('dashboard', [WelcomeController::class, 'dashboard'])->name('dashboard');
+// Route::get('dashboard', [WelcomeController::class, 'dashboard'])->name('dashboard');
 Route::get('/registration/user', [WelcomeController::class, 'registrationUser'])->name('registration.user');
 Route::get('categories/{id}/{slug?}', [WelcomeController::class, 'categories'])->name('categories');
 
@@ -128,13 +128,12 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 //admin
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], function () {
 
     Route::get('payment/add/new', [AdminController::class, 'paymentAddNew'])->name('admin.paymentAddNew');
     Route::post('admin/User/Email/Match', [AdminController::class, 'adminUserEmailMatch'])->name('adminUserEmailMatch');
     Route::get('select/new/role', [AdminController::class, 'selectNewRole'])->name('admin.selectNewRole');
     Route::post('payment/add/new/post', [AdminController::class, 'paymentAddNewPost'])->name('admin.paymentAddNewPost');
-
 
 
     Route::get('all/free/payments', [AdminController::class, 'allFreePayments'])->name('admin.allFreePayments');
@@ -209,9 +208,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::get('media/all', [AdminController::class, 'mediaAll'])->name('admin.mediaAll');
     Route::get('media/delete/{media}', [AdminController::class, 'mediaDelete'])->name('admin.mediaDelete');
     Route::get('get/media/ajax', [AdminController::class, 'getMediasAjax'])->name('admin.getMediasAjax');
-    
+
     Route::post('media/file/upload', [AdminController::class, 'mediaUploadPost'])->name('admin.mediaUploadPost');
- 
+
     Route::post('page-item/update/post/{item}', [AdminController::class, 'pageItemUpdate'])->name('admin.pageItemUpdate');
     Route::get('page-item/edit-editor/{item}', [AdminController::class, 'pageItemEditEditor'])->name('admin.pageItemEditEditor');
     Route::get('all/pending/payments', [AdminController::class, 'allPendingPayments'])->name('admin.allPendingPayments');
@@ -280,7 +279,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::get('user/edit', [UserController::class, 'edit'])->name('users.index');
     Route::put('user/update/{id}', [UserController::class, 'update'])->name('admin.userupdate');
 });
-Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
+Route::group(['middleware' => ['auth'],  'prefix' => 'user'], function () {
     Route::get('/dashboard', [WelcomeController::class, 'welcome'])->name('welcome');
     Route::get('/all-search', [UserController::class, 'allsearch'])->name('allsearch');
     Route::get('/get-Search/{slug}', [UserController::class, 'getSearch'])->name('getSearch');

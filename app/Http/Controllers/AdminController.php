@@ -60,6 +60,16 @@ use Illuminate\Support\Facades\Cache;
 
 class AdminController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function dashboard(Request $request)
     {
         request()->session()->forget(['lsbm', 'lsbsm']);
@@ -67,7 +77,8 @@ class AdminController extends Controller
 
 
         if (!Auth::user()->hasRole('Admin')) {
-            abort(401);
+            // abort(401);
+            return redirect('/');
         }
 
         $pending_user = User::where('final_check', false)->get();
@@ -3659,7 +3670,7 @@ class AdminController extends Controller
             // 'accept'=>'required'
 
         ]);
- 
+
         if($validation->fails())
         {
             return back()
@@ -3741,8 +3752,8 @@ class AdminController extends Controller
             }
 
             return back()->with('success','Your Quick SMS successfully sent.');
- 
- 
+
+
 
 
 
@@ -4289,7 +4300,7 @@ class AdminController extends Controller
     {
         // dd($request->all());
         $validation = Validator::make($request->all(),
-        [ 
+        [
             'files.*' => 'image'
         ]);
 
@@ -4312,20 +4323,20 @@ class AdminController extends Controller
                     $fileNewName = Str::random(4).date('ymds').'.'.$ext;
                     // $fileNewName = Str::random(6).time().'.'.$ext;
                     // $fileNewName = Auth::id().'_'.date('ymdhis').'_'.rand(11,99).'.'.$ext;
-                    list($width,$height) = getimagesize($file);                    
+                    list($width,$height) = getimagesize($file);
 
                     Storage::disk('upload')
                     ->put('media/image/'.$fileNewName, File::get($file));
 
                     $file_new_url = 'storage/media/image/'.$fileNewName;
 
-                    $media = new Media;                    
+                    $media = new Media;
                     $media->file_name = $fileNewName;
                     $media->file_original_name = $originalName;
                     $media->file_mime = $mime;
                     $media->file_ext = $ext;
                     $media->file_size = $size;
-                    
+
                     $media->width = $width;
                     $media->height = $height;
                     $media->file_url = $file_new_url;
@@ -4340,7 +4351,7 @@ class AdminController extends Controller
 
                 }
             }
-        
+
 
         return back();
     }

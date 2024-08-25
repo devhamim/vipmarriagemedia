@@ -7,7 +7,7 @@
 
     <title> {{$websiteParameter->title}}</title>
 
-    
+
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no" />
 
@@ -314,12 +314,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {{-- whatapp bar --}}
 {{-- side bar --}}
 @if(!Auth::check())
-<div class="side_button">
-    <a class="btn btn-success py-3 px-1 rounded fa-beat" style="background-color: #f05b62; border: none; z-index: 9999" href="{{ url('register') }}">
-        <p>
-            <i class="fa-solid fa-user text-white"></i>
-        </p> Register</a>
-</div>
+    <div class="side_button">
+        <a class="btn btn-success py-3 px-1 rounded fa-beat" style="background-color: #f05b62; border: none; z-index: 9999" href="{{ url('register') }}">
+            <p>
+                <i class="fa-solid fa-user text-white"></i>
+            </p> Register</a>
+    </div>
 @endif
 {{-- side bar --}}
 

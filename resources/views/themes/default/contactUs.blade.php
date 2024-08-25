@@ -22,9 +22,9 @@
     <section class="page-header page-header-modern bg-color-light-scale-1 page-header-sm">
     <div class="container">
         <div class="row mr-lg-n5">
-            <div class="col-md-9 order-2 order-md-1 align-self-center p-static">                            
-            <h1 class="text-danger">{{ $page->page_title }}</h1>                           
-            </div>                          
+            <div class="col-md-9 order-2 order-md-1 align-self-center p-static">
+            <h1 class="text-danger">{{ $page->page_title }}</h1>
+            </div>
             <div class="col-md-3 order-1 order-md-2 align-self-center">
                 <ul class="breadcrumb d-block text-md-end">
                     <li><a href="{{ url('/') }}">Home</a></li>
@@ -40,7 +40,7 @@
             <div class="col-lg-12">
                 <div class="py-3 text-center">
                     <h2 class="text-center color-vipmm pb-3" style="font-family: inherit; color: #2B161B;">Our <span class="color-vipmm2">Office</span></h2>
-                   
+
                     <div class="row">
                         <div class="col-lg-6 mt-5 pt-5">
                             <span class="text-center color-vipmm" style="font-size:14px; font-weight:600"> <span class="color-vipmm2">Our Bank
@@ -49,10 +49,10 @@
                                 data-appear-animation-delay="200">
                                 <div class="card border-0 border-radius-0 ">
                                     <div class="card-body ">
-        
+
                                         <div class="row">
-                                          
-        
+
+
                                             <div class="col-md-6">
                                                 <p class="card-text color-vipmm2">
                                                     Ab Bank
@@ -90,9 +90,9 @@
                                                 </p>
                                             </div>
                                         </div>
-        
-        
-        
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                             <div class="mt-5 py-3">
                                 <h3 class="text-center color-vipmm pb-3" >Send us a <span class="color-vipmm2">message</span></h3>
                                 <form class="contact-form" action="{{ route('contactUsPost') }}" method="POST">
-            
+
                                     @include('alerts.alerts')
                                     @csrf
                                     <div class="row d-flex justify-content-center">
@@ -121,7 +121,7 @@
                                                         name="subject" required>
                                                 </div>
                                             </div>
-            
+
                                             <div class="form-row">
                                                 <div class="form-group col">
                                                     <input type="string" value="{{ old('phone_number') }}"
@@ -130,8 +130,8 @@
                                                         name="subject" required>
                                                 </div>
                                             </div>
-            
-            
+
+
                                             <div class="form-row">
                                                 <div class="form-group col">
                                                     <textarea maxlength="5000" data-msg-required="Please enter your message."
@@ -139,7 +139,7 @@
                                                         required>Your Message</textarea>
                                                 </div>
                                             </div>
-            
+
                                             <div class="form-row">
                                                 <div class="form-group col">
                                                     <input type="submit" value="Send Message"
@@ -148,10 +148,10 @@
                                                 </div>
                                             </div>
                                         </div>
-            
-            
+
+
                                     </div>
-            
+
                                 </form>
                             </div>
                         </div>
@@ -163,7 +163,7 @@
                                 data-appear-animation-delay="200">
                                 <div class="card border-0 border-radius-0 ">
                                     <div class="card-body text-center">
-        
+
                                         <p class="card-text ">Nikunja 2 # Road 20,Plot 14,Dhaka-1229 Bangladesh</p>
                                     </div>
                                 </div>
@@ -219,14 +219,11 @@
 
 
             <div class="col-lg-5 m-auto">
-                
+
             </div>
             <div class="col-lg-12">
                 <div>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.521703501406!2d90.41572041429865!3d23.835601391434636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c660b5100b5d%3A0x1e89b4b978f8cd56!2zUmQgTm8uIDIwLCDgpqLgpr7gppXgpr4gMTIyOQ!5e0!3m2!1sbn!2sbd!4v1641195979328!5m2!1sbn!2sbd"
-                        width=100% height="300" style="border:1px grey dashed; border-radius:5px" allowfullscreen=""
-                        loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d228.0954785022498!2d90.41674998661806!3d23.83538986256982!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c508e81ea951%3A0x77b955cf6739a040!2sVIP%20Marriage%20Media!5e0!3m2!1sen!2sbd!4v1724581812145!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -240,5 +237,5 @@
 @endsection
 
 @push('js')
- 
+
 @endpush

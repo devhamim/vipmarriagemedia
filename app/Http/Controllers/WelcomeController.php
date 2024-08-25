@@ -22,6 +22,7 @@ use App\Models\WpPost;
 
 class WelcomeController extends Controller
 {
+
     public function index()
     {
         $everyStagePage = Page::find(25);
@@ -38,7 +39,7 @@ class WelcomeController extends Controller
         // $posts = Post::where('publish_status', 'published')->latest()->paginate(4);
 
         $posts = WpPost::orderBy('post_modified','desc')->where('post_parent', 0)->where('post_type', 'post')->where('post_status','publish')->paginate(4);
-    
+
         // dd($stories);
         // dd("iojioj");
         // dd($posts);
@@ -102,10 +103,10 @@ class WelcomeController extends Controller
     }
 
 
-    public function dashboard()
-    {
-        return view('dashboard');
-    }
+    // public function dashboard()
+    // {
+    //     return view('dashboard');
+    // }
 
     public function profile3()
 

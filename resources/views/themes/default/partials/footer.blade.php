@@ -75,7 +75,9 @@
                                 </li>
 
                             </ul>
-                            <a type="button" href="{{ url('/register') }}" class="btn btn-rounded btn-primary mt-3">Registration</a>
+                            @if(!Auth::check())
+                                <a type="button" href="{{ url('/register') }}" class="btn btn-rounded btn-primary mt-3">Registration</a>
+                            @endif
                         </div>
 
 						<div class="col-md-6 col-lg-3 text-center">
@@ -101,7 +103,7 @@
 									</a>
 								</div>
 								<div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
-									<p class="text-color-light">© Copyright {{ date('Y') }}. All Rights Reserved. <a href="https://nugortech.com/" target="_blank" title="https://nugortech.com/">Site By: Nugortech</a></p>
+									<p class="text-color-light">© Copyright {{ date('Y') }}. All Rights Reserved. <a href="https://nugortechit.com/" target="_blank" title="https://nugortechit.com/">Site By: Nugortech</a></p>
 								</div>
 								<div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
 									<nav id="sub-menu">
