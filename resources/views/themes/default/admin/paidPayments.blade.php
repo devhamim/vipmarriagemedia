@@ -41,7 +41,14 @@
                 <div class="card-body">
                     <dl>
                         <dt>User</dt>
-                        <dd>{{$payment->user->name}} ({{$payment->user->email}})</dd>
+                        {{-- <dd>{{$payment->user->name}} ({{$payment->user->email}})</dd> --}}
+                        <dd>
+                            @if($payment->user)
+                                {{$payment->user->name}} ({{$payment->user->email}})
+                            @else
+                                <span class="text-muted">User not found</span>
+                            @endif
+                        </dd>
                         <dt>Status</dt>
                         <dd>{{$payment->status}}</dd>
                         <dt>Package</dt>
