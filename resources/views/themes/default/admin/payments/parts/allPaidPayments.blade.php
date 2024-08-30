@@ -85,7 +85,14 @@
                     <td>{{$payment->payment_method}}</td>
                     <td>{{$payment->payment_details}}</td>
                     <td>{{$payment->admin_comment}}</td>
-                    <td>{{$payment->addedBy->email}}</td>
+                    {{-- <td>{{$payment->addedBy->email}}</td> --}}
+                    <td>
+                        @if($payment->addedBy)
+                            {{$payment->addedBy->email}} ({{$payment->addedBy->email}})
+                        @else
+                            <span class="text-muted">User not found</span>
+                        @endif
+                    </td>
                     <td>{{$payment->created_at}}</td>
                   </tr>
             @endforeach
