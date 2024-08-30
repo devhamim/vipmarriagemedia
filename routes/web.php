@@ -128,27 +128,26 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 //admin
-Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], function () {
+// Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], function () {
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
     Route::get('payment/add/new', [AdminController::class, 'paymentAddNew'])->name('admin.paymentAddNew');
     Route::post('admin/User/Email/Match', [AdminController::class, 'adminUserEmailMatch'])->name('adminUserEmailMatch');
     Route::get('select/new/role', [AdminController::class, 'selectNewRole'])->name('admin.selectNewRole');
     Route::post('payment/add/new/post', [AdminController::class, 'paymentAddNewPost'])->name('admin.paymentAddNewPost');
 
-
     Route::get('all/free/payments', [AdminController::class, 'allFreePayments'])->name('admin.allFreePayments');
     Route::get('proposal/checked/by/admin/{proposal}', [AdminController::class, 'proposalCheckedByAdmin'])->name('admin.proposalCheckedByAdmin');
     Route::get('proposals/group/{type}', [AdminController::class, 'proposalsGroup'])->name('admin.proposalsGroup');
     Route::get('make/user/active/{user}', [AdminController::class, 'makeUserActive'])->name('admin.makeUserActive');
 
-    Route::get('/user/search/ajax', [AdminController::class, 'userSearchAjax'])->name('admin.userSearchAjax');
     Route::get('edit/story/{story}', [AdminController::class, 'editStory'])->name('admin.editStory');
     Route::any('delete/story/{story}', [AdminController::class, 'deleteStory'])->name('admin.deleteStory');
     Route::post('edit/story/post/{story}', [AdminController::class, 'editStoryPost'])->name('admin.editStoryPost');
     Route::post('/post/update/{post}', [AdminController::class, 'postUpdate'])->name('admin.postUpdate');
     Route::get('/posts/all', [AdminController::class, 'postsAll'])->name('admin.postsAll');
     Route::get('/feature/image/delete/{post}', [AdminController::class, 'featureImageDelete'])->name('admin.featureImageDelete');
-    Route::get('/users/all', [AdminController::class, 'usersAll'])->name('admin.usersAll');
     Route::get('quick/sms/draft', [AdminController::class, 'quickSmsDraft'])->name('admin.quickSmsDraft');
     Route::get('post/delete/{post}', [AdminController::class, 'postDelete'])->name('admin.postDelete');
     Route::get('new/story', [AdminController::class, 'newStory'])->name('admin.newStory');
@@ -156,8 +155,6 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
     Route::get('all/stories', [AdminController::class, 'allStories'])->name('admin.allStories');
     Route::get('blog-add', [AdminController::class, 'postAddNew'])->name('admin.aboutPostAddNew');
     Route::get('blog-add2', [AdminController::class, 'postAddNew2'])->name('admin.aboutPostAddNew2');
-    Route::get('logs/{user}', [AdminController::class, 'logs'])->name('admin.logs');
-    Route::post('logs/post/{user}', [AdminController::class, 'logPost'])->name('admin.logPost');
     Route::post('user/profilepic/Change/{user}', [AdminController::class, 'userProfilepicChange'])->name('admin.userProfilepicChange');
 
 
@@ -177,15 +174,11 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
     Route::post('send/email/sms/to/users/post', [AdminController::class, 'sendEmailSmsToUsersPost'])->name('admin.sendEmailSmsToUsersPost');
     Route::get('send/email/sms/to/users', [AdminController::class, 'sendEmailSmsToUsers'])->name('admin.sendEmailSmsToUsers');
     Route::get('new/contact/list', [AdminController::class, 'newContact'])->name('admin.newContact');
-    Route::post('select/profile/users', [AdminController::class, 'selectProfileUsers'])->name('admin.selectProfileUsers');
     Route::any('send/profile/to/given/email/post', [AdminController::class, 'sendProfileToGivenEmailPost'])->name('admin.sendProfileToGivenEmailPost');
     Route::get('send/profile/to/given/email', [AdminController::class, 'sendProfileToGivenEmail'])->name('admin.sendProfileToGivenEmail');
     Route::post('quick/sms/draft/send/post/{bulk}', [AdminController::class, 'quickSmsDraftSendPost'])->name('admin.quickSmsDraftSendPost');
     Route::get('send/cv/to/given/email', [AdminController::class, 'sendCvToGivenEmail'])->name('admin.sendCvToGivenEmail');
-    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::post('select/cv/users', [AdminController::class, 'selectCvUsers'])->name('admin.selectCvUsers');
     Route::any('send/cv/to/given/email/post', [AdminController::class, 'sendCvToGivenEmailPost'])->name('admin.sendCvToGivenEmailPost');
-    Route::get('users/group/{type}', [AdminController::class, 'usersGroup'])->name('admin.usersGroup');
     Route::get('pendingProfiles', [AdminController::class, 'pendingProfiles'])->name('pendingProfiles');
 
     Route::get('quick/sms', [AdminController::class, 'quickSms'])->name('admin.quickSms');
@@ -263,8 +256,6 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
     Route::post('membership/package/update/{package}', [AdminController::class, 'membershipPackageUpdate'])->name('admin.membershipPackageUpdate');
     Route::get('user/list', [AdminController::class, 'users'])->name('admin.userlist');
 
-    Route::get('new/user', [AdminController::class, 'newUser'])->name('admin.newUser');
-    Route::post('new/user/post', [AdminController::class, 'newUserPost'])->name('admin.newUserPost');
     Route::post('upload/new/cv/{user}', [AdminController::class, 'uploadNewCv'])->name('admin.uploadNewCv');
 
     Route::get('user/cv/checked/{user}', [AdminController::class, 'userCvChecked'])->name('admin.userCvChecked');
@@ -274,11 +265,28 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
     Route::post('admin.sendsms', [AdminController::class, 'admin_sendsms'])->name('admin.sendsms');
 
     // Route::resource('users', UserController::class);
+
+    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/users/all', [AdminController::class, 'usersAll'])->name('admin.usersAll');
     Route::get('user/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
     Route::get('user/edit/profile/{id}', [UserController::class, 'editprofile'])->name('users.editprofile');
     Route::get('user/edit', [UserController::class, 'edit'])->name('users.index');
     Route::put('user/update/{id}', [UserController::class, 'update'])->name('admin.userupdate');
+
+    Route::get('logs/{user}', [AdminController::class, 'logs'])->name('admin.logs');
+    Route::post('logs/post/{user}', [AdminController::class, 'logPost'])->name('admin.logPost');
+    Route::get('new/user', [AdminController::class, 'newUser'])->name('admin.newUser');
+    Route::post('new/user/post', [AdminController::class, 'newUserPost'])->name('admin.newUserPost');
+    Route::get('users/group/{type}', [AdminController::class, 'usersGroup'])->name('admin.usersGroup');
+    Route::get('/user/search/ajax', [AdminController::class, 'userSearchAjax'])->name('admin.userSearchAjax');
+    Route::post('select/profile/users', [AdminController::class, 'selectProfileUsers'])->name('admin.selectProfileUsers');
+    Route::post('select/cv/users', [AdminController::class, 'selectCvUsers'])->name('admin.selectCvUsers');
 });
+// editor
+// Route::group(['middleware' => ['auth', 'checkEditor'], 'prefix' => 'admin'], function () {
+
+// });
+
 Route::group(['middleware' => ['auth'],  'prefix' => 'user'], function () {
     Route::get('/dashboard', [WelcomeController::class, 'welcome'])->name('welcome');
     Route::get('/all-search', [UserController::class, 'allsearch'])->name('allsearch');

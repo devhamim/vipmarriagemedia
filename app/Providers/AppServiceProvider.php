@@ -10,6 +10,7 @@ use App\Models\Contact;
 use App\Models\UserSettingField;
 use Auth;
 use View;
+use Illuminate\Pagination\Paginator;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -32,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
 
         //
         view()->share('websiteParameter', Cache::remember('websiteParameter', 518400, function () {

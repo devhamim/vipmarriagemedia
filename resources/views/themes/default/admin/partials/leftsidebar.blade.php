@@ -56,243 +56,249 @@
 
                 </ul>
               </li>
+            @can('website')
+                <li class="nav-item {{ session('lsbm') == 'website' ? ' menu-open ' : '' }}">
+                    <a href="#" class="nav-link {{ session('lsbm') == 'website' ? ' active ' : '' }}">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                        Website
+                        <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="{{route('admin.websiteParameters')}}"
+                            class="nav-link {{ session('lsbsm') == 'webParameter' ? ' active ' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Website Parameters</p>
+                        </a>
+                        </li>
 
-        <li class="nav-item {{ session('lsbm') == 'website' ? ' menu-open ' : '' }}">
-          <a href="#" class="nav-link {{ session('lsbm') == 'website' ? ' active ' : '' }}">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-              Website
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{route('admin.websiteParameters')}}"
-                class="nav-link {{ session('lsbsm') == 'webParameter' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Website Parameters</p>
-              </a>
-            </li>
+                    </ul>
+                </li>
+            @endcan
+            @can('users-roles')
+                <li class="nav-item {{ session('lsbm') == 'userP' ? ' menu-open ' : '' }}">
+                <a href="#" class="nav-link {{ session('lsbm') == 'userP' ? ' active ' : '' }}">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                    Users Roles
+                    <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="{{route('admin.userlist')}}"
+                        class="nav-link {{ session('lsbsm') == 'users' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Users</p>
+                    </a>
+                    </li>
 
-          </ul>
-        </li>
+                </ul>
+                </li>
+            @endcan
+            @can('role-permissions')
+                <li class="nav-item {{ session('lsbm') == 'rolePermission' ? ' menu-open ' : '' }}">
+                    <a href="#" class="nav-link {{ session('lsbm') == 'rolePermission' ? ' active ' : '' }}">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        Role & Permissions
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('roles.index') }}"
+                        class="nav-link {{ session('lsbsm') == 'allRole' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>All Roles</p>
+                        </a>
+                    </li>
+                    @can('role-create')
+                    <li class="nav-item">
+                        <a href="{{ route('roles.create') }}"
+                        class="nav-link {{ session('lsbsm') == 'newRole' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Role</p>
+                        </a>
+                    </li>
+                    @endcan
 
-        <li class="nav-item {{ session('lsbm') == 'userP' ? ' menu-open ' : '' }}">
-          <a href="#" class="nav-link {{ session('lsbm') == 'userP' ? ' active ' : '' }}">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-              Users Roles
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{route('admin.userlist')}}"
-                class="nav-link {{ session('lsbsm') == 'users' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Users</p>
-              </a>
-            </li>
 
-          </ul>
-        </li>
-        <li class="nav-item {{ session('lsbm') == 'rolePermission' ? ' menu-open ' : '' }}">
-            <a href="#" class="nav-link {{ session('lsbm') == 'rolePermission' ? ' active ' : '' }}">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Role & Permissions
+                    <li class="nav-item">
+                        <a href="{{ route('permissions.index') }}"
+                        class="nav-link {{ session('lsbsm') == 'allPermission' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>All Permissions</p>
+                        </a>
+                    </li>
+
+                    <!-- <li class="nav-item">
+                        <a href="{{ route('permissions.create') }}"
+                        class="nav-link {{ session('lsbsm') == 'newPermission' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Permissions</p>
+                        </a>
+                    </li> -->
+
+                    </ul>
+                </li>
+            @endcan
+
+        @can('pages')
+            <li class="nav-item {{ session('lsbm') == 'pages' ? ' menu-open ' : '' }}">
+            <a href="#" class="nav-link {{ session('lsbm') == 'pages' ? ' active ' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                Pages
                 <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('roles.index') }}"
-                  class="nav-link {{ session('lsbsm') == 'allRole' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Roles</p>
-                </a>
-              </li>
-              @can('role-create')
-              <li class="nav-item">
-                <a href="{{ route('roles.create') }}"
-                  class="nav-link {{ session('lsbsm') == 'newRole' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New Role</p>
-                </a>
-              </li>
-              @endcan
-
-
-              <li class="nav-item">
-                <a href="{{ route('permissions.index') }}"
-                  class="nav-link {{ session('lsbsm') == 'allPermission' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Permissions</p>
-                </a>
-              </li>
-
-               <!-- <li class="nav-item">
-                <a href="{{ route('permissions.create') }}"
-                  class="nav-link {{ session('lsbsm') == 'newPermission' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New Permissions</p>
-                </a>
-              </li> -->
-
-            </ul>
-          </li>
-
-
-        <li class="nav-item {{ session('lsbm') == 'pages' ? ' menu-open ' : '' }}">
-          <a href="#" class="nav-link {{ session('lsbm') == 'pages' ? ' active ' : '' }}">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-              Pages
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-
-            <li class="nav-item">
-              <a href="{{route('admin.pagesAll')}}"
-                class="nav-link {{ session('lsbsm') == 'pagesAll' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Page All</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="{{route('admin.userSettingList')}}"
-                class="nav-link {{ session('lsbsm') == 'userSetting' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>User Setting Fields</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('admin.userSettingFieldValue')}}"
-                class="nav-link  {{ session('lsbsm') == 'userSettingFieldValue' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Setting Field Value</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-
-
-
-        <li class="nav-item {{ session('lsbm') == 'package' ? ' menu-open ' : '' }}">
-          <a href="#" class="nav-link {{ session('lsbm') == 'package' ? ' active ' : '' }}">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-              Membership Package
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{ route('admin.membershipPackageAddNew') }}"
-                class="nav-link {{ session('lsbsm') == 'membershipPackageAddNew' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>New</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ route('admin.allMembershipPackages') }}"
-                class="nav-link {{ session('lsbsm') == 'allMembershipPackages' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>List</p>
-              </a>
-            </li>
-
-          </ul>
-        </li>
-
-
-        <li class="nav-item {{ session('lsbm') == 'payments' ? ' menu-open ' : '' }}">
-          <a href="#" class="nav-link {{ session('lsbm') == 'payments' ? ' active ' : '' }}">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-              Payments
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-
-            <li class="nav-item {{ session('lsbsm') == 'paymentAddNew' ? 'active' : '' }}">
-                <a
-                    class="nav-link" href="{{ route('admin.paymentAddNew') }}">
-                    <i class="far fa-circle nav-icon"></i>
-                     Add New Payment
-                </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="{{ route('admin.allPendingPayments') }}"
-                class="nav-link {{ session('lsbsm') == 'allPendingPayments' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>All Pending Payments</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ route('admin.allPaidPayments') }}"
-                  class="nav-link {{ session('lsbsm') == 'allPaidPayments' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Paid Payments</p>
-                </a>
-            </li>
-
-              <li class="nav-item {{ session('lsbsm') == 'allFreePayments' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.allFreePayments') }}">
-                    <i class="far fa-circle nav-icon"></i>
-                    All Free Payments
-                </a>
-              </li>
-
-          </ul>
-        </li>
-
-
-        <li class="nav-item {{ session('lsbm') == 'proposal' ? ' menu-open ' : '' }}">
-            <a href="#" class="nav-link {{ session('lsbm') == 'proposal' ? ' active ' : '' }}">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Proposals
-                <i class="fas fa-angle-left right"></i>
-              </p>
+                </p>
             </a>
             <ul class="nav nav-treeview">
 
-              <li class="nav-item">
-                <a href="{{route('admin.proposalsGroup', 'all_proposals')}}"
-                  class="nav-link {{ session('lsbsm') == 'all_proposals' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Proposals</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="{{route('admin.proposalsGroup', 'pending_proposals')}}"
-                    class="nav-link {{ session('lsbsm') == 'pending_proposals' ? ' active ' : '' }}">
+                <li class="nav-item">
+                <a href="{{route('admin.pagesAll')}}"
+                    class="nav-link {{ session('lsbsm') == 'pagesAll' ? ' active ' : '' }}">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Panding Proposals</p>
-                  </a>
+                    <p>Page All</p>
+                </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.proposalsGroup', 'accepted_proposals')}}"
-                      class="nav-link {{ session('lsbsm') == 'accepted_proposals' ? ' active ' : '' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Accepted Proposals</p>
-                    </a>
-                  </li>
+                <a href="{{route('admin.userSettingList')}}"
+                    class="nav-link {{ session('lsbsm') == 'userSetting' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>User Setting Fields</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a href="{{route('admin.userSettingFieldValue')}}"
+                    class="nav-link  {{ session('lsbsm') == 'userSettingFieldValue' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Setting Field Value</p>
+                </a>
+                </li>
+            </ul>
+            </li>
+        @endcan
+
+        @can('membership-package')
+            <li class="nav-item {{ session('lsbm') == 'package' ? ' menu-open ' : '' }}">
+            <a href="#" class="nav-link {{ session('lsbm') == 'package' ? ' active ' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                Membership Package
+                <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                <a href="{{ route('admin.membershipPackageAddNew') }}"
+                    class="nav-link {{ session('lsbsm') == 'membershipPackageAddNew' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a href="{{ route('admin.allMembershipPackages') }}"
+                    class="nav-link {{ session('lsbsm') == 'allMembershipPackages' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>List</p>
+                </a>
+                </li>
 
             </ul>
-          </li>
+            </li>
+        @endcan
+
+        @can('payments')
+            <li class="nav-item {{ session('lsbm') == 'payments' ? ' menu-open ' : '' }}">
+            <a href="#" class="nav-link {{ session('lsbm') == 'payments' ? ' active ' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                Payments
+                <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+                <li class="nav-item {{ session('lsbsm') == 'paymentAddNew' ? 'active' : '' }}">
+                    <a
+                        class="nav-link" href="{{ route('admin.paymentAddNew') }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        Add New Payment
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                <a href="{{ route('admin.allPendingPayments') }}"
+                    class="nav-link {{ session('lsbsm') == 'allPendingPayments' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Pending Payments</p>
+                </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.allPaidPayments') }}"
+                    class="nav-link {{ session('lsbsm') == 'allPaidPayments' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Paid Payments</p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ session('lsbsm') == 'allFreePayments' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.allFreePayments') }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        All Free Payments
+                    </a>
+                </li>
+
+            </ul>
+            </li>
+        @endcan
+
+        @can('proposals')
+            <li class="nav-item {{ session('lsbm') == 'proposal' ? ' menu-open ' : '' }}">
+                <a href="#" class="nav-link {{ session('lsbm') == 'proposal' ? ' active ' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                    Proposals
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+
+                <li class="nav-item">
+                    <a href="{{route('admin.proposalsGroup', 'all_proposals')}}"
+                    class="nav-link {{ session('lsbsm') == 'all_proposals' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Proposals</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.proposalsGroup', 'pending_proposals')}}"
+                        class="nav-link {{ session('lsbsm') == 'pending_proposals' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Panding Proposals</p>
+                    </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('admin.proposalsGroup', 'accepted_proposals')}}"
+                        class="nav-link {{ session('lsbsm') == 'accepted_proposals' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Accepted Proposals</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+        @endcan
 
 
-
-
+        @can('report-complains')
           <li class="nav-item {{ session('lsbm') == 'report' ? ' menu-open ' : '' }}">
             <a href="#" class="nav-link {{ session('lsbm') == 'report' ? ' active ' : '' }}">
               <i class="nav-icon fas fa-book"></i>
@@ -313,156 +319,159 @@
             </ul>
 
           </li>
+        @endcan
 
 
+        @can('contacted-messages')
+            <li class="nav-item {{ session('lsbm') == 'contact' ? ' menu-open ' : '' }}">
+            <a href="#" class="nav-link {{ session('lsbm') == 'contact' ? ' active ' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                Contacted Messages
+                <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
 
-
-        <li class="nav-item {{ session('lsbm') == 'contact' ? ' menu-open ' : '' }}">
-          <a href="#" class="nav-link {{ session('lsbm') == 'contact' ? ' active ' : '' }}">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-              Contacted Messages
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-
-            <li class="nav-item">
-              <a href="{{ route('admin.allContact') }}"
-                class="nav-link {{ session('lsbsm') == 'allContact' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>All</p>
-              </a>
+                <li class="nav-item">
+                <a href="{{ route('admin.allContact') }}"
+                    class="nav-link {{ session('lsbsm') == 'allContact' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All</p>
+                </a>
+                </li>
+                {{-- <li class="nav-item">
+                <a href="{{ route('admin.newContact') }}"
+                    class="nav-link {{ session('lsbsm') == 'newContact' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Messages <small>({{ $countUnseen }})</small></p>
+                </a>
+                </li> --}}
+            </ul>
             </li>
-            {{-- <li class="nav-item">
-              <a href="{{ route('admin.newContact') }}"
-                class="nav-link {{ session('lsbsm') == 'newContact' ? ' active ' : '' }}">
-                <i class="far fa-circle nav-icon"></i>
-                <p>New Messages <small>({{ $countUnseen }})</small></p>
-              </a>
-            </li> --}}
-          </ul>
-        </li>
+        @endcan
 
-        <li class="nav-item {{ session('lsbm') == 'user' ? ' menu-open ' : '' }}">
-            <a href="#" class="nav-link {{ session('lsbm') == 'user' ? ' active ' : '' }}">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Users
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-                @can('user-create')
+        @can('users')
+            <li class="nav-item {{ (session('lsbm') == 'user' || session('lsbm') == 'users') ? ' menu-open ' : '' }}">
+                <a href="#" class="nav-link {{ session('lsbm') == 'user' ? ' active ' : '' }}">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        Users
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    @can('user-create')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.newUser') }}"
+                            class="nav-link {{ session('lsbsm') == 'newUser' ? ' active ' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>New User</p>
+                        </a>
+                    </li>
+                    @endcan
+                    <li class="nav-item">
+                        <a href="{{ route('admin.usersAll') }}"
+                            class="nav-link {{ session('lsbsm') == 'allUser' ? ' active ' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>All Users</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.usersGroup', 'active_users')}}"
+                            class="nav-link {{ session('lsbsm') == 'active_users' ? ' active ' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Active Users</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.usersGroup', 'inactive_users')}}"
+                            class="nav-link {{ session('lsbsm') == 'inactive_users' ? ' active ' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Deactive Users</p>
+                        </a>
+                    </li>
+                    {{-- <li class="nav-item">
+                        <a href="{{ route('admin.aboutPostAddNew') }}"
+                            class="nav-link {{ session('lsbsm') == 'blogAddNew' ? ' active ' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>New Blog</p>
+                        </a>
+                    </li> --}}
+                </ul>
+            </li>
+        @endcan
+
+        @can('blogs')
+            <li class="nav-item {{ session('lsbm') == 'blog' ? ' menu-open ' : '' }}">
+                <a href="#" class="nav-link {{ session('lsbm') == 'blog' ? ' active ' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                    Blogs
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.categoryAddNew') }}"
+                        class="nav-link {{ session('lsbsm') == 'categoryAddNew' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Blog Category</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.categoriesAll') }}"
+                        class="nav-link {{ session('lsbsm') == 'categoriesAll' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>All Blog Category</p>
+                        </a>
+                    </li>
+
+                    {{-- <li class="nav-item">
+                        <a href="{{ route('admin.divisionsAll') }}"
+                        class="nav-link {{ session('lsbsm') == 'divisionsAll' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>All Divission</p>
+                        </a>
+                    </li> --}}
+
+                    {{-- <li class="nav-item">
+                        <a href="{{ route('admin.districtsAll') }}"
+                        class="nav-link {{ session('lsbsm') == 'districtsAll' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>All District</p>
+                        </a>
+                    </li> --}}
+
+                    {{-- <li class="nav-item">
+                        <a href="{{ route('admin.thanaAll') }}"
+                        class="nav-link {{ session('lsbsm') == 'thanaAll' ? ' active ' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>All Thana/Location</p>
+                        </a>
+                    </li> --}}
+
                 <li class="nav-item">
-                    <a href="{{ route('admin.newUser') }}"
-                      class="nav-link {{ session('lsbsm') == 'newUser' ? ' active ' : '' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>New User</p>
+                    <a href="{{ route('admin.postsAll') }}"
+                    class="nav-link {{ session('lsbsm') == 'allPost' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Blogs</p>
                     </a>
-                  </li>
+                </li>
+                @can('blog-create')
+                <li class="nav-item">
+                    <a href="{{ route('admin.aboutPostAddNew2') }}"
+                    class="nav-link {{ session('lsbsm') == 'blogAddNew' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Blog</p>
+                    </a>
+                </li>
                 @endcan
-              <li class="nav-item">
-                <a href="{{ route('admin.usersAll') }}"
-                  class="nav-link {{ session('lsbsm') == 'allUser' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Users</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('admin.usersGroup', 'active_users')}}"
-                  class="nav-link {{ session('lsbsm') == 'active_users' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Users</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('admin.usersGroup', 'inactive_users')}}"
-                  class="nav-link {{ session('lsbsm') == 'inactive_users' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Deactive Users</p>
-                </a>
-              </li>
-              {{-- <li class="nav-item">
-                <a href="{{ route('admin.aboutPostAddNew') }}"
-                  class="nav-link {{ session('lsbsm') == 'blogAddNew' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New Blog</p>
-                </a>
-              </li> --}}
-            </ul>
-          </li>
-
-
-        <li class="nav-item {{ session('lsbm') == 'blog' ? ' menu-open ' : '' }}">
-            <a href="#" class="nav-link {{ session('lsbm') == 'blog' ? ' active ' : '' }}">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Blogs
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-                <li class="nav-item">
-                    <a href="{{ route('admin.categoryAddNew') }}"
-                      class="nav-link {{ session('lsbsm') == 'categoryAddNew' ? ' active ' : '' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>New Blog Category</p>
-                    </a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a href="{{ route('admin.categoriesAll') }}"
-                      class="nav-link {{ session('lsbsm') == 'categoriesAll' ? ' active ' : '' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>All Blog Category</p>
-                    </a>
-                  </li>
-
-                  {{-- <li class="nav-item">
-                    <a href="{{ route('admin.divisionsAll') }}"
-                      class="nav-link {{ session('lsbsm') == 'divisionsAll' ? ' active ' : '' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>All Divission</p>
-                    </a>
-                  </li> --}}
-
-                  {{-- <li class="nav-item">
-                    <a href="{{ route('admin.districtsAll') }}"
-                      class="nav-link {{ session('lsbsm') == 'districtsAll' ? ' active ' : '' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>All District</p>
-                    </a>
-                  </li> --}}
-
-                  {{-- <li class="nav-item">
-                    <a href="{{ route('admin.thanaAll') }}"
-                      class="nav-link {{ session('lsbsm') == 'thanaAll' ? ' active ' : '' }}">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>All Thana/Location</p>
-                    </a>
-                  </li> --}}
-
-              <li class="nav-item">
-                <a href="{{ route('admin.postsAll') }}"
-                  class="nav-link {{ session('lsbsm') == 'allPost' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Blogs</p>
-                </a>
-              </li>
-              @can('blog-create')
-              <li class="nav-item">
-                <a href="{{ route('admin.aboutPostAddNew2') }}"
-                  class="nav-link {{ session('lsbsm') == 'blogAddNew' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New Blog</p>
-                </a>
-              </li>
-              @endcan
-            </ul>
-          </li>
-
+                </ul>
+            </li>
+        @endcan
 
 
 
@@ -532,62 +541,65 @@
               </li> -->
             </ul>
           </li> --}}
-
-          <li class="nav-item {{ session('lsbm') == 'story' ? ' menu-open ' : '' }}">
-            <a href="#" class="nav-link {{ session('lsbm') == 'story' ? ' active ' : '' }}">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Story
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-              <li class="nav-item">
-                <a href="{{ route('admin.allStories') }}"
-                  class="nav-link {{ session('lsbsm') == 'allStory' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All</p>
+          @can('story')
+            <li class="nav-item {{ session('lsbm') == 'story' ? ' menu-open ' : '' }}">
+                <a href="#" class="nav-link {{ session('lsbm') == 'story' ? ' active ' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                    Story
+                    <i class="fas fa-angle-left right"></i>
+                </p>
                 </a>
-              </li>
-              @can('stories-create')
-              <li class="nav-item">
-                <a href="{{ route('admin.newStory') }}"
-                  class="nav-link {{ session('lsbsm') == 'newStory' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>New Story</p>
-                </a>
-              </li>
-              @endcan
-            </ul>
-          </li>
+                <ul class="nav nav-treeview">
 
-          <li class="nav-item {{ session('lsbm') == 'mobileAndEmail' ? ' menu-open ' : '' }}">
-            <a href="#" class="nav-link {{ session('lsbm') == 'mobileAndEmail' ? ' active ' : '' }}">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Mobile & Email Numbers
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('admin.allStories') }}"
+                    class="nav-link {{ session('lsbsm') == 'allStory' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All</p>
+                    </a>
+                </li>
+                @can('stories-create')
+                <li class="nav-item">
+                    <a href="{{ route('admin.newStory') }}"
+                    class="nav-link {{ session('lsbsm') == 'newStory' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Story</p>
+                    </a>
+                </li>
+                @endcan
+                </ul>
+            </li>
+          @endcan
 
-              <li class="nav-item">
-                <a href="{{route('admin.mobileNumbersAll')}}"
-                  class="nav-link {{ session('lsbsm') == 'mobileNumbersAll' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Mobile Numbers</p>
+          @can('mobile-email-numbers')
+            <li class="nav-item {{ session('lsbm') == 'mobileAndEmail' ? ' menu-open ' : '' }}">
+                <a href="#" class="nav-link {{ session('lsbm') == 'mobileAndEmail' ? ' active ' : '' }}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                    Mobile & Email Numbers
+                    <i class="fas fa-angle-left right"></i>
+                </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('admin.emailNumbersAll')}}"
-                  class="nav-link {{ session('lsbsm') == 'emailNumbersAll' ? ' active ' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Email Numbers</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+                <ul class="nav nav-treeview">
+
+                <li class="nav-item">
+                    <a href="{{route('admin.mobileNumbersAll')}}"
+                    class="nav-link {{ session('lsbsm') == 'mobileNumbersAll' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Mobile Numbers</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.emailNumbersAll')}}"
+                    class="nav-link {{ session('lsbsm') == 'emailNumbersAll' ? ' active ' : '' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>All Email Numbers</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
+          @endcan
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

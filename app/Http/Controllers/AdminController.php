@@ -76,7 +76,7 @@ class AdminController extends Controller
         request()->session()->put(['lsbm' => 'dashboard', 'lsbsm' => 'dashboard']);
 
 
-        if (!Auth::user()->hasRole('Admin')) {
+        if (!Auth::user()->hasRole('Admin') && !Auth::user()->hasRole('Editor') && !Auth::user()->hasRole('Moderator')) {
             // abort(401);
             return redirect('/');
         }
@@ -688,19 +688,6 @@ class AdminController extends Controller
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         Cache::forget('mPackage1');
         Cache::forget('mPackage2');
 
@@ -980,6 +967,10 @@ class AdminController extends Controller
     {
         $request->session()->forget(['lsbm', 'lsbsm']);
         $request->session()->put(['lsbm' => 'payments', 'lsbsm' => 'allPendingPayments']);
+        if (!Auth::user()->hasRole('Admin')) {
+            abort(401);
+            // return redirect('/');
+        }
         $payments = UserPayment::where('status', 'pending')->latest()->paginate(100);
         $packages = MembershipPackage::all();
         return view('admin.allPendingPayments', [
@@ -990,8 +981,15 @@ class AdminController extends Controller
 
     public function allPaidPayments(Request $request)
     {
+
         $request->session()->forget(['lsbm', 'lsbsm']);
         $request->session()->put(['lsbm' => 'payments', 'lsbsm' => 'allPaidPayments']);
+
+        if (!Auth::user()->hasRole('Admin')) {
+            abort(401);
+            // return redirect('/');
+        }
+
         $payments = UserPayment::where('status', 'paid')->where('paid_amount', '<>', 0)->latest()->paginate(100);
         return view('admin.paidPayments', [
             'payments' => $payments,
@@ -2873,23 +2871,6 @@ class AdminController extends Controller
                 // return $e->getResponse()->getStatusCode();
                 return back();
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         $request = request();
         $request->session()->forget(['lsbm','lsbsm']);

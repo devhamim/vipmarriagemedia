@@ -75,7 +75,7 @@ html.sticky-header-active #header .header-body {
                                             </a>
 
                                         </li>
-                                         
+
                                         <li class="dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="{{ url("https://www.vipmarriagemedia.com/blog/") }}">
                                                 BLOG
@@ -83,8 +83,8 @@ html.sticky-header-active #header .header-body {
 
                                         </li>
                                         @endif
-                                        
-                                     
+
+
                                         @Auth
                                         <li class="dropdown dropdown-mega">
                                             <a class="dropdown-item dropdown-toggle"
@@ -110,13 +110,13 @@ html.sticky-header-active #header .header-body {
 
                                                 </li>
 
-                                                @hasrole('Admin')
+                                                @can('have-role')
                                                 <li class="dropdown-submenu">
                                                     <a class="dropdown-item" href="{{route('dashboard')}}">Admin
                                                         Dashboard</a>
 
                                                 </li>
-                                                @endif
+                                                @endcan
 
                                                 <li class="dropdown-submenu">
                                                     <a class="dropdown-item text-danger" href="{{

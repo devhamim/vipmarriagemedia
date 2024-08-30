@@ -148,50 +148,51 @@
                                 <div class="password-grid">
                                     <div>
                                         <div class="card">
-                                            <div class="card-body">
-                                                <div class="card px-3 py-3">
-                                                    Send temperory password
-                                                </div>
-                                                <form method="post"
-                                                    action="{{ route('admin.newTempPassSendPost', $user) }}">
-                                                    {{ csrf_field() }}
-                                                    <div
-                                                        class="form-group form-group-lg  {{ $errors->has('new_password') ? ' has-error' : '' }}">
-
-                                                        {{-- @if (Auth::user()->email == 'masudbdm@gmail.com') --}}
-
-
-                                                        <label for="new_password">New Password:</label>
-
-
-                                                        <input autocomplete="off" type="text"
-                                                            placeholder="New Password for {{ $user->username }}"
-                                                            name="new_password"
-                                                            value="{{ old('new_password') ?: $user->password_temp }}"
-                                                            class="form-control" id="new_password">
-
-                                                        <span class="help-block">Previous Temp Pass: <b
-                                                                class="w3-text-purple">{{ $user->password_temp }}
-                                                            </b></span>
-
-
-
-                                                        @if ($errors->has('new_password'))
-                                                            <span class="help-block">
-                                                                <strong>{{ $errors->first('new_password') }}</strong>
-                                                            </span>
-                                                        @endif
+                                            @can ('pass-temp')
+                                                <div class="card-body">
+                                                    <div class="card px-3 py-3">
+                                                        Send temperory password
                                                     </div>
+                                                    <form method="post"
+                                                        action="{{ route('admin.newTempPassSendPost', $user) }}">
+                                                        {{ csrf_field() }}
+                                                        <div
+                                                            class="form-group form-group-lg  {{ $errors->has('new_password') ? ' has-error' : '' }}">
+
+                                                            {{-- @if (Auth::user()->email == 'masudbdm@gmail.com') --}}
+
+
+                                                            <label for="new_password">New Password:</label>
+
+
+                                                            <input autocomplete="off" type="text"
+                                                                placeholder="New Password for {{ $user->username }}"
+                                                                name="new_password"
+                                                                value="{{ old('new_password') ?: $user->password_temp }}"
+                                                                class="form-control" id="new_password">
+
+                                                            <span class="help-block">Previous Temp Pass: <b
+                                                                    class="w3-text-purple">{{ $user->password_temp }}
+                                                                </b></span>
 
 
 
-                                                    {{-- <button type="submit" class="w3-btn w3-round w3-blue">Click & Send New
-                                                        Password</button> --}}
-                                                </form>
+                                                            @if ($errors->has('new_password'))
+                                                                <span class="help-block">
+                                                                    <strong>{{ $errors->first('new_password') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </div>
 
-                                            </div>
+
+
+                                                        {{-- <button type="submit" class="w3-btn w3-round w3-blue">Click & Send New
+                                                            Password</button> --}}
+                                                    </form>
+
+                                                </div>
+                                            @endcan
                                         </div>
-
                                     </div>
                                     <div>
                                         <div class="card">
