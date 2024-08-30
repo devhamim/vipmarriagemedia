@@ -614,7 +614,7 @@
                         <a href="{{ route('success.stories_details', $post->id) }}" style="text-decoration: none">
                             <div class="blog-img"><img src="{{ asset('storage/stories') }}/{{ $post->image_name }}" alt="blog image"></div>
                             <div class="blog-content">
-                                <h3 class="box-title"><a href="{{ route('success.stories_details', $post->id) }}">{{ Str::limit($post->title, 30, '...') }}</a></h3>
+                                <h3 class="box-title"><a href="{{ route('success.stories_details', $post->id) }}">{{ Str::limit($post->title, 25, '...') }}</a></h3>
                                 <p class="blog-text">{{ Str::limit($post->description, 70, '...') }}</p><a href="{{ route('success.stories_details', $post->id) }}" class="link-btn style3">Read More<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
