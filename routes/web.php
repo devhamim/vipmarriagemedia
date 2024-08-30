@@ -128,9 +128,9 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 //admin
-// Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], function () {
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+// Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
     Route::get('payment/add/new', [AdminController::class, 'paymentAddNew'])->name('admin.paymentAddNew');
     Route::post('admin/User/Email/Match', [AdminController::class, 'adminUserEmailMatch'])->name('adminUserEmailMatch');
