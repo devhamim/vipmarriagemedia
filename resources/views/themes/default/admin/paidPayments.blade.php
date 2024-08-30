@@ -62,7 +62,14 @@
                         <dt>Admin Comment</dt>
                         <dd>{{$payment->admin_comment}}</dd>
                         <dt>Added By</dt>
-                        <dd>{{$payment->addedBy->email}}</dd>
+                        {{-- <dd>{{$payment->addedBy->email}}</dd> --}}
+                        <dd>
+                            @if($payment->addedBy)
+                                {{$payment->addedBy->email}} ({{$payment->addedBy->email}})
+                            @else
+                                <span class="text-muted">User not found</span>
+                            @endif
+                        </dd>
                         <dt>Payment Update Time</dt>
                         <dd>{{$payment->created_at}}</dd>
                    </dl>
