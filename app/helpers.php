@@ -160,10 +160,10 @@ function en2bnNumber($number)
     return $en_number;
 }
 
-// function smsBalanceUrl()
-// {
-//     return "http://sms.multisoftbd.com/miscapi/R60008815db425b302a278.75780999/getBalance";
-// }
+function smsBalanceUrl()
+{
+    return "http://sms.multisoftbd.com/miscapi/R60008815db425b302a278.75780999/getBalance";
+}
 
 // function smsMaskingCode()
 // {
@@ -422,7 +422,7 @@ function smsUrl($to, $msg)
     $sender = '01767506668';
 
     return "http://apismpp.ajuratech.com/sendtext?apikey=1b2f1de0baf5d3e9&secretkey=3e9d0e6f&callerID={$sender}&toUser={$to}&messageContent={$msg}";
-    
+
     // return "http://217.172.190.215/sendtext?apikey=1b2f1de0baf5d3e9&secretkey=3e9d0e6f&callerID={$sender}&toUser={$to}&messageContent={$msg}";
 }
 
@@ -440,7 +440,7 @@ function smsUrlMasking($to, $msg)
 
     return "http://apismpp.ajuratech.com/sendtext?apikey=1b2f1de0baf5d3e9&secretkey=3e9d0e6f&callerID={$sender}&toUser={$to}&messageContent={$msg}";
 
-    
+
 
     return "http://217.172.190.215/sendtext?apikey=1b2f1de0baf5d3e9&secretkey=3e9d0e6f&callerID={$sender}&toUser={$to}&messageContent={$msg}";
     // $url = "http://connect.primesoftbd.com/smsapi/masking?api_key={$apiKey}&smsType=text&maskingID={$masking}&mobileNo={$to}&smsContent={$msg}";

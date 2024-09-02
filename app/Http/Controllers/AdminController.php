@@ -2707,43 +2707,36 @@ class AdminController extends Controller
 
 
     public function quickSmsBalanceCheck(Request $request)
-    {
-        $request->session()->forget(['lsbm','lsbsm']);
-        $request->session()->put(['lsbm'=>'sms','lsbsm'=>'quickSmsBalanceCheck']);
+{
+    // Forget and set session values
+    $request->session()->forget(['lsbm', 'lsbsm']);
+    $request->session()->put(['lsbm' => 'sms', 'lsbsm' => 'quickSmsBalanceCheck']);
 
-        $url = smsBalanceUrl();
-        // dd($url);
+    // Call the helper function
+    $url = smsBalanceUrl();
 
+    $client = new \GuzzleHttp\Client();
 
-        $client = new Client();
-             # $response = $client->request('GET', $url);
+    try {
+        $r = $client->request('GET', $url);
 
-             //https://stackoverflow.com/questions/46005027/handling-client-errors-exceptions-on-guzzlehttp
+        // Retrieve the balance from the response body
+        $balance = $r->getBody()->getContents();
 
-        try {
-            // dd(1);
+        return view('admin.sms.quickSmsBalanceCheck', ['balance' => $balance]);
 
-                $r = $client->request('GET', $url);
-                // dd($r);
-
-                $balance = $r->getBody()->getContents();
-
-
-                return view('admin.sms.quickSmsBalanceCheck', ['balance' => $balance]);
-
-                // $r->getBody()->getContents()
-
-
-            } catch (\GuzzleHttp\Exception\ConnectException $e) {
-                // This is will catch all connection timeouts
-                // Handle accordinly
-            } catch (\GuzzleHttp\Exception\ClientException $e) {
-                // This will catch all 400 level errors.
-                // return $e->getResponse()->getStatusCode();
-            }
-
-            return back();
+    } catch (\GuzzleHttp\Exception\ConnectException $e) {
+        // Handle connection timeout, return back with error message
+        return back()->withErrors(['connection_error' => 'Connection timed out. Please try again later.']);
+    } catch (\GuzzleHttp\Exception\ClientException $e) {
+        // Handle 400 level errors, return back with error message
+        return back()->withErrors(['client_error' => 'There was an error processing your request.']);
+    } catch (\Exception $e) {
+        // Handle any other exceptions
+        return back()->withErrors(['unexpected_error' => 'An unexpected error occurred.']);
     }
+}
+
 
 
     public function featureImageDelete(Request $request, Post $post){
