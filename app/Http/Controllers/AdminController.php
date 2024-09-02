@@ -981,7 +981,6 @@ class AdminController extends Controller
 
     public function allPaidPayments(Request $request)
     {
-
         $request->session()->forget(['lsbm', 'lsbsm']);
         $request->session()->put(['lsbm' => 'payments', 'lsbsm' => 'allPaidPayments']);
 
@@ -1192,9 +1191,6 @@ class AdminController extends Controller
             $profile->expired_at = Carbon::now()->addDays($package->package_duration);
         }
         }
-
-
-
 
         $profile->looking_for = $looking_for;
         $profile->gender = $request->gender;

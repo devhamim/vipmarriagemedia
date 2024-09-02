@@ -62,7 +62,6 @@
                         <dt>Admin Comment</dt>
                         <dd>{{$payment->admin_comment}}</dd>
                         <dt>Added By</dt>
-                        {{-- <dd>{{$payment->addedBy->email}}</dd> --}}
                         <dd>
                             @if($payment->addedBy)
                                 {{$payment->addedBy->email}} ({{$payment->addedBy->email}})

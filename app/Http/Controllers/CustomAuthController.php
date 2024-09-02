@@ -45,7 +45,7 @@ public function userLogin(Request $request)
   public function customRegistration(Request $request)
   {
 
-  
+
 
     $request->validate([
       'name' => 'required',
@@ -119,43 +119,41 @@ public function userLogin(Request $request)
 
   public function customLogin(Request $request)
   {
-
-    $request->validate([
-      'email' => 'required',
-      'password' => 'required',
-    ]);
-
-    $credentials = $request->only('email', 'password');
-    if (Auth::attempt($credentials)) {
-
-      $user = auth()->user();
-
-      if($user->active == false)
-      {
-        Session::flush();
-        Auth::logout();
-        return redirect('/');
-
-      }
-
-
-     User::where('id', $user->id)->update([
-          'loggedin_at' => Carbon::now()
+      $request->validate([
+          'email' => 'required|email',
+          'password' => 'required',
       ]);
-// dd($user->name);
-      if (is_null($user->name) || is_null($user->gender)  || is_null($user->religion)) {
-        return redirect('/user/incomplete-profile')
-          ->withSuccess('Signed in');
-      } elseif (!$user->pertnerPreference) {
-        return redirect('/user/pertner-preference')->withSuccess('Signed in');
-      } else {
-        return redirect('/')
-          ->withSuccess('Signed in');
-      }
-    }
 
-    return redirect("/")->withSuccess('Login details are not valid');
+      $credentials = $request->only('email', 'password');
+
+      if (Auth::attempt($credentials)) {
+
+          $user = auth()->user();
+
+          if (!$user->active) {
+              Session::flush();
+              Auth::logout();
+              return redirect('/')->withErrors('Account is inactive.');
+          }
+
+          User::where('id', $user->id)->update([
+              'loggedin_at' => Carbon::now(),
+          ]);
+
+          if (is_null($user->name) || is_null($user->gender) || is_null($user->religion)) {
+              return redirect('/user/incomplete-profile')
+                  ->withSuccess('Signed in');
+          } elseif (!$user->pertnerPreference) {
+              return redirect('/user/pertner-preference')->withSuccess('Signed in');
+          } else {
+              return redirect('/')
+                  ->withSuccess('Signed in');
+          }
+      }
+
+      return redirect("/")->withErrors('Login details are not valid');
   }
+
 
 
   public function signOut()
@@ -212,7 +210,7 @@ public function userLogin(Request $request)
             // dd($districts);
     $thanas = Upazila::orderBy('name')->get();
     // dd($divisions, $districts, $thanas  );
-    
+
     return view('registar.contactInfo', compact('divisions', 'districts', 'thanas','userSettingFields'));
   }
 

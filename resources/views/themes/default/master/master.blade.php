@@ -271,32 +271,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 @csrf
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label
-                                            class="
-                                                    font-weight-bold
-                                                    text-dark text-2
-                                                ">E-mail
-                                            Address</label>
-                                        <input type="text" value="" name="email"
-                                            class="
-                                                    form-control form-control-lg
-                                                "
-                                            required />
+                                        <label class="font-weight-bold text-dark text-2">E-mail Address</label>
+                                        <input type="text" value="" name="email" class="form-control form-control-lg" required />
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label
-                                            class="
-                                                    font-weight-bold
-                                                    text-dark text-2
-                                                ">Password</label>
-                                        <input type="password" value="" name="password"
-                                            class="
-                                                    form-control form-control-lg
-                                                "
-                                            required />
+                                        <label class="font-weight-bold text-dark text-2">Password</label>
+                                        <input type="password" value="" name="password" class="form-control form-control-lg" required />
                                     </div>
                                 </div>
                                 <div class="form-row">
