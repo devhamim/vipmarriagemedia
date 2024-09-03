@@ -2871,8 +2871,6 @@ class AdminController extends Controller
 
     public function quickSmsSend(Request $request)
     {
-
-
          $validation = Validator::make($request->all(),
         [
             "recipients" => "required",
@@ -3849,8 +3847,6 @@ class AdminController extends Controller
     public function newUser(Request $request)
     {
 
-
-
         $request->session()->forget(['lsbm', 'lsbsm']);
         $request->session()->put(['lsbm' => 'user', 'lsbsm' => 'newUser']);
 
@@ -4119,14 +4115,9 @@ class AdminController extends Controller
                 // $image->save(public_path().'/storage/users/pp/'.$randomFileName, 90);
                 $image->save();
 
-
-
-
-
                 $originalWidth = $image->width();
                 $originalHeight = $image->height();
                 $image->destroy();
-
 
             // }
             UserPicture::where('user_id', $user->id)->where('image_type', "profilepic")->where('autoload', true)->update([

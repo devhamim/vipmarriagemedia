@@ -308,9 +308,7 @@ function gender($id = null)
 
 function lookingFor($id = null)
 {
-
     $arr = [
-
         2 => 'Female', // Gender - Female
         1 => 'Male', // Gender - Male
     ];

@@ -133,7 +133,7 @@ public function userLogin(Request $request)
           if (!$user->active) {
               Session::flush();
               Auth::logout();
-              return redirect('/')->withErrors('Account is inactive.');
+              return redirect('/')->with('success','Account is inactive.');
           }
 
           User::where('id', $user->id)->update([
@@ -142,16 +142,17 @@ public function userLogin(Request $request)
 
           if (is_null($user->name) || is_null($user->gender) || is_null($user->religion)) {
               return redirect('/user/incomplete-profile')
-                  ->withSuccess('Signed in');
+                  ->with('success','Signed in');
           } elseif (!$user->pertnerPreference) {
-              return redirect('/user/pertner-preference')->withSuccess('Signed in');
+              return redirect('/user/pertner-preference')->with('success', 'Signed in');
           } else {
               return redirect('/')
-                  ->withSuccess('Signed in');
+                  ->with('success', 'Signed in');
           }
       }
 
-      return redirect("/")->withErrors('Login details are not valid');
+    //   return redirect("/")->withErrors('Login details are not valid');
+      return redirect("/")->with('success', 'Login details are not valid');
   }
 
 

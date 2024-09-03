@@ -57,17 +57,10 @@
                                     $i = 1;
                                 @endphp
 
-
-
                                 <tbody class="user-table-body">
-
-
                                     @include('admin.users.ajax.usersTbody')
 
                                 </tbody>
-
-
-
                             </table>
                             <div class="pagination text-center">
                                 {{ $users->links('pagination::bootstrap-4') }}
@@ -108,7 +101,6 @@
                     e.preventDefault();
                 }
             });
-
 
             /////////////////////////////////////
 
