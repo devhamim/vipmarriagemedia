@@ -578,6 +578,16 @@ class User extends Authenticatable
             }
         }
 
+        return false;
+    }
+
+    public function isExpired()
+    {
+        if ($this->expired_at) {
+            if (date('Y-m-d', strtotime($this->expired_at)) < date('Y-m-d', strtotime(Carbon::now()))) {
+                return true;
+            }
+        }
 
         return false;
     }

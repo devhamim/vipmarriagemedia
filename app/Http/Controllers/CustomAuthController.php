@@ -45,8 +45,6 @@ public function userLogin(Request $request)
   public function customRegistration(Request $request)
   {
 
-
-
     $request->validate([
       'name' => 'required',
       'full_mobile' => 'required',
@@ -127,7 +125,6 @@ public function userLogin(Request $request)
       $credentials = $request->only('email', 'password');
 
       if (Auth::attempt($credentials)) {
-
           $user = auth()->user();
 
           if (!$user->active) {

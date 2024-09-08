@@ -24,20 +24,40 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <form class="pull-right">
-                                <div class="box-tools">
-                                    <div class="input-group input-group-sm" style="width: 280px;">
-                                        <input type="text" name="q" class="form-control input-xs pull-right user-search"
-                                            placeholder="Search By ID, Email,name, mobile"
-                                            data-url="{{ route('admin.userSearchAjax') }}">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form class="pull-right">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm" style="width: 280px;">
+                                                <input type="text" name="q" class="form-control input-xs pull-right user-search"
+                                                    placeholder="Search By ID, Email,name, mobile"
+                                                    data-url="{{ route('admin.userSearchAjax') }}">
 
-                                        <div class="input-group-btn">
-                                            {{-- <button type="button" class="btn btn-warning"><i
-                                                    class="fa fa-search"></i></button> --}}
+                                                <div class="input-group-btn">
+                                                    {{-- <button type="button" class="btn btn-warning"><i
+                                                            class="fa fa-search"></i></button> --}}
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
-                            </form>
+                                <div class="col-lg-6">
+                                    <form class="pull-right" style="text-align: -webkit-right;">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm" style="width: 280px;">
+                                                <input type="text" name="q" class="form-control input-xs pull-right user-search"
+                                                    placeholder="Search By Logs Email"
+                                                    data-url="{{ route('admin.editoruserSearchAjax') }}">
+
+                                                <div class="input-group-btn">
+                                                    {{-- <button type="button" class="btn btn-warning"><i
+                                                            class="fa fa-search"></i></button> --}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                             <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
                         </div>
                         <!-- /.card-header -->

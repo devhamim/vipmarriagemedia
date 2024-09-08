@@ -43,6 +43,9 @@ use Validator;
 use Auth;
 use Mail;
 use PDF;
+use Http;
+// use Log;
+use Illuminate\Pagination\LengthAwarePaginator;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
@@ -267,11 +270,6 @@ class AdminController extends Controller
                     });
                 }
 
-
-
-
-
-
                 ### sms api end here (masking & nonmasking seperate) ###
 
                 $to = bdMobile(env('CONTACT_MOBILE1'));
@@ -296,36 +294,6 @@ class AdminController extends Controller
                     // This will catch all 400 level errors.
                     // return $e->getResponse()->getStatusCode();
                 }
-                ### sms api end here (masking & nonmasking seperate) ###
-
-
-
-
-
-                // ### sms api end here (masking & nonmasking seperate) ###
-
-                //     $masking = smsMaskingCode();
-                //     $to = env('CONTACT_MOBILE1');
-                //     $username = 'info@matchinglifebd.com';
-                //     $pass = '123456';
-                //     $apiKey = smsApiKey();
-                //     $msg = 'Hello Admin, New payment details: Amount: ' . $payment->paid_amount . ' ' . $payment->paid_currency . '. Package ID: ' . $payment->membership_package_id . '. User:'. $user->email;
-
-                //     $url = "http://connect.primesoftbd.com/smsapi/masking?api_key={$apiKey}&smsType=text&maskingID={$masking}&mobileNo={$to}&smsContent={$msg}";
-
-
-                //      $client = new Client();
-                //      //https://stackoverflow.com/questions/46005027/handling-client-errors-exceptions-on-guzzlehttp
-                //     try {
-                //             $r = $client->request('GET', $url);
-                //         } catch (\GuzzleHttp\Exception\ConnectException $e) {
-                //             // This is will catch all connection timeouts
-                //             // Handle accordinly
-                //         } catch (\GuzzleHttp\Exception\ClientException $e) {
-                //             // This will catch all 400 level errors.
-                //             // return $e->getResponse()->getStatusCode();
-                //         }
-                //     ### sms api end here (masking & nonmasking seperate) ###
 
                 return back()->with('success', 'Payment info successfully saved.');
             }
@@ -1122,8 +1090,6 @@ class AdminController extends Controller
             'contacts' => $contacts
         ]);
     }
-
-
 
 
     public function generatePDF()
@@ -2013,6 +1979,7 @@ class AdminController extends Controller
 
     public function userSearchAjax(Request $request)
     {
+
         $users = User::where('email', 'like',"%{$request->q}%")
             ->orWhere('name', 'like', "%{$request->q}%")
             ->orWhere('mobile', 'like' , "%{$request->q}%")
@@ -2022,13 +1989,31 @@ class AdminController extends Controller
             ->get();
 
             // dd($users);
-
         $i = 1;
 
         if ($request->ajax()) {
             return Response()->json(['page' => view('admin.users.ajax.usersTbody', ['users' => $users , 'i' =>$i])->render()]);
         }
     }
+    public function editoruserSearchAjax(Request $request){
+        $editors = User::whereNotNull('editedby_id')->get();
+
+        $users = User::whereHas('editedBy', function ($query) use ($request) {
+            $query->where('email', 'like', "%{$request->q}%");
+        })
+        ->latest()
+        ->take(40)
+        ->get();
+
+        $i = 1;
+
+        if ($request->ajax()) {
+            return Response()->json([
+                'page' => view('admin.users.ajax.usersTbody', ['users' => $users, 'i' => $i])->render()
+            ]);
+        }
+    }
+
 
 
     public function proposalsGroup(Request $request)
@@ -2324,6 +2309,50 @@ class AdminController extends Controller
         ]);
     }
 
+    function subscriptionExpired(Request $request){
+        $request->session()->forget(['lsbm', 'lsbsm']);
+    $request->session()->put(['lsbm' => 'subscriptionExpired', 'lsbsm' => 'subscriptionExpired']);
+    $allUsers = User::latest()->groupBy('mobile')->get()->filter(function($user) {
+        return $user->isExpired();
+    });
+
+    $perPage = 100;
+    $currentPage = LengthAwarePaginator::resolveCurrentPage();
+    $currentPageItems = $allUsers->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+    $paginatedUsers = new LengthAwarePaginator($currentPageItems, $allUsers->count(), $perPage);
+    $paginatedUsers->setPath($request->url());
+
+    return view('admin.sms.subscriptionExpired', ['users' => $paginatedUsers]);
+    }
+
+    // function subscription_expired_sms(Request $request){
+    //         $smsqApiKey = "NviybDx3XwVxKZfoKUnW";
+    //         $smsqSenderId = "8809617620192";
+    //         $smsqMessage = urlencode($request->message);
+
+    //         foreach ($recipients as $number) {
+    //             $smsqMobileNumbers = '+88' . $number;
+    //             $smsqUrl = "http://139.99.39.237/api/smsapi?api_key=$smsqApiKey&type=text&number=$smsqMobileNumbers&senderid=$smsqSenderId&message=$smsqMessage";
+
+    //             $response = Http::get($smsqUrl);
+
+    //             if ($response->successful()) {
+    //                 if (strlen($number) == 13) {
+    //                     $sms = new QuickSmsContact;
+    //                     $sms->quick_sms_contact_bulk_id = $bulk->id;
+    //                     $sms->mobile = $number;
+    //                     $sms->status = 'sent'; //temp, draft, sent
+    //                     $sms->addedby_id = Auth::id();
+    //                     $sms->save();
+    //                 }
+    //                 return back()->with('success', 'Your Quick SMS was successfully sent.');
+    //             } else {
+    //                 Log::error("SMSQ API Request failed. Response: " . $response->status());
+    //                 return back()->withErrors(['sms_error' => 'Failed to send SMS to customer.']);
+    //             }
+    //         }
+    // }
 
     public function userSms(Request $request)
     {
@@ -2801,27 +2830,35 @@ class AdminController extends Controller
 
             $rs = trim($request->recipients);
             $rs = rtrim($rs,',');
-            $rs = explode(",",$rs);
-            // dd($rs);
+            $$recipients = explode(",",$rs);
 
-            foreach($rs as $number)
+            $smsqApiKey = "NviybDx3XwVxKZfoKUnW";
+            $smsqSenderId = "8809617620192";
+            $smsqMessage = urlencode($request->message);
+
+            foreach($recipients as $number)
             {
-                $number = bdMobile($number);
-                // dd($number);
+                $smsqMobileNumbers = '+88' . $number;
+                $smsqUrl = "http://139.99.39.237/api/smsapi?api_key=$smsqApiKey&type=text&number=$smsqMobileNumbers&senderid=$smsqSenderId&message=$smsqMessage";
 
-                // dd(strlen($number));
-                if(strlen($number) == 13)
-                {
-                    $bulk->status = 'draft'; //temp,draft,sent
-                    $bulk->save();
-                    $sms = new QuickSmsContact;
-                    $sms->quick_sms_contact_bulk_id = $bulk->id;
-                    $sms->mobile = $number;
-                    $sms->status = 'draft'; //temp,draft,sent
-                    $sms->addedby_id = Auth::id();
-                    $sms->save();
+                $response = Http::get($smsqUrl);
+
+                if ($response->successful()) {
+                    if(strlen($number) == 13){
+                        $bulk->status = 'draft'; //temp,draft,sent
+                        $bulk->save();
+                        $sms = new QuickSmsContact;
+                        $sms->quick_sms_contact_bulk_id = $bulk->id;
+                        $sms->mobile = $number;
+                        $sms->status = 'draft'; //temp,draft,sent
+                        $sms->addedby_id = Auth::id();
+                        $sms->save();
+                    }
+                    return back()->with('success', 'Your Quick SMS was successfully sent.');
+                } else {
+                    // Log::error("SMSQ API Request failed. Response: " . $response->status());
+                    return back()->withErrors(['sms_error' => 'Failed to send SMS to customer.']);
                 }
-
 
             }
 
@@ -2836,20 +2873,19 @@ class AdminController extends Controller
             return back()->with('success','Your Draft Successfully Saved.');
         }
     }
+
+
     public function quickSms()
     {
         $client = new Client();
         $url="http://smpp.ajuratech.com/portal/sms/smsConfiguration/smsClientBalance.jsp?client=vipmarraigemedia";
+        // $url="http://139.99.39.237/api/getBalanceApi?api_key=NviybDx3XwVxKZfoKUnW";
 
         try{
-            // dd(1);
-
                 $r = $client->request('GET', $url);
-                // dd($r);
 
                 $balance = $r->getBody()->getContents();
                $balanceData=json_decode($balance);
-
 
             } catch (\GuzzleHttp\Exception\ConnectException $e) {
                 // This is will catch all connection timeouts
@@ -2871,109 +2907,106 @@ class AdminController extends Controller
 
     public function quickSmsSend(Request $request)
     {
-         $validation = Validator::make($request->all(),
-        [
+        // Validate the incoming request
+        $validation = Validator::make($request->all(), [
             "recipients" => "required",
-            // "sender_number" => "required|numeric",
             "message" => "required|string",
-            // 'accept'=>'required'
-
-
         ]);
 
-        if($validation->fails())
-        {
+        if ($validation->fails()) {
             return back()
-            ->withErrors($validation)
-            ->withInput()
-            ->with('error', 'Something Went Wrong!');
+                ->withErrors($validation)
+                ->withInput()
+                ->with('error', 'Something Went Wrong!');
         }
 
-        if($request->recipients)
-        {
+        if ($request->recipients) {
             $bulk = new QuickSmsContactBulk;
             $bulk->addedby_id = Auth::id();
             $bulk->sent_from = $request->masking ? $request->sender_number : null;
             $bulk->message = $request->message;
+            $bulk->status = 'draft'; // Default status before sending
+            $bulk->save();
+
             $rs = trim($request->recipients);
-            $rs = rtrim($rs,',');
-            $rs = explode(",",$rs);
-            // dd($rs);
+            $rs = rtrim($rs, ',');
+            $recipients = explode(",", $rs);
 
-            foreach($rs as $number)
-            {
-                $number = bdMobile($number);
+            $smsqApiKey = "NviybDx3XwVxKZfoKUnW";
+            $smsqSenderId = "8809617620192";
+            $smsqMessage = urlencode($request->message);
 
-                if(strlen($number) == 13)
-                {
-                    $bulk->status = 'sent'; //temp,draft,sent
-                    $bulk->save();
+            foreach ($recipients as $number) {
+                $smsqMobileNumbers = '+88' . $number;
+                $smsqUrl = "http://139.99.39.237/api/smsapi?api_key=$smsqApiKey&type=text&number=$smsqMobileNumbers&senderid=$smsqSenderId&message=$smsqMessage";
 
-                    $sms = new QuickSmsContact;
-                    $sms->quick_sms_contact_bulk_id = $bulk->id;
-                    $sms->mobile = $number;
-                    $sms->status = 'sent'; //temp,draft,sent
-                    $sms->addedby_id = Auth::id();
-                    $sms->save();
+                $response = Http::get($smsqUrl);
+
+                if ($response->successful()) {
+                    if (strlen($number) == 13) {
+                        $sms = new QuickSmsContact;
+                        $sms->quick_sms_contact_bulk_id = $bulk->id;
+                        $sms->mobile = $number;
+                        $sms->status = 'sent'; //temp, draft, sent
+                        $sms->addedby_id = Auth::id();
+                        $sms->save();
+                    }
+                    return back()->with('success', 'Your Quick SMS was successfully sent.');
+                } else {
+                    // Log::error("SMSQ API Request failed. Response: " . $response->status());
+                    return back()->withErrors(['sms_error' => 'Failed to send SMS to customer.']);
                 }
             }
 
-
-            // dd($bulk);
-
-            if($request->masking == "on"){
-                if((!$bulk->id) or (!$bulk->contacts->count()))
-                {
-
-                    return back()->with('error', 'Sorry, There is no contacts.');
+            // If masking is on
+            if ($request->masking == "on") {
+                if (!$bulk->id || !$bulk->contacts()->count()) {
+                    return back()->with('error', 'Sorry, There are no contacts.');
                 }
-                $msg = trim($request->message);
-                $msg = urlencode($msg);
 
-                foreach ($rs as $contact) {
-                    $to= $contact;
-
-                    $url = smsUrlMasking($to,$msg);
-
-                    $client = new Client();
+                $msg = urlencode(trim($request->message));
+                foreach ($recipients as $contact) {
+                    $url = smsUrlMasking($contact, $msg);
 
                     try {
-                            $r = $client->request('GET', $url);
-                        } catch (\GuzzleHttp\Exception\ConnectException $e) {
-                        } catch (\GuzzleHttp\Exception\ClientException $e) {
-                        }
+                        $client = new Client();
+                        $r = $client->request('GET', $url);
+                    } catch (\GuzzleHttp\Exception\ConnectException $e) {
+                        Log::error("Failed to connect to the masking SMS API. Contact: $contact");
+                    } catch (\GuzzleHttp\Exception\ClientException $e) {
+                        Log::error("Client error in the masking SMS API. Contact: $contact");
+                    }
+                }
+            } else {
+                // If masking is off
+                if (!$bulk->id || !$bulk->contacts()->count()) {
+                    return back()->with('error', 'Sorry, There are no contacts.');
                 }
 
-            }else{
-
-                if((!$bulk->id) or (!$bulk->contacts->count()))
-                {
-
-                    return back()->with('error', 'Sorry, There is no contacts.');
-                }
-                $msg = trim($request->message);
-                $msg = urlencode($msg);
-                // $contacts = '';
-                // dd($rs);
-                foreach ($rs as $contact) {
-                    $to= $contact;
-
-                    $url = smsUrl($to,$msg);
-                    // dd($url);
-
-                    $client = new Client();
+                $msg = urlencode(trim($request->message));
+                foreach ($recipients as $contact) {
+                    $url = smsUrl($contact, $msg);
 
                     try {
-                            $r = $client->request('GET', $url);
-                        } catch (\GuzzleHttp\Exception\ConnectException $e) {
-                        } catch (\GuzzleHttp\Exception\ClientException $e) {
-                        }
+                        $client = new Client();
+                        $r = $client->request('GET', $url);
+                    } catch (\GuzzleHttp\Exception\ConnectException $e) {
+                        Log::error("Failed to connect to the non-masking SMS API. Contact: $contact");
+                    } catch (\GuzzleHttp\Exception\ClientException $e) {
+                        Log::error("Client error in the non-masking SMS API. Contact: $contact");
+                    }
                 }
-
             }
-       }
-            return back()->with('success','Your Quick SMS successfully sent.');
+
+            $bulk->status = 'sent'; // Update status after all SMS sent
+            $bulk->save();
+
+            return back()->with('success', 'Your Quick SMS was successfully sent.');
         }
+
+        return back()->with('error', 'No recipients provided.');
+    }
+
 
     public function sentSmsBulk()
     {
@@ -3079,228 +3112,353 @@ class AdminController extends Controller
         ]);
     }
 
-
-
-
     public function sendEmailSmsToUsersPost(Request $request)
     {
-        $validation = Validator::make($request->all(),
-        [
+        $validation = Validator::make($request->all(), [
             'message_to_users' => 'required',
             'send_to' => 'required',
             'send_type' => 'required',
         ]);
-        if($validation->fails())
-        {
+
+        if ($validation->fails()) {
             return back()
-            ->withErrors($validation)
-            ->withInput()
-            ->with('error', 'Something went wrong.');
+                ->withErrors($validation)
+                ->withInput()
+                ->with('error', 'Something went wrong.');
         }
+
         $text = $request->message_to_users;
         $type = $request->send_type;
         $to = $request->send_to;
-        $post = WebsiteParameter::firstOrCreate([]);
-        $post->message_to_users = $text;
-        $post->save();
-        if($to == 'incomplete_users')
-        {
-            User::where('user_type', 'online')
-            ->whereNull('expired_at')
-            ->where('final_checked', false)
-            ->whereNull('img_name')
-            ->whereDoesntHave('personalInfo', function ($query) {
-                $query->where('checked', true);
-              })
-            ->whereDoesntHave('personalActivity', function ($query) {
-                $query->where('checked', true);
-              })
-            ->whereDoesntHave('contactInfo', function ($query) {
-                $query->where('checked', true);
-              })
-            ->orderBy('id')->chunk(100, function ($users) use($type, $text)
-            {
-                foreach ($users as $user)
-                {
-                    if($type == 'email')
-                    {
-                        $user->sendEmailWithMessage($text);
-                    }
-                    elseif($type == 'sms')
-                    {
-                        $user->sendSmsWithMessage($text);
-                    }else
-                    {
-                        $user->sendEmailWithMessage($text);
-                        $user->sendSmsWithMessage($text);
-                    }
-                }
-            });
-        }
-        elseif($to == 'all_users')
-        {
-            User::where('user_type', 'online')
-            ->orderBy('id')->chunk(100, function ($users) use($type, $text)
-            {
-                foreach ($users as $user)
-                {
-                    if($type == 'email')
-                    {
-                        $user->sendEmailWithMessage($text);
-                    }
-                    elseif($type == 'sms')
-                    {
-                        $user->sendSmsWithMessage($text);
-                    }else
-                    {
-                        $user->sendEmailWithMessage($text);
-                        $user->sendSmsWithMessage($text);
-                    }
-                }
-            });
-        }
-        elseif($to == 'completed_users')
-        {
-            User::whereNotNull('img_name')
-            ->where('user_type', 'online')
-            ->where(function($p){
-                $p->orWhere('checked', true);
-                $p->orWhere('final_checked', true);
+        // $post = WebsiteParameter::firstOrCreate([]);
+        // $post->message_to_users = $text;
+        // $post->save();
 
-            })
-            ->orWhere(function($p){
-                $p->whereHas('personalInfo', function ($query) {
-                $query->where('checked', true);
-              });
-            })
-            ->orWhere(function($p){
-                $p->whereHas('personalActivity', function ($query) {
-                $query->where('checked', true);
-              });
-            })
-            ->orWhere(function($p){
-                $p->whereHas('contactInfo', function ($query) {
-                $query->where('checked', true);
-              });
-            })
-            ->orderBy('id')->chunk(100, function ($users) use($type, $text)
-            {
-                foreach ($users as $user)
-                {
-                    if($type == 'email')
-                    {
-                        $user->sendEmailWithMessage($text);
-                    }
-                    elseif($type == 'sms')
-                    {
-                        $user->sendSmsWithMessage($text);
-                    }else
-                    {
-                        $user->sendEmailWithMessage($text);
-                        $user->sendSmsWithMessage($text);
-                    }
-                }
-            });
-        }
-        elseif($to == 'no_login_thirty_days')
-        {
-            User::where('loggedin_at', '<', Carbon::now()->subDays(29))
-            ->where('user_type', 'online')
-            ->orderBy('id')->chunk(100, function ($users) use($type, $text)
-            {
-                foreach ($users as $user)
-                {
-                    if($type == 'email')
-                    {
-                        $user->sendEmailWithMessage($text);
-                    }
-                    elseif($type == 'sms')
-                    {
-                        $user->sendSmsWithMessage($text);
-                    }else
-                    {
-                        $user->sendEmailWithMessage($text);
-                        $user->sendSmsWithMessage($text);
-                    }
-                }
-            });
-        }
-        elseif($to == 'free_users')
-        {
-            User::where('user_type', 'online')
-            ->where(function($q){
-                $q->where('expired_at', '<=', Carbon::now());
-                $q->orWhereNull('expired_at');
-            })
-            ->orderBy('id')->chunk(100, function ($users) use($type, $text)
-            {
-                foreach ($users as $user)
-                {
-                    if($type == 'email')
-                    {
-                        $user->sendEmailWithMessage($text);
-                    }
-                    elseif($type == 'sms')
-                    {
-                        $user->sendSmsWithMessage($text);
-                    }else
-                    {
-                        $user->sendEmailWithMessage($text);
-                        $user->sendSmsWithMessage($text);
-                    }
-                }
-            });
-        }elseif($to == 'paid_members')
-        {
-            User::where('user_type', 'online')
-            ->where('expired_at', '>=', Carbon::now())
-            ->where('package', '>', 0)
+        $smsqApiKey = "NviybDx3XwVxKZfoKUnW";
+        $smsqSenderId = "8809617620192";
+        $smsqMessage = urlencode($text);
 
-            ->orderBy('id')->chunk(100, function ($users) use($type, $text)
-            {
-                foreach ($users as $user)
-                {
-                    if($type == 'email')
-                    {
-                        $user->sendEmailWithMessage($text);
-                    }
-                    elseif($type == 'sms')
-                    {
-                        $user->sendSmsWithMessage($text);
-                    }else
-                    {
-                        $user->sendEmailWithMessage($text);
-                        $user->sendSmsWithMessage($text);
-                    }
-                }
-            });
+        if ($to == 'incomplete_users') {
+            $usersQuery = User::where('user_type', 'online')
+                ->whereNull('expired_at')
+                ->where('final_checked', false)
+                ->whereNull('img_name')
+                ->whereDoesntHave('personalInfo', function ($query) {
+                    $query->where('checked', true);
+                })
+                ->whereDoesntHave('personalActivity', function ($query) {
+                    $query->where('checked', true);
+                })
+                ->whereDoesntHave('contactInfo', function ($query) {
+                    $query->where('checked', true);
+                });
+
+            $this->sendMessagesToUsers($usersQuery, $type, $smsqApiKey, $smsqSenderId, $smsqMessage);
         }
-        elseif($to == 'deactivate_users')
-        {
-            User::where('user_type', 'online')
-            ->withoutGlobalScopes()
-            ->where('active', false)
-            ->orderBy('id')->chunk(100, function ($users) use($type, $text)
-            {
-                foreach ($users as $user)
-                {
-                    if($type == 'email')
-                    {
-                        $user->sendEmailWithMessage($text);
-                    }
-                    elseif($type == 'sms')
-                    {
-                        $user->sendSmsWithMessage($text);
-                    }else
-                    {
-                        $user->sendEmailWithMessage($text);
-                        $user->sendSmsWithMessage($text);
-                    }
-                }
-            });
+        elseif ($to == 'all_users') {
+            $usersQuery = User::where('user_type', 'online');
+            $this->sendMessagesToUsers($usersQuery, $type, $smsqApiKey, $smsqSenderId, $smsqMessage);
         }
+        elseif ($to == 'completed_users') {
+            $usersQuery = User::whereNotNull('img_name')
+                ->where('user_type', 'online')
+                ->where(function ($p) {
+                    $p->orWhere('final_checked', true)
+                        ->orWhereHas('personalInfo', function ($query) {
+                            $query->where('checked', true);
+                        })
+                        ->orWhereHas('personalActivity', function ($query) {
+                            $query->where('checked', true);
+                        })
+                        ->orWhereHas('contactInfo', function ($query) {
+                            $query->where('checked', true);
+                        });
+                });
+
+            $this->sendMessagesToUsers($usersQuery, $type, $smsqApiKey, $smsqSenderId, $smsqMessage);
+        }
+        elseif ($to == 'no_login_thirty_days') {
+            $usersQuery = User::where('loggedin_at', '<', Carbon::now()->subDays(29))
+                ->where('user_type', 'online');
+
+            $this->sendMessagesToUsers($usersQuery, $type, $smsqApiKey, $smsqSenderId, $smsqMessage);
+        }
+        elseif ($to == 'free_users') {
+            $usersQuery = User::where('user_type', 'online')
+                ->where(function ($q) {
+                    $q->where('expired_at', '<=', Carbon::now())
+                        ->orWhereNull('expired_at');
+                });
+
+            $this->sendMessagesToUsers($usersQuery, $type, $smsqApiKey, $smsqSenderId, $smsqMessage);
+        }
+        elseif ($to == 'paid_members') {
+            $usersQuery = User::where('user_type', 'online')
+                ->where('expired_at', '>=', Carbon::now())
+                ->where('package', '>', 0);
+
+            $this->sendMessagesToUsers($usersQuery, $type, $smsqApiKey, $smsqSenderId, $smsqMessage);
+        }
+        elseif ($to == 'deactivate_users') {
+            $usersQuery = User::where('user_type', 'online')
+                ->withoutGlobalScopes()
+                ->where('active', false);
+
+            $this->sendMessagesToUsers($usersQuery, $type, $smsqApiKey, $smsqSenderId, $smsqMessage);
+        }
+
         return back()->with('success', "({$type}) message successfully sent to ({$to})");
     }
+
+    private function sendMessagesToUsers($usersQuery, $type, $smsqApiKey, $smsqSenderId, $smsqMessage)
+    {
+        $usersQuery->orderBy('id')->chunk(100, function ($users) use ($type, $smsqApiKey, $smsqSenderId, $smsqMessage) {
+            foreach ($users as $user) {
+                if ($type == 'email') {
+                    $user->sendEmailWithMessage($smsqMessage);
+                } elseif ($type == 'sms') {
+                    $this->sendSms($user->mobile, $smsqApiKey, $smsqSenderId, $smsqMessage);
+                } else {
+                    $user->sendEmailWithMessage($smsqMessage);
+                    $this->sendSms($user->mobile, $smsqApiKey, $smsqSenderId, $smsqMessage);
+                }
+            }
+        });
+    }
+
+    private function sendSms($number, $smsqApiKey, $smsqSenderId, $smsqMessage)
+    {
+        $smsqMobileNumber = '+88' . $number;
+        $smsqUrl = "http://139.99.39.237/api/smsapi?api_key=$smsqApiKey&type=text&number=$smsqMobileNumber&senderid=$smsqSenderId&message=$smsqMessage";
+
+        $response = Http::get($smsqUrl);
+
+        if ($response->successful()) {
+            Log::info("SMS sent successfully to $smsqMobileNumber.");
+        } else {
+            Log::error("SMSQ API Request failed for $smsqMobileNumber. Response: " . $response->status());
+        }
+    }
+
+    // public function sendEmailSmsToUsersPost(Request $request)
+    // {
+    //     $validation = Validator::make($request->all(),
+    //     [
+    //         'message_to_users' => 'required',
+    //         'send_to' => 'required',
+    //         'send_type' => 'required',
+    //     ]);
+    //     if($validation->fails())
+    //     {
+    //         return back()
+    //         ->withErrors($validation)
+    //         ->withInput()
+    //         ->with('error', 'Something went wrong.');
+    //     }
+    //     $text = $request->message_to_users;
+    //     $type = $request->send_type;
+    //     $to = $request->send_to;
+    //     $post = WebsiteParameter::firstOrCreate([]);
+    //     $post->message_to_users = $text;
+    //     $post->save();
+    //     if($to == 'incomplete_users')
+    //     {
+    //         User::where('user_type', 'online')
+    //         ->whereNull('expired_at')
+    //         ->where('final_checked', false)
+    //         ->whereNull('img_name')
+    //         ->whereDoesntHave('personalInfo', function ($query) {
+    //             $query->where('checked', true);
+    //           })
+    //         ->whereDoesntHave('personalActivity', function ($query) {
+    //             $query->where('checked', true);
+    //           })
+    //         ->whereDoesntHave('contactInfo', function ($query) {
+    //             $query->where('checked', true);
+    //           })
+    //         ->orderBy('id')->chunk(100, function ($users) use($type, $text)
+    //         {
+    //             foreach ($users as $user)
+    //             {
+    //                 if($type == 'email')
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                 }
+    //                 elseif($type == 'sms')
+    //                 {
+    //                     $user->sendSmsWithMessage($text);
+    //                 }else
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                     $user->sendSmsWithMessage($text);
+    //                 }
+    //             }
+    //         });
+    //     }
+    //     elseif($to == 'all_users')
+    //     {
+    //         User::where('user_type', 'online')
+    //         ->orderBy('id')->chunk(100, function ($users) use($type, $text)
+    //         {
+    //             foreach ($users as $user)
+    //             {
+    //                 if($type == 'email')
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                 }
+    //                 elseif($type == 'sms')
+    //                 {
+    //                     $user->sendSmsWithMessage($text);
+    //                 }else
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                     $user->sendSmsWithMessage($text);
+    //                 }
+    //             }
+    //         });
+    //     }
+    //     elseif($to == 'completed_users')
+    //     {
+    //         User::whereNotNull('img_name')
+    //         ->where('user_type', 'online')
+    //         ->where(function($p){
+    //             $p->orWhere('checked', true);
+    //             $p->orWhere('final_checked', true);
+
+    //         })
+    //         ->orWhere(function($p){
+    //             $p->whereHas('personalInfo', function ($query) {
+    //             $query->where('checked', true);
+    //           });
+    //         })
+    //         ->orWhere(function($p){
+    //             $p->whereHas('personalActivity', function ($query) {
+    //             $query->where('checked', true);
+    //           });
+    //         })
+    //         ->orWhere(function($p){
+    //             $p->whereHas('contactInfo', function ($query) {
+    //             $query->where('checked', true);
+    //           });
+    //         })
+    //         ->orderBy('id')->chunk(100, function ($users) use($type, $text)
+    //         {
+    //             foreach ($users as $user)
+    //             {
+    //                 if($type == 'email')
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                 }
+    //                 elseif($type == 'sms')
+    //                 {
+    //                     $user->sendSmsWithMessage($text);
+    //                 }else
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                     $user->sendSmsWithMessage($text);
+    //                 }
+    //             }
+    //         });
+    //     }
+    //     elseif($to == 'no_login_thirty_days')
+    //     {
+    //         User::where('loggedin_at', '<', Carbon::now()->subDays(29))
+    //         ->where('user_type', 'online')
+    //         ->orderBy('id')->chunk(100, function ($users) use($type, $text)
+    //         {
+    //             foreach ($users as $user)
+    //             {
+    //                 if($type == 'email')
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                 }
+    //                 elseif($type == 'sms')
+    //                 {
+    //                     $user->sendSmsWithMessage($text);
+    //                 }else
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                     $user->sendSmsWithMessage($text);
+    //                 }
+    //             }
+    //         });
+    //     }
+    //     elseif($to == 'free_users')
+    //     {
+    //         User::where('user_type', 'online')
+    //         ->where(function($q){
+    //             $q->where('expired_at', '<=', Carbon::now());
+    //             $q->orWhereNull('expired_at');
+    //         })
+    //         ->orderBy('id')->chunk(100, function ($users) use($type, $text)
+    //         {
+    //             foreach ($users as $user)
+    //             {
+    //                 if($type == 'email')
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                 }
+    //                 elseif($type == 'sms')
+    //                 {
+    //                     $user->sendSmsWithMessage($text);
+    //                 }else
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                     $user->sendSmsWithMessage($text);
+    //                 }
+    //             }
+    //         });
+    //     }elseif($to == 'paid_members')
+    //     {
+    //         User::where('user_type', 'online')
+    //         ->where('expired_at', '>=', Carbon::now())
+    //         ->where('package', '>', 0)
+
+    //         ->orderBy('id')->chunk(100, function ($users) use($type, $text)
+    //         {
+    //             foreach ($users as $user)
+    //             {
+    //                 if($type == 'email')
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                 }
+    //                 elseif($type == 'sms')
+    //                 {
+    //                     $user->sendSmsWithMessage($text);
+    //                 }else
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                     $user->sendSmsWithMessage($text);
+    //                 }
+    //             }
+    //         });
+    //     }
+    //     elseif($to == 'deactivate_users')
+    //     {
+    //         User::where('user_type', 'online')
+    //         ->withoutGlobalScopes()
+    //         ->where('active', false)
+    //         ->orderBy('id')->chunk(100, function ($users) use($type, $text)
+    //         {
+    //             foreach ($users as $user)
+    //             {
+    //                 if($type == 'email')
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                 }
+    //                 elseif($type == 'sms')
+    //                 {
+    //                     $user->sendSmsWithMessage($text);
+    //                 }else
+    //                 {
+    //                     $user->sendEmailWithMessage($text);
+    //                     $user->sendSmsWithMessage($text);
+    //                 }
+    //             }
+    //         });
+    //     }
+    //     return back()->with('success', "({$type}) message successfully sent to ({$to})");
+    // }
 
 
     public function sendProfileToGivenEmail(Request $request)
@@ -3325,11 +3483,6 @@ class AdminController extends Controller
         ]);
     }
 
-
-
-
-
-
     public function sendProfileToGivenEmailPost(Request $request)
     {
         $email = $request->email;
@@ -3347,21 +3500,6 @@ class AdminController extends Controller
             Auth::user()->sendUserProfileToEmail($email,$users);
 
         }
-
-
-
-
-        // foreach($request->ids as $id)
-        // {
-        //     $u = User::withoutGlobalScopes()->find($id);
-
-        //     if($u)
-        //     {
-        //         $u->sendUserCvToEmail($email);
-        //         // $u->getCvEmailFromUser($user);
-        //     }
-
-        // }
 
             if($request->ajax())
             {
@@ -3400,48 +3538,7 @@ class AdminController extends Controller
                 $q->where('gender', $request->gender);
             }
 
-            // if($request->min_age)
-            // {
-            //     $now = Carbon::now();
-            //     $minAgeDate = $now->SubYear($request->min_age)->toDateString();
 
-            //     $q->where('dob', '<=', $minAgeDate);
-            // }
-
-            // if($request->max_age)
-            // {
-            //     $now = Carbon::now();
-            //     $maxAgeDate = $now->SubYear($request->max_age + 1)->toDateString();
-            //     $q->where('dob', '>=', $maxAgeDate);
-            // }
-
-            // if($request->profession or $request->education_level
-            //     or $request->district or $request->marital_status)
-            // {
-            //     $q->whereHas('personalInfo', function ($query) use ($request)
-            //    {
-            //         if($request->profession)
-            //         {
-            //             $query->where('my_profession', $request->profession);
-            //         }
-
-            //         if($request->education_level)
-            //         {
-            //             $query->where('education_level', $request->education_level);
-            //         }
-
-            //         if($request->district)
-            //         {
-            //             $query->where('district', $request->district);
-            //         }
-
-            //         if($request->marital_status)
-            //         {
-            //             $query->where('marital_status', $request->marital_status);
-            //         }
-
-            //     });
-            // }
         })
         ->orderBy('id', $request->order_by)
         ->limit($request->limit)
@@ -3514,49 +3611,6 @@ class AdminController extends Controller
             {
                 $q->where('gender', $request->gender);
             }
-
-            // if($request->min_age)
-            // {
-            //     $now = Carbon::now();
-            //     $minAgeDate = $now->SubYear($request->min_age)->toDateString();
-
-            //     $q->where('dob', '<=', $minAgeDate);
-            // }
-
-            // if($request->max_age)
-            // {
-            //     $now = Carbon::now();
-            //     $maxAgeDate = $now->SubYear($request->max_age + 1)->toDateString();
-            //     $q->where('dob', '>=', $maxAgeDate);
-            // }
-
-            // if($request->profession or $request->education_level
-            //     or $request->district or $request->marital_status)
-            // {
-            //     $q->whereHas('personalInfo', function ($query) use ($request)
-            //    {
-            //         if($request->profession)
-            //         {
-            //             $query->where('my_profession', $request->profession);
-            //         }
-
-            //         if($request->education_level)
-            //         {
-            //             $query->where('education_level', $request->education_level);
-            //         }
-
-            //         if($request->district)
-            //         {
-            //             $query->where('district', $request->district);
-            //         }
-
-            //         if($request->marital_status)
-            //         {
-            //             $query->where('marital_status', $request->marital_status);
-            //         }
-
-            //     });
-            // }
         })
         ->orderBy('id', $request->order_by)
         ->limit($request->limit)
@@ -3596,21 +3650,6 @@ class AdminController extends Controller
             Auth::user()->sendUserCvToEmail($email,$users);
 
         }
-
-
-
-
-        // foreach($request->ids as $id)
-        // {
-        //     $u = User::withoutGlobalScopes()->find($id);
-
-        //     if($u)
-        //     {
-        //         $u->sendUserCvToEmail($email);
-        //         // $u->getCvEmailFromUser($user);
-        //     }
-
-        // }
 
             if($request->ajax())
             {
@@ -3659,24 +3698,37 @@ class AdminController extends Controller
 
             $rs = trim($request->recipients);
             $rs = rtrim($rs,',');
-            $rs = explode(",",$rs);
+            $recipients = explode(",",$rs);
 
-            foreach($rs as $number)
+            $smsqApiKey = "NviybDx3XwVxKZfoKUnW";
+            $smsqSenderId = "8809617620192";
+            $smsqMessage = urlencode($request->message);
+
+            foreach($recipients as $number)
             {
-                $number = bdMobile($number);
+                $smsqMobileNumbers = '+88' . $number;
+                $smsqUrl = "http://139.99.39.237/api/smsapi?api_key=$smsqApiKey&type=text&number=$smsqMobileNumbers&senderid=$smsqSenderId&message=$smsqMessage";
 
-                if(strlen($number) == 13)
-                {
-                    $bulk->status = 'sent'; //temp,draft,sent
-                    $bulk->save();
+                $response = Http::get($smsqUrl);
 
-                    $sms = new QuickSmsContact;
-                    $sms->quick_sms_contact_bulk_id = $bulk->id;
-                    $sms->mobile = $number;
-                    $sms->status = 'sent'; //temp,draft,sent
-                    $sms->addedby_id = Auth::id();
-                    $sms->save();
+                if ($response->successful()) {
+                    if(strlen($number) == 13){
+                        $bulk->status = 'sent'; //temp,draft,sent
+                        $bulk->save();
+
+                        $sms = new QuickSmsContact;
+                        $sms->quick_sms_contact_bulk_id = $bulk->id;
+                        $sms->mobile = $number;
+                        $sms->status = 'sent'; //temp,draft,sent
+                        $sms->addedby_id = Auth::id();
+                        $sms->save();
+                    }
+                    return back()->with('success', 'Your Quick SMS was successfully sent.');
+                } else {
+                    // Log::error("SMSQ API Request failed. Response: " . $response->status());
+                    return back()->withErrors(['sms_error' => 'Failed to send SMS to customer.']);
                 }
+
             }
 
             if((!$bulk->id) or (!$bulk->contacts->count()))
@@ -3720,67 +3772,6 @@ class AdminController extends Controller
             }
 
             return back()->with('success','Your Quick SMS successfully sent.');
-
-
-
-
-
-
-
-            // $masking = $request->sender_number;
-            // $to = $contacts;
-            // $username = 'taslimamedia@gmail.com';
-            // $pass = '123456';
-            // $apiKey = smsApiKey();
-            // $msg = trim($request->message);
-
-            // //API URL Non Masking (GET & POST)
-
-            // ##   http://connect.primesoftbd.com/smsapi/non-masking?api_key=$2y$10$PT2OlLaCqLcVhqd1P1kl7ePKWg5axIQXjiuFFfYKtrJc03k8ohYYy&smsType=text&mobileNo=(NUMBER)&smsContent=(Message Content)
-
-            // //API URL Masking (GET & POST)
-
-            // ##  http://connect.primesoftbd.com/smsapi/masking?api_key=$2y$10$PT2OlLaCqLcVhqd1P1kl7ePKWg5axIQXjiuFFfYKtrJc03k8ohYYy&smsType=text&maskingID=(MASKING)&mobileNo=(NUMBER)&smsContent=(Message Content)
-
-            // //Credit Balance API
-            // ##  http://connect.primesoftbd.com/api/balance?api_key=$2y$10$PT2OlLaCqLcVhqd1P1kl7ePKWg5axIQXjiuFFfYKtrJc03k8ohYYy
-
-            // //$url = "http://brandsms.mimsms.com/smsapi?api_key={$apiKey}&type=text&contacts={$to}&senderid={$senderid}&msg={$msg}";
-
-            // if($request->masking)
-            // {
-            //     $url = "http://connect.primesoftbd.com/smsapi/masking?api_key={$apiKey}&smsType=text&maskingID={$masking}&mobileNo={$to}&smsContent={$msg}";
-            // }else
-            // {
-            //     $url = "http://connect.primesoftbd.com/smsapi/non-masking?api_key={$apiKey}&smsType=text&mobileNo={$to}&smsContent={$msg}";
-            // }
-
-
-
-
-            // // dd($url);
-
-
-            //  $client = new Client();
-            //  # $response = $client->request('GET', $url);
-
-            //  //https://stackoverflow.com/questions/46005027/handling-client-errors-exceptions-on-guzzlehttp
-
-            // try {
-            //         $r = $client->request('GET', $url);
-
-
-            //     } catch (\GuzzleHttp\Exception\ConnectException $e) {
-            //         // This is will catch all connection timeouts
-            //         // Handle accordinly
-            //     } catch (\GuzzleHttp\Exception\ClientException $e) {
-            //         // This will catch all 400 level errors.
-            //         // return $e->getResponse()->getStatusCode();
-            //     }
-
-            // ### sms api end here (masking & nonmasking seperate) ###
-
-            // return back()->with('success','Your Quick SMS successfully sent.');
         }
     }
 
@@ -3822,17 +3813,15 @@ class AdminController extends Controller
 
     public function logs(User $user)
     {
-
         // dd($user);
         $logs=Log::where('user_id', $user->id)->latest()->get();
+
         return view('admin.logs', compact('user', 'logs'));
     }
 
 
     public function logPost(Request $request, User $user)
     {
-
-
         $log = Log::create([
             'user_id' => $user->id,
             'description' => $request->description,

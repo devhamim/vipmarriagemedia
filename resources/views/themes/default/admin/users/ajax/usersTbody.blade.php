@@ -52,9 +52,10 @@
             {{ $user->loggedin_at ? Carbon\Carbon::parse($user->loggedin_at)->diffForHumans() : '' }} <br>
 
 
-            <!-- <strong>Edited By:</strong> @if ($user->editedBy)
-{{ $user->editedBy->email }}
-@endif -->
+           <strong>Edited By:</strong> 
+                @if ($user->editedBy)
+                    {{ $user->editedBy->email }}
+                @endif
 
             {{-- {{$user->email}},{{$user->mobile}} <br>
     Edited By: {{$user->editedBy ? $user->editedBy->email : ""}} <br>

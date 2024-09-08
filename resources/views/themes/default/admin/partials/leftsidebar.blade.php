@@ -524,6 +524,13 @@
                       <p>Send Email Sms to Users</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="{{route('admin.subscriptionExpired')}}"
+                      class="nav-link {{ session('lsbsm') == 'subscriptionExpired' ? ' active ' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Subscription Expired</p>
+                    </a>
+                  </li>
 
               <!-- <li class="nav-item">
                 <a href="{{route('admin.sendProfileToGivenEmail')}}"

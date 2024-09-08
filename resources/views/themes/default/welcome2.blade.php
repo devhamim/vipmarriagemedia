@@ -1,11 +1,10 @@
 
 @extends('user.master.usermaster')
 @php
-$me=auth()->user();
+    $me=auth()->user();
 @endphp
 @push('css')
 <style>
-
     .grid-card-contact{
         display: grid;
         grid-template-columns: 33% 33% 33%;

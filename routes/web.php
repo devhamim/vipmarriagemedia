@@ -187,6 +187,8 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
     Route::post('quick/sms/send', [AdminController::class, 'quickSmsSend'])->name('admin.quickSmsSend');
 
     Route::get('quick/sms/bulk/items/resend/{bulk}', [AdminController::class, 'quickSmsBulkItemsResend'])->name('admin.quickSmsBulkItemsResend');
+    Route::get('subscription/expired', [AdminController::class, 'subscriptionExpired'])->name('admin.subscriptionExpired');
+    Route::post('subscription/expired/sms', [AdminController::class, 'subscription_expired_sms'])->name('admin.subscription.expired.sms');
     Route::get('sent/sms/bulk', [AdminController::class, 'sentSmsBulk'])->name('admin.sentSmsBulk');
     Route::get('user/sms/user/{user}', [AdminController::class, 'userSms'])->name('admin.userSms');
     Route::any('sms/send/to-user/{user}', [AdminController::class, 'smsSendToUser'])->name('admin.smsSendToUser');
@@ -279,6 +281,7 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
     Route::post('new/user/post', [AdminController::class, 'newUserPost'])->name('admin.newUserPost');
     Route::get('users/group/{type}', [AdminController::class, 'usersGroup'])->name('admin.usersGroup');
     Route::get('/user/search/ajax', [AdminController::class, 'userSearchAjax'])->name('admin.userSearchAjax');
+    Route::get('/editor/user/search/ajax', [AdminController::class, 'editoruserSearchAjax'])->name('admin.editoruserSearchAjax');
     Route::post('select/profile/users', [AdminController::class, 'selectProfileUsers'])->name('admin.selectProfileUsers');
     Route::post('select/cv/users', [AdminController::class, 'selectCvUsers'])->name('admin.selectCvUsers');
 });

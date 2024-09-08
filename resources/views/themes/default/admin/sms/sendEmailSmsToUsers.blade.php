@@ -78,9 +78,9 @@
                         <div class="form-group {{ $errors->has('send_to') ? ' has-error' : '' }}">
                             <label for="send_to" class="control-label">Send to</label>
 
-                            <label class="radio-inline">
+                            {{-- <label class="radio-inline">
                                 <input type="radio" name="send_to" value="incomplete_users" checked>Incomplete Profile Users
-                            </label>
+                            </label> --}}
                             <label class="radio-inline">
                                 <input type="radio" name="send_to" value="all_users">All (Active) Users
                             </label>

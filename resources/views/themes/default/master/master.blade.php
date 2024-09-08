@@ -463,13 +463,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     </div>
                                     <div class="form-group col-lg-3">
                                         <input type="submit" value="Register"
-                                            class="
-                                        btn
-                                        btn-primary
-                                        btn-modern
-                                        float-right
-                                    "
-                                            data-loading-text="Loading..." />
+                                            class=" btn btn-primary btn-modern float-right" data-loading-text="Loading..." />
                                     </div>
                                 </div>
                             </form>
