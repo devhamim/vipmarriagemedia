@@ -57,6 +57,7 @@ use App\Exports\UsersExport;
 use App\Imports\UsersImport;
 use App\Models\UserPicture;
 use App\Models\SmsHistory;
+use Facade\FlareClient\View;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Cache;
 
@@ -2309,6 +2310,26 @@ class AdminController extends Controller
             'type' => $type
         ]);
     }
+
+    // logusersGroup
+    function logusersGroup(Request $request)
+{
+    $request->session()->forget(['lsbm', 'lsbsm']);
+    $request->session()->put(['lsbm' => 'user', 'lsbsm' => 'logusersGroup']);
+
+    $logUserIds = Log::where('addedby_id', Auth::user()->id)
+                    ->pluck('user_id');
+
+    $users = User::whereIn('id', $logUserIds)
+                ->orderBy('id', 'DESC')
+                ->paginate(50);
+
+    return view('admin.logusersGroup', [
+        'users' => $users,
+    ]);
+}
+
+
 
     function subscriptionExpired(Request $request){
         $request->session()->forget(['lsbm', 'lsbsm']);

@@ -391,6 +391,13 @@
                             <p>Deactive Users</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.logusersGroup', 'logusersGroup')}}"
+                            class="nav-link {{ session('lsbsm') == 'logusersGroup' ? ' active ' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Logs Users</p>
+                        </a>
+                    </li>
                     {{-- <li class="nav-item">
                         <a href="{{ route('admin.aboutPostAddNew') }}"
                             class="nav-link {{ session('lsbsm') == 'blogAddNew' ? ' active ' : '' }}">

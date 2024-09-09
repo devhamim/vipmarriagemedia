@@ -280,6 +280,7 @@ Route::group(['middleware' => ['auth', 'checkAdmin'], 'prefix' => 'admin'], func
     Route::get('new/user', [AdminController::class, 'newUser'])->name('admin.newUser');
     Route::post('new/user/post', [AdminController::class, 'newUserPost'])->name('admin.newUserPost');
     Route::get('users/group/{type}', [AdminController::class, 'usersGroup'])->name('admin.usersGroup');
+    Route::get('log/users/Group', [AdminController::class, 'logusersGroup'])->name('admin.logusersGroup');
     Route::get('/user/search/ajax', [AdminController::class, 'userSearchAjax'])->name('admin.userSearchAjax');
     Route::get('/editor/user/search/ajax', [AdminController::class, 'editoruserSearchAjax'])->name('admin.editoruserSearchAjax');
     Route::post('select/profile/users', [AdminController::class, 'selectProfileUsers'])->name('admin.selectProfileUsers');
