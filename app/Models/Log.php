@@ -22,4 +22,10 @@ class Log extends Model
 
     }
 
+    public function addedBy()
+    {
+        return $this->belongsTo('App\Models\User', 'addedby_id');
+    }
+
+
 }

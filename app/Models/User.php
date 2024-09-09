@@ -1249,6 +1249,13 @@ class User extends Authenticatable
   }
 
 
+  public function addedByLogs()
+    {
+        return $this->hasMany('App\Models\Log', 'addedby_id');
+    }
+
+
+
 
   public function deactivateSmsSentToUser()
   {

@@ -41,7 +41,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="col-lg-6">
+                                {{-- <div class="col-lg-6">
                                     <form class="pull-right" style="text-align: -webkit-right;">
                                         <div class="box-tools">
                                             <div class="input-group input-group-sm" style="width: 280px;">
@@ -50,13 +50,11 @@
                                                     data-url="{{ route('admin.editoruserSearchAjax') }}">
 
                                                 <div class="input-group-btn">
-                                                    {{-- <button type="button" class="btn btn-warning"><i
-                                                            class="fa fa-search"></i></button> --}}
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
                         </div>

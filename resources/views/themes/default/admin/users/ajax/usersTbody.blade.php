@@ -80,8 +80,8 @@
                 <ul class="dropdown-menu pl-2" role="menu">
 
                     {{-- <li>
-                <a title="User Comment, Admin Comment, comlain, conversation"  href="{{route('admin.logs', $user)}}">Logs ({{$user->countLog()}})</a>
-            </li> --}}
+                        <a title="User Comment, Admin Comment, comlain, conversation"  href="{{route('admin.logs', $user)}}">Logs ({{$user->countLog()}})</a>
+                    </li> --}}
 
                     @can('user-edit')
                         <li>

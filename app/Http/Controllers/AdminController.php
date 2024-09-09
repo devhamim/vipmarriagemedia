@@ -2001,6 +2001,7 @@ class AdminController extends Controller
         $users = User::whereHas('editedBy', function ($query) use ($request) {
             $query->where('email', 'like', "%{$request->q}%");
         })
+
         ->latest()
         ->take(40)
         ->get();
@@ -2012,8 +2013,8 @@ class AdminController extends Controller
                 'page' => view('admin.users.ajax.usersTbody', ['users' => $users, 'i' => $i])->render()
             ]);
         }
-    }
 
+    }
 
 
     public function proposalsGroup(Request $request)
