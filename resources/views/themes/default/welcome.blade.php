@@ -87,7 +87,7 @@
             </div>
         </div>
         </div> --}}
-            <h2 class="text-center mb-4 ">Find Your Special Soulmate</h2>
+            <h2 class="text-center mb-4 ">Find Your Perfect Match</h2>
             <div
                 class="mb-5
             featured-boxes
@@ -106,10 +106,10 @@
                                         <i class="icon-featured far fa-edit"></i>
                                         <h4
                                             class="font-weight-normal text-5 mt-3">
-                                            <strong class="font-weight-extra-bold text-white">Register Free</strong>
+                                            <strong class="font-weight-extra-bold text-white">100% Verified Profiles</strong>
                                         </h4>
                                         <p class="mb-2 mt-2 text-2 text-white">
-                                            Most trusted plateform in our country, Sign up to find the best partner.
+                                            Find your soulmate by profession, community and location preferences.
                                         </p>
                                     </div>
                                 </div>
@@ -137,10 +137,11 @@
                                         text-5
                                         mt-3
                                     ">
-                                            <strong class="font-weight-extra-bold text-white">Contact</strong>
+                                            <strong class="font-weight-extra-bold text-white">Privacy Guaranteed
+                                            </strong>
                                         </h4>
                                         <p class="mb-2 mt-2 text-2 text-white">
-                                            Feeling connected to each other is a basic human need.
+                                            Your privacy is secured with us Privacy Guaranteed.
                                         </p>
                                     </div>
                                 </div>
@@ -172,6 +173,8 @@
                                         far
                                         fa-comments
                                     "></i>
+
+
                                         <h4
                                             class="
                                         font-weight-normal
@@ -179,11 +182,11 @@
                                         mt-3
                                     ">
                                             <strong class="font-weight-extra-bold text-white">
-                                                Message
+                                                Most Reliable
                                             </strong>
                                         </h4>
                                         <p class="mb-2 mt-2 text-2 text-white">
-                                            Good communication is the bridge between confusion and clarity.
+                                            1000s of ID verified, high-quality Bangladeshi profiles.
                                         </p>
                                     </div>
                                 </div>
@@ -216,7 +219,14 @@
                         </span> WELCOME TO</span>
                         <h4 class="sec-title">VIP Marriage Media – Best Matchmaking & Matrimony Service.</h4>
                     </div>
-                    <p class="mt-n2 mb-4">VIP Marriage Media is one of the best Bengali Matrimony sites in Bangladesh that assists people looking for the perfect & suitable life partner for their lives. We try to do this work with our responsibility for Hindus, Muslims, Buddhists, Christians, and all. We stands out as a leader in the matrimony category, helping millions of Bangalis to find happiness through our innovative approach to matchmaking and matrimony services. We enable Bengali brides and grooms to meet for marriage through trusted and renowned community-specific platforms. We are working both ways online & offline.</p>
+                    <p class="mt-n2 mb-4">We aim to offer you the best experience in finding your perfect life partner. With 16 years of serving clients on their journey of a beautiful new begining in life - VIP Marriage Media is proudly one of the best Bangladeshi matrimony sites.</p>
+                    <p class="mt-n2 mb-4">We are dedicated to cater diverse Bangladeshi communities all around the world, including - Hindus, Muslims, Christians and Buddhists.</p>
+                    <p class="mt-n2 mb-4">We are on a mission to ensure seamless experience to all our clients through our secured,
+                        personalized and user-friendly system.
+                        </p>
+                    <p class="mt-n2 mb-4">Find your perfect match from thousands of high-quality verified brides’ and grooms’ profiles. Our
+                        premium services are active and ready to serve you both online and off-line.
+                        </p>
                     <div class="list-collumn2">
                         <div class="checklist style5">
                             <ul>

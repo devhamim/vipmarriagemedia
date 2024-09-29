@@ -22,63 +22,69 @@
 									</span>
 								</div>
 							</form>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12">
+                                    <h5 class="text-3 mb-3">FOLLOW US</h5>
+                                    <ul class="social-icons">
+                                        <li class="social-icons-facebook">
+                                            <a href="{{$websiteParameter->fb_page_link}}" target="_blank" title="Facebook"><i
+                                                    class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li class="social-icons-twitter">
+                                            <a href="{{$websiteParameter->twitter_url}}" target="_blank" title="Twitter"><i
+                                                    class="fab fa-twitter"></i></a>
+                                        </li>
+                                        <li class="social-icons-linkedin">
+                                            <a href="{{$websiteParameter->linkedin_url}}" target="_blank" title="Linkedin"><i
+                                                    class="fab fa-linkedin-in"></i></a>
+                                        </li>
+
+                                        <li class="social-icons-linkedin">
+                                            <a href="{{$websiteParameter->instagram_url}}" target="_blank" title="Instagram"><i
+                                                    class="fab fa-instagram"></i></a>
+                                        </li>
+
+                                        <li class="social-icons-linkedin">
+                                            <a href="{{$websiteParameter->pinterest_url}}" target="_blank" title="Pinterest"><i
+                                                    class="fab fa-pinterest"></i></a>
+                                        </li>
+
+                                    </ul>
+                                    @if(!Auth::check())
+                                        <a type="button" href="{{ url('/register') }}" class="btn btn-rounded btn-primary mt-3">Registration</a>
+                                    @endif
+                                </div>
+                            </div>
 						</div>
 
                         <div class="col-md-6 col-lg-2 mb-4 mb-md-0">
 							<h5 class="text-3 mb-3">Pages</h5>
 							<ul class="list list-icons list-icons-lg">
-								<li><a class="m-2 text-color-light" href="{{ url('/') }}"> Home</a></li>
-							@foreach($menupages as $page)
-                        		<li><a class="m-2 text-color-light" href="{{ route('page',$page->route_name) }}"> {{$page->page_title}}</a></li>
-                        	@endforeach
-                        {{-- <a class="m-0 text-color-light" href="{{ url('https://www.vipmarriagemedia.com/blog/') }}"><i class="far fa-dot-circle text-color-light"></i> Blog</a> <br> --}}
+                                @foreach($menupages as $page)
+                                    <li><a class="m-2 text-color-light" href="{{ route('page',$page->route_name) }}"> {{$page->page_title}}</a></li>
+                                @endforeach
+                                    {{-- <a class="m-0 text-color-light" href="{{ url('https://www.vipmarriagemedia.com/blog/') }}"><i class="far fa-dot-circle text-color-light"></i> Blog</a> <br> --}}
 
-                        {{-- <a class="m-0 text-color-light" href="{{ route('sitemap') }}"><i class="far fa-dot-circle text-color-light"></i> Sitemap</a>
-                        <br>
- --}}                        {{-- @if(!Auth::check())
+                                    {{-- <a class="m-0 text-color-light" href="{{ route('sitemap') }}"><i class="far fa-dot-circle text-color-light"></i> Sitemap</a>
+                                    <br>--}}
+                                    {{-- @if(!Auth::check())
 
-                        <a class="m-0 text-color-light" href="{{ url('/register')}}"><i class="far fa-dot-circle text-color-light"></i> Registration</a> <br>
+                                    <a class="m-0 text-color-light" href="{{ url('/register')}}"><i class="far fa-dot-circle text-color-light"></i> Registration</a> <br>
 
-                        @endif --}}
-
-                         <li><a class="m-2 text-color-light" href="{{ url('/packages')}}"> Our Packages</a></li>
-                         <li><a class="m-2 text-color-light" target="_blank" href="https://www.blog.vipmarriagemedia.com/"> Blog</a></li>
-
-                        </ul>
-						</div>
-
-
-                        <div class="col-md-6 col-lg-3">
-                            <h5 class="text-3 mb-3">FOLLOW US</h5>
-                            <ul class="social-icons">
-                                <li class="social-icons-facebook">
-                                    <a href="{{$websiteParameter->fb_page_link}}" target="_blank" title="Facebook"><i
-                                            class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li class="social-icons-twitter">
-                                    <a href="{{$websiteParameter->twitter_url}}" target="_blank" title="Twitter"><i
-                                            class="fab fa-twitter"></i></a>
-                                </li>
-                                <li class="social-icons-linkedin">
-                                    <a href="{{$websiteParameter->linkedin_url}}" target="_blank" title="Linkedin"><i
-                                            class="fab fa-linkedin-in"></i></a>
-                                </li>
-
-                                <li class="social-icons-linkedin">
-                                    <a href="{{$websiteParameter->instagram_url}}" target="_blank" title="Instagram"><i
-                                            class="fab fa-instagram"></i></a>
-                                </li>
-
-                                <li class="social-icons-linkedin">
-                                    <a href="{{$websiteParameter->pinterest_url}}" target="_blank" title="Pinterest"><i
-                                            class="fab fa-pinterest"></i></a>
-                                </li>
+                                    @endif --}}
 
                             </ul>
-                            @if(!Auth::check())
-                                <a type="button" href="{{ url('/register') }}" class="btn btn-rounded btn-primary mt-3">Registration</a>
-                            @endif
-                        </div>
+						</div>
+
+                        <div class="col-md-6 col-lg-2 mb-4 mb-md-0">
+							<h5 class="text-3 mb-3">Useful Link</h5>
+							<ul class="list list-icons list-icons-lg">
+								<li><a class="m-2 text-color-light" href="{{ url('/') }}"> Home</a></li>
+                                <li><a class="m-2 text-color-light" href="{{ url('/packages')}}"> Our Packages</a></li>
+                                <li><a class="m-2 text-color-light" target="_blank" href="https://www.blog.vipmarriagemedia.com/"> Blog</a></li>
+
+                            </ul>
+						</div>
 
 						<div class="col-md-6 col-lg-3 text-center">
 							{{-- <h5 class="text-3  opacity-7">PAY WITH</h5> --}}

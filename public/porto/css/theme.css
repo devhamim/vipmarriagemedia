@@ -12,7 +12,7 @@ html {
 
 body {
 	background-color: #FFF;
-	color: #777;
+	color: #000;
 	font-family: "Open Sans", Arial, sans-serif;
 	font-size: 14px;
 	line-height: 26px;
@@ -1368,7 +1368,7 @@ html.sticky-header-enabled.sticky-header-active #header .header-logo-sticky-chan
 
 	#header .header-nav-main nav > ul > li.dropdown .dropdown-menu li a {
 		border-bottom: 1px solid #f7f7f7;
-		color: #777;
+		color: #000;
 		font-size: 0.8em;
 		font-weight: 400;
 		padding: 6px 18px 6px 18px;
@@ -1506,7 +1506,7 @@ html.sticky-header-enabled.sticky-header-active #header .header-logo-sticky-chan
 	#header .header-nav-main nav > ul > li.dropdown-mega .dropdown-mega-sub-nav > li > a {
 		border: 0 none;
 		border-radius: 4px;
-		color: #777;
+		color: #000;
 		display: block;
 		font-size: 0.8em;
 		font-weight: normal;
@@ -5873,7 +5873,7 @@ html.dark .text-muted {
 }
 
 #footer a:not(.btn) {
-	color: #777;
+	color: #000;
 	transition: all 0.1s ease-in-out;
 }
 
@@ -5899,7 +5899,7 @@ html.dark .text-muted {
 }
 
 #footer a:not(.btn).text-color-default {
-	color: #777 !important;
+	color: #000 !important;
 }
 
 #footer a:not(.btn).text-color-default:hover {
@@ -6891,7 +6891,7 @@ html.dark .table-striped > tbody > tr:nth-child(2n+1) > th {
 html.dark pre {
 	background-color: #2c3237;
 	border-color: #2c3237;
-	color: #777;
+	color: #000;
 }
 
 html.dark .show-grid [class*="col-lg-"] .show-grid-block {
@@ -7044,7 +7044,7 @@ html.dark .pricing-table h3 span {
 	background: #2c3237;
 	border-color: #282d31;
 	box-shadow: 0 5px 20px #282d31 inset, 0 3px 0 #2c3237 inset;
-	color: #777;
+	color: #000;
 }
 
 html.dark .pricing-table .most-popular {
@@ -7064,7 +7064,7 @@ html.dark .pricing-table .plan-ribbon {
 html.dark .pricing-table .plan {
 	background: #2c3237;
 	border: 1px solid #2c3237;
-	color: #777;
+	color: #000;
 	text-shadow: none;
 }
 
@@ -7103,7 +7103,7 @@ html.dark .modal-header {
 }
 
 html.dark .modal-header h1, html.dark .modal-header h2, html.dark .modal-header h3, html.dark .modal-header h4, html.dark .modal-header h5, html.dark .modal-header h6 {
-	color: #777;
+	color: #000;
 }
 
 html.dark .modal-header .close {
@@ -7131,7 +7131,7 @@ html.dark .sort-destination-loader:after {
 html.dark #footer .newsletter form .btn-light {
 	background-color: #262a2f;
 	border-color: #262a2f;
-	color: #777;
+	color: #000;
 }
 
 html.dark #footer .newsletter form .form-control {

@@ -41,20 +41,6 @@
                                         </div>
                                     </form>
                                 </div>
-                                {{-- <div class="col-lg-6">
-                                    <form class="pull-right" style="text-align: -webkit-right;">
-                                        <div class="box-tools">
-                                            <div class="input-group input-group-sm" style="width: 280px;">
-                                                <input type="text" name="q" class="form-control input-xs pull-right user-search"
-                                                    placeholder="Search By Logs Email"
-                                                    data-url="{{ route('admin.editoruserSearchAjax') }}">
-
-                                                <div class="input-group-btn">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div> --}}
                             </div>
                             <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
                         </div>
