@@ -496,7 +496,7 @@
                 src="assets/img/update1/shape/building_2.png" alt="shapes"></div>
     </div>
 
-    <section class="space bg-top-center " data-bg-src="assets/img/update1/bg/Best_Marriage_Media_in_Bangladesh.jpg">
+    {{-- <section class="space bg-top-center " data-bg-src="assets/img/update1/bg/Best_Marriage_Media_in_Bangladesh.jpg">
         <div class="container">
             <div class="row justify-content-lg-between align-items-end">
                 <div class="col-lg-6 mb-n2 mb-lg-0">
@@ -582,7 +582,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section class="position-relative bg-contain-repeat" data-bg-src="assets/img/update1/bg/mockup_bg_1.jpg"
         data-overlay="title" data-opacity="8">
