@@ -196,7 +196,7 @@
     <div class="container">
         <div class="row mr-lg-n5">
             <div class="col-md-9 order-2 order-md-1 align-self-center p-static">
-                <h1 class="text-danger">Our Packages</h1> 
+                <h1 class="text-danger">Our Packages</h1>
             </div>
             <div class="col-md-3 order-1 order-md-2 align-self-center">
                 <ul class="breadcrumb d-block text-md-end  mr-lg-n5">
@@ -213,7 +213,7 @@
         <div  class="row m-0 vippackages">
         </div>
         <div class="px-5 position_mob" style="position: absolute; top:65px; z-index: 999; width:80%; left:10%;" >
-                <h2 class="text-lg-10 text-sm-5 text-md-10 pt-5 text-center" style="text-shadow: 1px 1px 2px #000; color:#F15C62;">
+                <h2 class="text-lg-10 text-sm-5 text-md-10 text-center" style="text-shadow: 1px 1px 2px #000; color:#F15C62;">
                     Our <strong class="" style="color:#F15C62;">Packages </strong>
                 </h2>
                 <div class="col-md-4 offset-md-4" style="clip-path: polygon(0% 0, 100% 0, 100% 100%, 0 100%); background-color:#F15C62;height:30px;">
@@ -277,7 +277,7 @@
                                     {{ Percentage_cal($package->discounted_amount,$package->package_amount)}}% off <del>{{ $package->discounted_amount}}</del>
                                     @endif
                                 </p> --}}
-                                
+
                                 <h3 class="mt-1 text-center">
                                     <span class="font-weight-bold">
                                         {{ $package->package_currency}} {{number_format($package->package_amount, 0)}}

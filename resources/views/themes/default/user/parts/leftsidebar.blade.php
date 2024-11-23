@@ -7,10 +7,10 @@ $me=auth()->user();
     @if($me->profile_img)
     @if($me->profile_public)
     <img src="{{asset('storage/users/pp/' .$me->profile_img)}}" alt="" class="img-fluid border border-danger mt-3 "
-        style="max-width: 80%; ">
+        style="border-radius: 50%; max-width: 80%; ">
     @else
     <img src="{{asset('storage/users/pp/' .$me->profile_img)}}" alt="" class="img-fluid border border-danger mt-3 "
-    style="max-width: 80%; filter: blur(5px); ">
+    style="border-radius: 50%; max-width: 80%; filter: blur(5px); ">
 
     @endif
 
